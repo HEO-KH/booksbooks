@@ -673,10 +673,15 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"> <a href="https://www.kyobobook.co.kr/" class="logo_link book"> <span class="hidden">교보문고</span> </a> 
+  <div class="logo_box"> <a href="https://www.kyobobook.co.kr/" class="logo_link book">
+   <span class="hidden">교보문고</span> </a> 
   </div> 
   <div class="gnb_search_box"> 
-   <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode"> <option value="TOT">통합검색</option> <option value="KBO">교보문고</option>  </select> 
+   <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode"> 
+   <option value="TOT">통합검색</option> 
+   <option value="KBO">교보문고</option>  
+   <option value="EBK">eBook</option>
+   </select> 
    </div> 
    <div class="search_input_wrap"> 
     <input id="searchKeyword" type="search" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value=""> 
