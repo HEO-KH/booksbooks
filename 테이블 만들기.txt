@@ -36,6 +36,12 @@ booksize varchar(30),
 price NUMBER,
 constraint krbook_ISBN_pk primary key (ISBN));
 
+ALTER TABLE krbook
+ADD publisher varchar(20);
+
+ALTER TABLE krbook
+ADD translation varchar(20);
+
 4.
 create table author
 (authorId VARCHAR(30),
