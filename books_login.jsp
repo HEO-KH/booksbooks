@@ -7,6 +7,8 @@
 	String cp = request.getContextPath();
 	%>
 
+
+
 <!DOCTYPE html>
 <html lang="ko"
     data-view="ink"
@@ -18,45 +20,36 @@
 
     
         
+            
     
-    
-<title>배주용 </title>
-
-
-
     
   
+
+    
+    
+<title>부끄북스</title>
+
+
+
+    
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="https://contents.kyobobook.co.kr/resources/fo/css/style_ink.css?t=2472914488" data-name="kbb-cm-style" />
+    
+
+
+
             
     
     
-    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.css" />
-
-
-            
     
-    
-    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.css" />
-
-
-        
-    
-
-    
-    
-    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/fo/css/loading.css" />
-
-    
-    
-    
-    
-    <link rel="stylesheet" type="text/css" href="https://contents.kyobobook.co.kr/resources/fo/css/style_ink.css?t=24725112050" data-name="kbb-cm-style" />
-    
-
-
     
     <script src="https://contents.kyobobook.co.kr/resources/vendors/essential-vendors.min.js"></script>
 
 
+    
+    
     
     <script src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery-ui.min.js" data-name="jquery-ui"></script>
 
@@ -65,29 +58,8 @@
     
     
     
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery.ui.spinner.js"></script>
-
-
-
     
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/lottie-5.9.4/lottie.min.js"></script>
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/kbb-loading.js?t=24725112050"></script>
-    
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/kbbjs-loader-v2.js?t=24725112050"></script>
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.js?t=2472914488" data-name="kbb.js"></script>
     
 
 
@@ -95,80 +67,12 @@
     
     
     
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.js?t=24725112050" data-name="kbb.js"></script>
-    
-
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.shared.js?t=24725112050" data-name="kbb.shared.js"></script>
-    
-
-
-
-
-
-    
-    
-        
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/search/kyobo_search_auto.js?t=24725112050"></script>
-    
-
-
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/vars/paper.js?t=24725112050" data-name="vars.service"></script>
-    
-
-
-
-
-    
-    
-    
-    
-    
-        
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.stats.js?t=24725112050" data-name="kbb.stats.js"></script>
-    
-
-
-
-    
-        
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.gautil.js?t=24725112050" data-name="kbb.gautil.js"></script>
-    
-
-
-
-    
-    
-    
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/common-vars.js?t=24725112050"></script>
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/common-vars.js?t=2472914488"></script>
     
 
 
     
     
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/util.js?t=24725112050"></script>
-    
-
-
-
-
 
 
         
@@ -183,48 +87,6 @@
         
         
         
-            
-    
-    
-    
-    
-    
-    
-    <script type="text/javascript" src="https://mmbr.kyobobook.co.kr/lib/kbb-js/vendors.min.js?t=24725112050" data-name="kbb-vendors.min.js"></script>
-    
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://mmbr.kyobobook.co.kr/lib/kbb-js/shared.min.js?t=24725112050" data-name="kbb-shared.min.js"></script>
-    
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://mmbr.kyobobook.co.kr/lib/kbb-js/components.min.js?t=24725112050" data-name="kbb-components.min.js"></script>
-    
-
-
-
-    
-    
-    
-    <script type="text/javascript" src="https://mmbr.kyobobook.co.kr/lib/kbb-js/core.min.js?t=24725112050" data-name="kbb-core.min.js"></script>
-    
-
-
-
-
-
-        
-        
-        
-    
 </head>
 <body>
     
@@ -246,7 +108,7 @@
         
             
             <div class="skip_nav_wrap">
-                <a href="http://192.168.16.5:8080/books/home/books_homepage.jsp">본문 바로가기</a>
+                <a href="#contents">본문 바로가기</a>
             </div>
             <div class="wrapper member_login" id="mainDiv">
                 
@@ -279,10 +141,10 @@
      
 
             <!-- 로그인 -->
-                <div class="form_col_group valid_check">
+            <div class="form_col_group valid_check">
                 <div class="col_box id">
                     <input type="email" title="아이디 입력" class="form_ip" placeholder="아이디를 입력해 주세요." data-autocomplete/>
-                    <input type="hidden" name="_csrf" value="68b25ec9-551b-4c43-a971-8582022fe5e5"/>
+                    <input type="hidden" name="_csrf" value="bae8fb1c-a025-4db3-a5df-202748f0c9f8"/>
                     <span class="form_desc tip">아이디를 입력해 주세요.</span>
                 </div>
                 <div class="col_box pw">
@@ -293,11 +155,13 @@
                 </div>
                 <span class="valid_desc">로그인 페이지의 경고 문구는 모두 여기에  .</span>
             </div>
+            
+            
             <!-- // 로그인 -->
 
 
             <div class="btn_wrap justify">
-                <button class="btn_lg btn_light_gray" id ="loginBtn" disabled="disabled"><span class="text">로그인</span></button>
+                <button class="btn_lg btn_light_gray" id ="loginBtn" ><span class="text">로그인</span></button>
             </div>
 
             <!-- 아이디 저장 -->
@@ -319,35 +183,174 @@
             <!-- // 아이디 저장 -->
 
             
+                <!-- sns 로그인 -->
+                <br/>
+          	<div>
+                    <p class="info_text font_size_xxs">배주용은 한숨쉬면 잘 안풀리는겁니다 <br /> 상태를 꼭 확인해 주세요.</p>
+              </div>
+              
 
                 <!-- 회원가입 -->
                 <div class="join_induce_wrap" >
 
+                 
 
                     <div class="btn_wrap justify">
                         <a href="http://192.168.16.5:8080/books/create/books_make.jsp" class="btn_lg btn_line_primary" id="join"><span class="text">회원가입</span></a>
                     </div>
-                   
+                  
                 </div>
-              
+                <!-- // 회원가입 -->
+            
         </div>
 
 
+       
+           
+        
+
+    
             </section>
         </main>
-    
+ 
         
     
         
+        
+<footer class="footer_wrapper">
+    <div class="footer_inner">
+        <div class="copyright">© BooGGe BOOK CENTRE</div>
+    </div>
+</footer>
+
+    
+                
+                
+                
+            </div>
+        
+    
+
+    
+    
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+        
+        
+            
+
+
+
+<!-- NetFUNNEL 스크립트 -->
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/netfunnel/custom-netfunnel.js" data-name="netfunnel"></script>
+
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/css-element-queries/ResizeSensor.js" data-name="ResizeSensor"></script>
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/awesomplete/awesomplete.min.js" data-name="awesomplete"></script>
+
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/star-rating/krajee-gly-ko-bundle.min.js"></script>
+
+
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/scrollpos-styler/scrollPosStyler.min.js" data-name="scrollPosStyler"></script>
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/blurify-master/blurify.min.js" data-name="blurify"></script>
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/masonry/masonry.pkgd.min.js" data-name="masonry"></script>
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.js" data-name="swiper"></script>
+
+
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/svgxuse/svgxuse.js" data-name="svgxuse"></script>
+
+
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.js" data-name="simplebar"></script>
+
+
+
+
+        
+        
+        
+            
+            
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ui_ink.js?t=2472914488" data-name="kbb-cm-script"></script>
     
 
 
-
-
-   
+        
+        
+        
         
     
     
     
 </body>
 </html>
+
+  
