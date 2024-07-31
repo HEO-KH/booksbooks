@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.login.CustomerDTO;
+
 
 public class KrbookDAO {
 	Connection conn;
@@ -90,7 +92,7 @@ public class KrbookDAO {
 			sql = "select * from (";
 			sql += "select rownum rnum, data.* from (";
 			sql += "select ISBN, subject, category1, category2, author,";
-			sql += "to_char(bookdate, 'YYYY-MM-DD') bookdate, page, booksize, price ";
+			sql += "to_char(bookdate, 'YYYY-MM-DD') bookdate, page, booksize, price,publisher ";
 			sql += "from krbook order by bookdate desc) data)";
 			sql += "where rnum >= ? and rnum <= ?";
 
@@ -114,6 +116,7 @@ public class KrbookDAO {
 				dto.setPage(rs.getInt("page"));
 				dto.setBooksize(rs.getString("booksize"));
 				dto.setPrice(rs.getInt("price"));
+				dto.setPublisher(rs.getString("publisher"));
 
 				lists.add(dto);
 
@@ -141,7 +144,7 @@ public class KrbookDAO {
 		
 		try {
 			
-			sql = "select ISBN,subject,category1, category2, author, bookdate, page, booksize, price ";
+			sql = "select ISBN,subject,category1, category2, author, bookdate, page, booksize, price, publisher ";
 			sql += "from krbook where ISBN = ?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -162,7 +165,7 @@ public class KrbookDAO {
 				dto.setPage(rs.getInt("page"));
 				dto.setBooksize(rs.getString("booksize"));
 				dto.setPrice(rs.getInt("price"));
-				
+				dto.setPublisher(rs.getString("publisher"));
 				
 			}
 			
@@ -225,15 +228,51 @@ public class KrbookDAO {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//구매내역에서 판매순위 정하는 메소드
+	public int getRank(String ISBN) { //ISBN 가져와서 그거랑 일치하는 구매자 count 정하기 
+		
+		int rank =0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			
+			
+			sql  = "SELECT rank FROM( ";
+			sql += "SELECT ROWNUM rank, data.* FROM( ";
+			sql += "SELECT ISBN, COUNT(*) AS COUNT ";
+			sql += "FROM customer GROUP BY ISBN ORDER by count desc) data) WHERE ISBN = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ISBN);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				rank = rs.getInt(1); 
+				
+			}
+			
+			
+			System.out.println(rank);
+			
+			
+			pstmt.close();
+			
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
+		return rank;
+		
+		
+	}
 	
 	
 	
