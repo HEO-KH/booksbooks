@@ -9,57 +9,44 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
- <!-- Encoding Filter -->
-  <filter>
-  	<filter-name>encodingFilter</filter-name>
-  	<filter-class>com.filter.EncodingFilter</filter-class>
-  	<init-param>
-  		<param-name>charset</param-name>
-  		<param-value>utf-8</param-value>
-  	</init-param>
-  </filter>
   
-  <filter-mapping>
-  	<filter-name>encodingFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
+      <!-- Encoding Filter -->
+      
+	<filter>
+		<filter-name>encodingFilter</filter-name>	
+		<filter-class>com.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>charset</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 회원가입 서블릿-->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.login.LoginServlet</servlet-class>
+	</servlet>
 
-<!-- 로그인 -->
- <servlet>
-  	<servlet-name>memberServlet</servlet-name>
-  	<servlet-class>com.join.MemberServlet</servlet-class>
-  </servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/bkJoin/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 최근본상품 서블릿 -->
+	
+	<servlet>
+    <servlet-name>ViewProductServlet</servlet-name>
+    <servlet-class>com.cookie.ViewProductServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+    <servlet-name>ViewProductServlet</servlet-name>
+    <url-pattern>/bkView/*</url-pattern>
+	</servlet-mapping>
+	
   
-  <servlet-mapping>
-  	<servlet-name>memberServlet</servlet-name>
-  	<url-pattern>/bkJoin/*</url-pattern>
-  </servlet-mapping>
-
-
-<!-- 책 게시판 -->
-<servlet>
-	<servlet-name>KrbookServlet</servlet-name>
-	<servlet-class>com.krbook.KrbookServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-	<servlet-name>KrbookServlet</servlet-name>
-	<url-pattern>/bkInfo/*</url-pattern>
-</servlet-mapping>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</web-app>
+  </web-app>
