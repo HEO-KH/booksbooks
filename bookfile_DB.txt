@@ -1,0 +1,65 @@
+CREATE table bookfile
+(ISBN VARCHAR(30),
+subject VARCHAR(100),
+author  VARCHAR(50),
+cover VARCHAR(30),
+image VARCHAR(50), 
+introfilename VARCHAR(50), 
+intro1 VARCHAR(50),
+contentfilename VARCHAR(50), 
+reviewfilename VARCHAR(50), 
+CONSTRAINT bookfile_ISBN_fk FOREIGN KEY(ISBN) REFERENCES krbook(ISBN));
+
+
+INSERT INTO bookfile VALUES ('9791170611561','당신이 누군가를 죽였다', '히가시노 게이고','9791170611561.jpg','9791170611561_image.jpg','9791170611561_intro.txt','9791170611561_intro1.txt','9791170611561_content.txt','9791170611561_review.txt');
+INSERT INTO bookfile VALUES ('9791167901484','나미야 잡화점의 기적', '히가시노 게이고','9791167901484.jpg','','9791167901484_intro.txt','9791167901484_intro1.txt','9791167901484_content.txt','9791167901484_review .txt');
+INSERT INTO bookfile VALUES ('9791167902573','마녀와의 7일', '히가시노 게이고','9791167902573.jpg','9791170611561_image.jpg','9791167902573_intro.txt','9791167902573_intro1.txt','9791167902573_content.txt','9791167902573_review.txt');
+INSERT INTO bookfile VALUES ('9791157280292','꽃을 보듯 너를 본다', '나태주','9791157280292.jpg','9791157280292_image.jpg','9791157280292_intro.txt','9791157280292_intro1.txt','9791157280292_content.txt','9791157280292_review.txt');
+INSERT INTO bookfile VALUES ('9791170400608','너무 잘하려고 애쓰지 마라', '나태주','9791170400608.jpg','9791170400608_image.jpg','9791170400608_intro.txt','9791170400608_intro1.txt','9791170400608_content.txt','9791170400608_review.txt');
+INSERT INTO bookfile VALUES ('9791170402633','오늘도 나는 집으로 간다', '나태주','9791170402633.jpg','9791170402633_image.jpg','9791170402633_intro.txt','9791170402633_intro1.txt','9791170402633_content.txt','9791170402633_review.txt');
+INSERT INTO bookfile VALUES ('9791161571188','불편한 편의점','김호연','9791161571188.jpg','9791161571188_image.jpg','9791161571188_intro.txt','9791161571188_intro1.txt','9791161571188_content.txt','9791161571188_review.txt');
+INSERT INTO bookfile VALUES ('9791161571768','나의 돈키호테','김호연','9791161571768.jpg','9791161571768_image.jpg','9791161571768_intro.txt','9791161571768_intro1.txt','9791161571768_content.txt','9791161571768_review.txt');
+INSERT INTO bookfile VALUES ('9788959134953','고스트라이터즈(Ghost Writers)','김호연','9788959134953.jpg','9788959134953_image.jpg','','9788959134953_intro1.txt','9788959134953_content.txt','9788959134953_review.txt');
+INSERT INTO bookfile VALUES ('9791162145043','행복할 거야 이래도 되나 싶을 정도로','일홍','9791162145043.jpg','9791162145043_image.jpg','9791162145043_intro.txt','9791162145043_intro1.txt','9791162145043_content.txt','9791162145043_review.txt');
+INSERT INTO bookfile VALUES ('9791190299220','그게 너였으면 좋겠다','일홍','9791190299220.jpg','9791190299220_image.jpg','9791190299220_intro.txt','9791190299220_intro1.txt','9791190299220_content.txt','9791190299220_review.txt');
+INSERT INTO bookfile VALUES ('9791167740984','도둑맞은 집중력','요한 하리','9791167740984.jpg','9791167740984_image.jpg','9791167740984_intro.txt','9791167740984_intro1.txt','9791167740984_content.txt','9791167740984_review.txt');
+INSERT INTO bookfile VALUES ('9791165348755','벌거벗은 정신력','요한 하리','9791165348755.jpg','9791165348755_image.jpg','9791165348755_intro.txt','9791165348755_intro1.txt','9791165348755_content.txt','9791165348755_review.txt');
+INSERT INTO bookfile VALUES ('9788950982256','다크호스','토드 로즈','9788950982256.jpg','9788950982256_image.jpg','9788950982256_intro.txt','9788950982256_intro1.txt','9788950982256_content.txt','9788950982256_review.txt');
+INSERT INTO bookfile VALUES ('9788950910945','집단 착각','토드 로즈','9788950910945.jpg','9788950910945_image.jpg','9788950910945_intro.txt','9788950910945_intro1.txt','9788950910945_content.txt','9788950910945_review.txt');
+INSERT INTO bookfile VALUES ('9788937437564','참을 수 없는 존재의 가벼움','밀란 쿤데라','9788937437564.jpg','9788937437564_image.jpg','9788937437564_intro.txt','9788937437564_intro1.txt','9788937437564_content.txt','9788937437564_review.txt');
+INSERT INTO bookfile VALUES ('9788937456749','무의미의 축제','밀란 쿤데라','9788937456749.jpg','9788937456749_image.jpg','9788937456749_intro.txt','9788937456749_intro1.txt','9788937456749_content.txt','9788937456749_review.txt');
+INSERT INTO bookfile VALUES ('9788934920892','가벼운 고백','김영민','9788934920892.jpg','9788934920892_image.jpg','9788934920892_intro.txt','9788934920892_intro1.txt','9788934920892_content.txt','9788934920892_review.txt');
+INSERT INTO bookfile VALUES ('9791167741165','아침에는 죽음을 생각하는 것이 좋다','김영민','9791167741165.jpg','9791167741165_image.jpg','9791167741165_intro.txt','9791167741165_intro1.txt','9791167741165_content.txt','9791167741165_review.txt');
+INSERT INTO bookfile VALUES ('9791162730652','우리가 간신히 희망할 수 있는 것','김영민','9791162730652.jpg','9791162730652_image.jpg','9791162730652_intro.txt','9791162730652_intro1.txt','9791162730652_content.txt','9791162730652_review.txt');
+INSERT INTO bookfile VALUES ('9791168271968','생각이 너무 많은 나에게','변지영','9791168271968.jpg','9791168271968_image.jpg','9791168271968_intro.txt','9791168271968_intro1.txt','9791168271968_content.txt','9791168271968_review.txt');
+INSERT INTO bookfile VALUES ('9791140705047','미래의 나를 구하러 갑니다','변지영','9791140705047.jpg','9791140705047_image.jpg','9791140705047_intro.txt','9791140705047_intro1.txt','9791140705047_content.txt','9791140705047_review.txt');
+INSERT INTO bookfile VALUES ('9791140705092','내 마음을 읽는 시간','변지영','9791140705092.jpg','9791140705092_image.jpg','9791140705092_intro.txt','9791140705092_intro1.txt','9791140705092_content.txt','9791140705092_review.txt');
+INSERT INTO bookfile VALUES ('9791187440840','때론 혼란한 마음','변지영','9791187440840.jpg','9791187440840_image.jpg','9791187440840_intro.txt','9791187440840_intro1.txt','9791187440840_content.txt','9791187440840_review.txt');
+INSERT INTO bookfile VALUES ('9791141606459','온전히 평등하고 지극히 차별적인','김원영','9791141606459.jpg','9791141606459_image.jpg','','9791141606459_intro1.txt','9791141606459_content.txt','9791141606459_review.txt');
+INSERT INTO bookfile VALUES ('9791156757818','희망 대신 욕망','김원영','9791156757818.jpg','9791156757818_image.jpg','9791156757818_intro.txt','9791156757818_intro1.txt','9791156757818_content.txt','9791156757818_review.txt');
+INSERT INTO bookfile VALUES ('9791169850858','어느 하루 눈부시지 않은 날이 없었습니다','정덕현','9791169850858.jpg','9791169850858_image.jpg','9791169850858_intro.txt','9791169850858_intro1.txt','9791169850858_content.txt','9791169850858_review.txt');
+INSERT INTO bookfile VALUES ('9788957361337','드라마 속 대사 한마디가 가슴을 후벼팔 때가 있다','정덕현','9788957361337.jpg','9788957361337_image.jpg','9788957361337_intro.txt','9788957361337_intro1.txt','9788957361337_content.txt','9788957361337_review.txt');
+INSERT INTO bookfile VALUES ('9791193358092','작별의 건너편 2','시미즈 하루키','9791193358092.jpg','9791193358092_image.jpg','9791193358092_intro.txt','9791193358092_intro1.txt','9791193358092_content.txt','9791193358092_review.txt');
+INSERT INTO bookfile VALUES ('9791192579689','작별의 건너편','시미즈 하루키','9791192579689.jpg','9791192579689_image.jpg','9791192579689_intro.txt','9791192579689_intro1.txt','9791192579689_content.txt','9791192579689_review.txt');
+INSERT INTO bookfile VALUES ('9791193873014','과거로 돌아가는 역','시미즈 하루키','9791193873014.jpg','9791193873014_image.jpg','9791193873014_intro.txt','9791193873014_intro1.txt','9791193873014_content.txt','9791193873014_review.txt');
+INSERT INTO bookfile VALUES ('9791130655086','마인드 박스', '김익한','9791130655086.jpg','9791130655086_image.jpg','9791130655086_intro.txt','9791130655086_intro1.txt','9791130655086_content.txt','9791130655086_review.txt');
+INSERT INTO bookfile VALUES ('9788901285108','대화의 힘', '찰스 두히그','9788901285108.jpg','9788901285108_image.jpg','9788901285108_intro.txt','9788901285108_intro1.txt','9788901285108_content.txt','9788901285108_review.txt');
+INSERT INTO bookfile VALUES ('9791169518536','괜찮은 오늘을 기록하고 싶어서', '차에셀','9791169518536.jpg','9791169518536_image.jpg','9791169518536_intro.txt','9791169518536_intro1.txt','9791169518536_content.txt','9791169518536_review.txt');
+INSERT INTO bookfile VALUES ('9791192966861','결국 독서력이다', '김을호','9791192966861.jpg','9791192966861_image.jpg','9791192966861_intro.txt','9791192966861_intro1.txt','9791192966861_content.txt','9791192966861_review.txt');
+INSERT INTO bookfile VALUES ('9791165086015','성공하는 사람은 생각부터 다르게 한다', '이성복','9791165086015.jpg','9791165086015_image.jpg','9791165086015_intro.txt','9791165086015_intro1.txt','9791165086015_content.txt','9791165086015_review.txt');
+INSERT INTO bookfile VALUES ('9791171712250','출근길 지하철', '박경석,정창조','9791171712250.jpg','9791171712250_image.jpg','9791171712250_intro.txt','9791171712250_intro1.txt','9791171712250_content','9791171712250_review.txt');
+INSERT INTO bookfile VALUES ('9791171712311','사고는 없다', '제시 싱어','9791171712311.jpg','9791171712311_image.jpg','9791171712311_intro.txt','9791171712311_intro1.txt','9791171712311_content.txt','9791171712311_review.txt');
+INSERT INTO bookfile VALUES ('9791193591062','최소한의 시민', '강남규','9791193591062.jpg','9791193591062_image.jpg','9791193591062_intro.txt','9791193591062_intro1.txt','9791193591062_content.txt','9791193591062_review.txt');
+INSERT INTO bookfile VALUES ('9791193378236','세상 멋져 보이는 것들의 사회학', '오찬호','9791193378236.jpg','9791193378236_image.jpg','9791193378236_intro.txt','9791193378236_intro1.txt','9791193378236_content.txt','9791193378236_review.txt');
+INSERT INTO bookfile VALUES ('9791198700247','차별 없는 세상이 너무 멀어: 차별', '오찬호','9791198700247.jpg','9791198700247_image.jpg','9791198700247_intro.txt','9791198700247_intro1.txt','9791198700247_content.txt','9791198700247_review.txt');
+INSERT INTO bookfile VALUES ('9791172540104','어디서나 당당한 생활글씨', '유한빈','9791172540104.jpg','9791172540104_image.jpg','9791172540104_intro.txt','9791172540104_intro1.txt','9791172540104_content.txt','9791172540104_review.txt');
+INSERT INTO bookfile VALUES ('9788932474885','필사의 시간', '유한빈','9788932474885.jpg','9788932474885_image.jpg','9788932474885_intro.txt','9788932474885_intro1.txt','9788932474885_content.txt','9788932474885_review.txt');
+INSERT INTO bookfile VALUES ('9791188471362','꽁단맘이 알려주는 강아지 수제간식', '박종무','9791188471362.jpg','9791188471362_image.jpg','9791188471362_intro.txt','9791188471362_intro1.txt','9791188471362_content.txt','9791188471362_review.txt');
+INSERT INTO bookfile VALUES ('9791186274835','우리는 동물을 어떻게 대해야 하는가', '박종무','9791186274835.jpg','9791186274835_image.jpg','9791186274835_intro.txt','9791186274835_intro1.txt','9791186274835_content.txt','9791186274835_review.txt');
+INSERT INTO bookfile VALUES ('9788946421820','문밖의 동물들', '박종무','9788946421820.jpg','9788946421820_image.jpg','9788946421820_intro.txt','9788946421820_intro1.txt','9788946421820_content.txt','9788946421820_review.txt');
+INSERT INTO bookfile VALUES ('9788932323664','불완전한 인간', '김유경','9788932323664.jpg','9788932323664_image.jpg','9788932323664_intro.txt','9788932323664_intro1.txt','9788932323664_content.txt','9788932323664_review.txt');
+INSERT INTO bookfile VALUES ('9791190994156','언어의 뇌과학', '김유경','9791190994156.jpg','9791190994156_image.jpg','9791190994156_intro.txt','9791190994156_intro1.txt','9791190994156_content.txt','9791190994156_review.txt');
+INSERT INTO bookfile VALUES ('9791190872522','낙관주의 연습', '김유경','김유경','9791190872522_image.jpg','9791190872522_intro.txt','9791190872522_intro1.txt','9791190872522_content.txt','9791190872522_review.txt');
+INSERT INTO bookfile VALUES ('9791193937136','나는 도대체 왜 피곤할까', '김잔디','9791193937136.jpg','9791193937136_image.jpg','9791193937136_intro.txt','9791193937136_intro1.txt','9791193937136_content.txt','9791193937136_review.txt');
+INSERT INTO bookfile VALUES ('9791196409623','좋은 리더가 되고싶습니까?', '김잔디','9791196409623.jpg','9791196409623_image.jpg','9791196409623_intro.txt','9791196409623_intro1.txt','9791196409623_content.txt','9791196409623_review.txt');
+
