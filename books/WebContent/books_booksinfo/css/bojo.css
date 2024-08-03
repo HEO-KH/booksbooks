@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.wrapper .header_wrapper .header_inner .gnb_wrap .anb_wrap {
+	position: relative;
+	margin-right: 10px;
+	flex-shrink: 0;
+}
+
+
+
+
+
+
+
