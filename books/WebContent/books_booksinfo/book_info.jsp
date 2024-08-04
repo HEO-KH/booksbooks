@@ -2709,7 +2709,7 @@
             class="btn_wish_alarm size_md"><span class="ico_wish"></span><span class="hidden">찜/알림 설정하기</span>
             </button>
             <div class="right_area">
-                <a href="<%=cp%>/bukkeubooks/author.com"
+                <a href="<%=cp%>/bukkeubooks/author.com?authorid=${adto.authorId}"
                    class="btn_xs btn_line_gray author_info_btn"
                    data-author-id="2000110201"
                    data-author-name="${dto.author }"
