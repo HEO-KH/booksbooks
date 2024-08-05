@@ -154,7 +154,7 @@
 
     
     
-<title>교보문고</title>
+<title>부끄북스</title>
 
 
 
@@ -2549,17 +2549,15 @@
     <!--</th:block>-->
     <!-- //추가 240415 장바구니 페이지 기능 고도화 -->
 <li id="foldCartKyobo" class="tab_content fold_box sps expanded sps-abv" data-height-observe="010" data-sps-offset="252" data-add-offset="192" data-observer="[object MutationObserver]" data-prev-class="tab_content fold_box sps expanded sps-abv">
-    <div class="fold_box_header">
-        <span class="form_chk">
-            <input name="chkList" id="brandAllchk01" type="checkbox" data-cart-list-all01="">
-            <label for="brandAllchk01">교보문고/바로드림</label>
-        </span>
-        <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-    </div>
+    
     <div class="fold_box_contents">
         <div class="tbl_prod_wrap">
+        <!-- 여기부터 리스트 넣어볼까? -->
+        <!-- list -->
+  
+     
             <table class="tbl_prod">
-                <caption>교보문고/바로드림 상품</caption>
+                
                 <colgroup>
                     <col style="width: 42px;">
                     <col>
@@ -2605,6 +2603,8 @@
                                                             <input type="hidden" value="0" data-list-adtnsaleamnt=""> <!--추가판매금액-->
                                                             <input type="hidden" value="" data-list-goodsenbscmdtdvsncode=""> <!--입점사상품구분코드-->
                                                             
+                                                            
+                                                             
                                                             <td class="only_chk">
                                                                 <span class="form_chk no_label">
                                                                     
@@ -2615,20 +2615,16 @@
                                                                 </span>
                                                             </td>
                                                             <td class="prod">
-                                                                <div class="prod_area horizontal">
-                                                                    <div class="prod_thumb_box size_sm ">
-                                                                        <a href="#" class="prod_link">
-                                                                            </a><a href="https://product.kyobobook.co.kr/detail/S000213800371" class="prod_link">
-                                                                                <span class="img_box">
-                                                                                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/300x0/pdt/9791170611561.jpg" alt="[국내도서] 당신이 누군가를 죽였다">
-                                                                                </span>
-                                                                            </a>
-                                                                        
-                                                                    </div>
+                                                                
+                                                               <c:forEach var="dto" items="${ccdto }">
+                                                                    <div class="prod_area horizontal">
                                                                     <div class="prod_info_box size_sm">
                                                                         <a href="#" class="prod_info">
-                                                                            </a><a href="https://product.kyobobook.co.kr/detail/S000213800371" class="prod_link">
-                                                                                <span class="prod_name">${bookdto.subject }</span>
+                                                                            </a>
+                                                                            
+                                                                            <img alt="" src="${bookFilePath }/${dto.coverimage}" width="50" height="50">
+                                                                            <a href="${bookFilePath }/${dto.coverimage}" class="prod_link">
+                                                                                <span class="prod_name">${dto.subject }</span>
                                                                             </a>
                                                                         
                                                                         <!--
@@ -2639,27 +2635,31 @@
                                                                         <div class="prod_price">
                                                                             <span class="percent">10%</span>
                                                                             <span class="price">
-                                                                                <span class="val target" id="priceValNaN">17,820</span>
-                                                                                <span class="unit">원</span>
+                                                                                <span class="val target" id="priceValNaN">${Math.round(dto.price * 0.9) }</span>
+                                                                                <span class="unit">${Math.round(dto.price * 0.9) }원</span>
                                                                             </span>
                                                                             <span class="price_normal">
-															                    <s class="val">19,800원</s>
+															                    <s class="val">${dto.price }</s>
 														                    </span>
-                                                                            <span class="point" data-cart-list-ratepercent="">(990P)</span>
+                                                                            <span class="point" data-cart-list-ratepercent=""></span>
+                                                                       		<input type="hidden" value="${dto.ISBN }" name="ISBN"/>
                                                                         </div>
-                                                                        
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                  
+                                                                </c:forEach>
                                                             </td>
-                                                            <td id="price0100" data-commodity-item-root="">
+                                                            
+                                                              
+                                                           <%--  <td id="price0100" data-commodity-item-root="">
                                                                 <span class="price">
-                                                                    <span class="val target">35,640</span>
-                                                                    <span class="unit">원</span>
+                                                                    <span class="val target"></span>
+                                                                    <span class="unit">${Math.round(dto.price * 0.9) }원</span>
                                                                 </span>
                                                                 <div class="form_spinner_box size_sm">
                                                                     <span class="ui-spinner ui-widget ui-widget-content ui-corner-all ui-spinner-right"><button class="decrease ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget"><span class="offscreen ui-icon ui-icon-triangle-1-s">상품 수량 한 개 줄이기</span></button><input type="number" id="prdNum10" value="2" class="form_spinner ui-spinner-input" title="수량" autocomplete="off"><button class="increase ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget"><span class="offscreen ui-icon ui-icon-triangle-1-n">상품 수량 한 개 늘리기</span></button></span>
                                                                 </div>
-                                                            </td>
+                                                            </td> --%>
                                                             <td>
                                                                 <div class="delivery_info">
                                                                      <!-- 2022.11.01 hansol : 바로드림 전용상품 택배배송 미노출 처리 -->
@@ -2692,6 +2692,8 @@
 <!---->
                 </tbody>
             </table>
+            
+            <!-- 리스트 끝!!! -->
         </div>
         <!-- pagination -->
         <div class="btn_wrap auto" id="addCnt010" style="display:none;">
@@ -2714,6 +2716,7 @@
         <input type="hidden" id="nowPage010" value="1">
         <input type="hidden" id="groupCnt010">
         <input type="hidden" id="nowCnt010">
+     
     </div>
 <div class="sps_observer" style="top:auto;"></div></li>
 <!---->
@@ -2951,6 +2954,7 @@
                                                 <span class="val" data-sum-cart-list-point="">1,980</span>
                                                 <span class="unit">P</span>
                                             </span>
+                                             <input type="hidden" name="ISBN" value="${dto.ISBN }"/>
                                             </div>
                                         </li>
                                     </ul>
@@ -4331,7 +4335,7 @@
 </div>
 </div>
 </footer>
-</
+
 
 
 
