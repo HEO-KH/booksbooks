@@ -16,7 +16,7 @@ public class GetText {
 
     public String getText(String filename) {
         String encoding = "UTF-8";
-        String filePath = "C:\\java\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\books\\pds\\books" + File.separator + filename;
+        String filePath = "C:\\books" + File.separator + filename;
         String line = "";
 
         try {

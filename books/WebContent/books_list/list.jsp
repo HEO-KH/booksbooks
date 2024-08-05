@@ -1904,7 +1904,7 @@ String cp = request.getContextPath();
 					<!-- // 추가 220509 sub_title_wrap 구조 추가, 집계기준 버튼 추가 -->
 
 
-					온라인 <span>일간</span> 베스트 <span class="hidden">셀러</span>
+					검색 <span>결과</span>
 				</h1>
 				<!-- 수정 220509 SEO H태그 적용 -->
 

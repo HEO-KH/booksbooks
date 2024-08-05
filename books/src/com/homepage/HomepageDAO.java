@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.author.AuthorDTO;
+
 public class HomepageDAO {
 	Connection conn;
 
@@ -54,6 +56,49 @@ public class HomepageDAO {
 
 		} catch (Exception e) {
 			System.out.println(e.toString());
+		}
+
+		return lists;
+	}
+	
+	public List<AuthorDTO> getData() {
+
+		AuthorDTO dto = null;
+		
+		List<AuthorDTO> lists = new ArrayList<AuthorDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+
+		try {
+			
+			sql = "select authorId, authorName, authorBirth, authorPlace,";
+			sql += "authorDebut, debutBook, authorCategory,academic ";
+			sql += "from author";
+
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+
+			if(rs.next()) {
+
+				dto = new AuthorDTO();
+				
+				dto.setAuthorId(rs.getString("authorId"));
+				dto.setAuthorName(rs.getString("authorName"));
+				dto.setAuthorBirth(rs.getString("authorBirth"));
+				dto.setAuthorPlace(rs.getString("authorPlace"));
+				dto.setAuthorDebut(rs.getString("authorDebut"));
+				dto.setDebutBook(rs.getString("debutBook"));
+				dto.setAuthorCategory(rs.getString("authorCategory"));
+				dto.setAcademic(rs.getString("academic"));
+
+			}
+			pstmt.close();
+
+		} catch (Exception e) {
+			System.out.println("dto" + e.toString());
 		}
 
 		return lists;

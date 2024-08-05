@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.author.AuthorDTO;
 import com.login.CustomerDTO;
 import com.review.ReviewDTO;
 
@@ -51,7 +52,7 @@ public class KrbookDAO {
 		return result;
 	}
 
-	
+
 	public int getDataCount() {
 
 		int totalDataCount = 0;
@@ -90,7 +91,7 @@ public class KrbookDAO {
 		String sql;
 
 		try {
-			
+
 			sql = "select * from (";
 			sql += "select rownum rnum, data.* from (";
 			sql += "select ISBN, subject, category1, category2, author,";
@@ -144,7 +145,7 @@ public class KrbookDAO {
 		String sql;
 
 		try {
-			
+
 			sql = "select * from (";
 			sql += "select rownum rnum, data.* from (";
 			sql = "select ISBN,subject, author, cover, image, introfilename,"; 
@@ -187,32 +188,32 @@ public class KrbookDAO {
 
 		return lists;
 	}
-	
-	
+
+
 	//여기부터 내꺼 추가 
-	
+
 	public KrbookDTO getReadData(String ISBN){
-		
+
 		KrbookDTO dto = null;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		
+
 		try {
-			
+
 			sql = "select ISBN,subject,category1, category2, author, bookdate, page, booksize, price, publisher ";
 			sql += "from krbook where ISBN = ?";
-			
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ISBN);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
-				
+
 				dto = new KrbookDTO();
-				
+
 				dto.setISBN(rs.getString("ISBN"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setCategory1(rs.getString("category1"));
@@ -223,44 +224,44 @@ public class KrbookDAO {
 				dto.setBooksize(rs.getString("booksize"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setPublisher(rs.getString("publisher"));
-				
+
 			}
-			
+
 
 			rs.close();
 			pstmt.close();
-		
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return dto;
-		
+
 	}
-	
-	
+
+
 	public BookFileDTO getfileReadData(String ISBN){
-		
+
 		BookFileDTO dto = null;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		
+
 		try {
-			
+
 			sql = "select ISBN,subject, author,cover, image, introfilename, contentfilename, reviewfilename,intro1 ";
 			sql += "from bookfile where ISBN = ?";
-			
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ISBN);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
-				
+
 				dto = new BookFileDTO();
-				
+
 				dto.setISBN(rs.getString("ISBN"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setAuthor(rs.getString("author"));
@@ -270,144 +271,143 @@ public class KrbookDAO {
 				dto.setContentfilename(rs.getString("contentfilename"));
 				dto.setReviewfilename(rs.getString("reviewfilename"));
 				dto.setIntro1(rs.getString("intro1"));
-				
+
 			}
-			
+
 
 			rs.close();
 			pstmt.close();
-		
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return dto;
-		
+
 	}
-	
-	
-	
+
+
 	//구매내역에서 판매순위 정하는 메소드
 	public int getRank(String ISBN) { //ISBN 가져와서 그거랑 일치하는 구매자 count 정하기 
-		
+
 		int rank =0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		
+
 		try {
-			
-			
+
+
 			sql  = "SELECT rank FROM( ";
 			sql += "SELECT ROWNUM rank, data.* FROM( ";
 			sql += "SELECT ISBN, COUNT(*) AS COUNT ";
 			sql += "FROM customer GROUP BY ISBN ORDER by count desc) data) WHERE ISBN = ?";
-			
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ISBN);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
-				
+
 				rank = rs.getInt(1); 
-				
+
 			}
-		
+
 			pstmt.close();
-			
-			
-			
-			
+
+
+
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return rank;
-		
-		
+
+
 	}
-	
-	
+
+
 	public int getReviewCount(String ISBN) {
-		
+
 		int reviewCount =0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		
+
 		try {
-			
-			
+
+
 			sql  = "select count(*) from review where ISBN = ?";
-			
-			
+
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ISBN);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
-				
+
 				reviewCount = rs.getInt(1); 
-				
+
 			}
-		
+
 			pstmt.close();
-			
-			
-			
-			
+
+
+
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return reviewCount;
-		
-		
-		
-		
+
+
+
+
 	}
-	
+
 	public int getReviewGrade(String ISBN) {
-		
+
 		int reviewGrade =0;
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		
+
 		try {
-			
+
 
 			sql  = "SELECT AVG(grade) as grade FROM REVIEW WHERE ISBN = ?";
-			
-			
+
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ISBN);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
-				
+
 				reviewGrade = rs.getInt(1); 
-				
+
 			}
-		
+
 			pstmt.close();
-			
-			
+
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
+
 		return reviewGrade;
-		
+
 	}
-	
-	
+
+
 	public List<KrbookDTO> getLists(String authorName){
 
 		List<KrbookDTO> lists = new ArrayList<KrbookDTO>();
@@ -416,7 +416,7 @@ public class KrbookDAO {
 		String sql;
 
 		try {
-			
+
 			sql = "select ISBN,subject,category1,category2,author,bookdate,page,booksize,price,publisher ";
 			sql += "from krbook where author = ? ";
 
@@ -454,7 +454,7 @@ public class KrbookDAO {
 		return lists;
 	}
 
-	
+
 	public List<BookFileDTO> getBookFileLists(String authorName){
 
 		List<BookFileDTO> lists = new ArrayList<BookFileDTO>();
@@ -463,7 +463,7 @@ public class KrbookDAO {
 		String sql;
 
 		try {
-			
+
 			sql = "select ISBN,subject,author,cover,image,introfilename,intro1,contentfilename,reviewfilename ";
 			sql += "from bookfile where author = ? ";
 
@@ -476,7 +476,7 @@ public class KrbookDAO {
 			while(rs.next()) {
 
 				BookFileDTO dto = new BookFileDTO();
-				
+
 				dto.setISBN(rs.getString("ISBN"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setAuthor(rs.getString("author"));
@@ -486,7 +486,7 @@ public class KrbookDAO {
 				dto.setIntro1(rs.getString("intro1"));
 				dto.setContentfilename(rs.getString("contentfilename"));
 				dto.setReviewfilename(rs.getString("reviewfilename"));
-				
+
 				lists.add(dto);
 
 			}
@@ -499,39 +499,39 @@ public class KrbookDAO {
 
 		return lists;
 	}
-	
+
 	public void insertReview(ReviewDTO dto) {
-		
+
 		PreparedStatement pstmt = null;
 		String sql;
-		
+
 		try {
-			
-			
+
+
 			sql = "insert into review (userId, userNick, content, reviewDate, grade, ISBN) ";
 			sql += "values (?,?,?,sysdate,?,?)";
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, dto.getUserId());
 			pstmt.setString(2, dto.getUserNick());
 			pstmt.setString(3, dto.getContent());
 			pstmt.setInt(4, dto.getGrade());
 			pstmt.setString(5, dto.getISBN());
-			
+
 			pstmt.executeUpdate();
-			
+
 			pstmt.close();
-			
-			
+
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		
-		
-		
+
+
+
 	}
-	
+
 	public List<ReviewDTO> getReviewLists(String ISBN){
 
 		List<ReviewDTO> lists = new ArrayList<ReviewDTO>();
@@ -540,7 +540,7 @@ public class KrbookDAO {
 		String sql;
 
 		try {
-			
+
 			sql = "select userId,userNick,content,to_char(reviewDate,'YYYY-MM-DD') as reviewDate,grade,ISBN ";
 			sql += "from review where ISBN = ?";
 
@@ -553,15 +553,15 @@ public class KrbookDAO {
 			while(rs.next()) {
 
 				ReviewDTO dto = new ReviewDTO();
-				
+
 				dto.setUserId(rs.getString("userId"));
 				dto.setUserNick(rs.getNString("userNick"));
 				dto.setContent(rs.getString("content"));
 				dto.setReviewDate(rs.getString("reviewDate"));
 				dto.setGrade(rs.getInt("grade"));
 				dto.setISBN(rs.getString("ISBN"));
-				
-				
+
+
 				lists.add(dto);
 
 			}
@@ -571,11 +571,44 @@ public class KrbookDAO {
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-	
+
 		return lists;
-	
+
 	}
 	
-	
-	
+	public String getAuthorId(String ISBN) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+
+		String authorId = null;
+		try {
+
+			sql  = "select b.authorId ";
+			sql += "from krbook a, author b ";
+			sql += "where a.author = b.authorname and a.ISBN = ?";
+
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, ISBN);
+
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+
+				authorId = rs.getString(1); 
+
+			}
+
+			pstmt.close();
+
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
+		return authorId;
+	}
 }

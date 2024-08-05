@@ -145,7 +145,7 @@
 
     
     
-<title>김훈 | 소설가 - 교보문고</title>
+<title>${dto.authorName } | 소설가 - 교보문고</title>
 
 
 
@@ -1851,7 +1851,7 @@
                							<span class="img_box">
                
                
-               									<img data-kbbfn="s3-image" loading="lazy" alt="${filedto.subject }" src="${bookpath }/${filedto.cover}" data-src="${bookpath }/${filedto.cover}">
+               									<img data-kbbfn="s3-image" loading="lazy" alt="${filedto.subject }" src="${bookFilePath }/${filedto.cover}" data-src="${bookFilePath }/${filedto.cover}">
                
                
                							</span>

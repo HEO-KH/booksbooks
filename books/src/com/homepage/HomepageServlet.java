@@ -79,11 +79,13 @@ public class HomepageServlet extends HttpServlet{
 		if(uri.indexOf("bukkeubooks.com") != -1) {
 
 			List<HomepageDTO> lists = homedao.getListshome();
+			List<AuthorDTO> authorlists = homedao.getData();
 
 			String authorUrl = cp + "/bukkeubooks/authorpage.com";
 			String bookUrl = cp + "/bukkeubooks/bookinfo.com";
 
 			req.setAttribute("lists", lists);	
+			req.setAttribute("authorlists", authorlists);	
 
 			req.setAttribute("bookFilePath", bookFilePath);	
 
@@ -101,9 +103,11 @@ public class HomepageServlet extends HttpServlet{
 
 			String ISBN = req.getParameter("ISBN");
 			//String ISBN = "9788901285108";
+			
 
 			KrbookDTO dto = krdao.getReadData(ISBN);
 			BookFileDTO filedto = krdao.getfileReadData(ISBN);
+			
 
 			int rank = krdao.getRank(ISBN);
 			int reviewCount = krdao.getReviewCount(ISBN);
@@ -111,19 +115,20 @@ public class HomepageServlet extends HttpServlet{
 
 			//=======================작가 가져오기 ===============
 
-			String authorid = req.getParameter("authorid");
+			String authorId = krdao.getAuthorId(ISBN);
 			//String authorid = "1000010001";
 
-			AuthorDTO adto = authordao.getData(authorid);
-			AuthorFileDTO fadto = authordao.getFileData(authorid);
+		System.out.println(authorId);
+			AuthorDTO adto = authordao.getData(authorId);
+			AuthorFileDTO fadto = authordao.getFileData(authorId);
 
-			System.out.println(adto);
+			//System.out.println(adto);
 
-			//String authorIntro = gt.getText(fadto.getAuthorintro());
+			String authorIntro = gt.getText(fadto.getAuthorintro());
 
 			//System.out.println(authorIntro);
 
-			//req.setAttribute("authorIntro", authorIntro);
+			req.setAttribute("authorIntro", authorIntro);
 			req.setAttribute("authorPath", authorPath);
 			req.setAttribute("adto", adto);
 			req.setAttribute("fadto", fadto);
@@ -146,8 +151,8 @@ public class HomepageServlet extends HttpServlet{
 			//=================//파일 읽어오기 =====================
 			//================같은 작가 책 여러개 뽑기============
 
-			//List<BookFileDTO> filelists = krdao.getBookFileLists(adto.getAuthorName());
-			//req.setAttribute("bookfilelists", filelists);
+			List<BookFileDTO> filelists = krdao.getBookFileLists(adto.getAuthorName());
+			req.setAttribute("bookfilelists", filelists);
 
 
 			//================//같은 작가 책 여러개 뽑기============*/
@@ -176,16 +181,15 @@ public class HomepageServlet extends HttpServlet{
 			// info_ok 
 		}else if(uri.indexOf("info_ok.com")!=-1) {
 
-			/*
-			 * if(session==null) {
-			 * 
-			 * String message = "로그인 하십시오";
-			 * 
-			 * url = cp + "/bkJoin/join.do"; //????? 로그인 페이지로 가게 resp.sendRedirect(url);
-			 * 
-			 * 
-			 * }
-			 */
+
+			if(session==null) {
+
+				String message = "로그인 하십시오";
+
+				url = cp + "/bkJoin/join.do"; //????? 로그인 페이지로 가게 resp.sendRedirect(url);
+
+			}
+
 
 			ReviewDTO dto = new ReviewDTO();
 
@@ -211,6 +215,7 @@ public class HomepageServlet extends HttpServlet{
 			String ISBN = req.getParameter("ISBN");
 			//String authorid = "1000010001";
 			//String ISBN = "9788901285108";
+			req.setAttribute("bookFilePath", bookFilePath);
 			req.setAttribute("authorPath", authorPath);
 			req.setAttribute("bookpath", bookPath);
 			//===================작가 보내기====================
@@ -302,7 +307,7 @@ public class HomepageServlet extends HttpServlet{
 			String pageIndexList = myPage.pageIndexList(currentPage, totalPage, listUrl);
 
 
-			
+
 			req.setAttribute("bookFilePath", bookFilePath);
 			req.setAttribute("bookPath", bookPath);
 			req.setAttribute("authorPath", authorPath);

@@ -2739,7 +2739,8 @@
         
         <div class="footer_body">
     <div class="footer_inner">
-    <div><img alt="" src="../books_homepage/Bukkeu_logo.png"></div>
+    <div><a href="/books/bukkeubooks/bukkeubooks.com">
+    <img alt="" src="../books_homepage/Bukkeu_logo.png" style="width: 168px; height: 48px;"/></a></div>
     <div class="footer_contents_wrap">
         <div class="footer_contents_left">
             
