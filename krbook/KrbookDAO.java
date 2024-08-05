@@ -275,6 +275,45 @@ public class KrbookDAO {
 		
 	}
 	
+	//썬 추가
+	public BookFileDTO getCoverReadData(){
+		
+		BookFileDTO dto = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			
+			sql = "select cover from bookfile ";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				dto = new BookFileDTO();
+				
+				
+				dto.setCover(rs.getString("cover"));
+				
+				
+			}
+			
+
+			rs.close();
+			pstmt.close();
+		
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
+		return dto;
+		
+	}
+	
 	
 	
 	//구매내역에서 판매순위 정하는 메소드
@@ -315,8 +354,7 @@ public class KrbookDAO {
 		}
 		
 		return rank;
-		
-		
+
 	}
 	
 	

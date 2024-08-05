@@ -1,15 +1,15 @@
 package com.login;
 
 public class CustomerDTO {
-	
+
 	private String userId;
 	private String ISBN;
 	private String subject;
 	private int price;
 	private String buydate;
 	private int bookpoint;
-	
-	
+
+
 	public String getUserId() {
 		return userId;
 	}
@@ -46,17 +46,17 @@ public class CustomerDTO {
 	public void setBookpoint(int bookpoint) {
 		this.bookpoint = bookpoint;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
