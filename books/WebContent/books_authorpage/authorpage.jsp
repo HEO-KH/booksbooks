@@ -199,7 +199,7 @@
     <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/fo/css/loading.css" />
 
     
-    
+    <link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">
     
     
     <link rel="stylesheet" type="text/css" href="https://contents.kyobobook.co.kr/resources/fo/css/style_ink.css?t=202407161108" data-name="kbb-cm-style" />
@@ -555,8 +555,7 @@
                 <a href="#contents">본문 바로가기</a>
             </div>
             <div class="wrapper" id="mainDiv">
-            
-    <header class="header_wrapper has_banner header_v2 mall_book sps" id="welcome_header_wrap">
+     <header class="header_wrapper has_banner header_v2 mall_book sps" id="welcome_header_wrap">
     
         <div class="top_banner_wrap" id="welcome_top_banner">
             <div class="top_banner_inner">
@@ -630,16 +629,25 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"><a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link book">
-   <span class="hidden">BukkeuBooks</span> </a> 
-  </div>
+ 
+  <!-- 김지영 수정 -->
+<div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
+<!-- 김지영 수정 끝--> 
+  <form name="myForm" method="post">
   <div class="gnb_search_box"> 
    <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 
-   <option value="TOT">통합검색</option> 
+   <option>선택</option> 
+   <option value="subject">제목</option> 
+   <option value="author">작가</option> 
    </select> 
    </div> 
    <div class="search_input_wrap"> 
-    <input  type="text" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value="" name="searchValue" onclick="<%=cp%>/bukkeubooks/bookinfo.com"> 
+    <input  type="text" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value="" name="searchValue" onclick="<%=cp%>/bukkeubooks/list.com"> 
     
     <!-- <input type="hidden" name="searchBoxEventurl" id="searchBoxEventurl" value="">  -->
     <script>
@@ -652,13 +660,13 @@
                     });
                 });                      
             </script> <button type="button" class="btn_ip_clear"> <span class="hidden">초기화</span> </button> 
-   </div> <a href="${bookUrl}" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
-  </div>
+   </div> <a href="<%=cp%>/bukkeubooks/list.com" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
+  </div></form>
   <ul class="user_menu_list"> 
    <li class="user_menu_item cash"> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general" class="user_menu_link" title="e캐시"> <span class="hidden">e캐시</span> </a> </li> 
    <li class="user_menu_item library"> <a href="https://elibrary.kyobobook.co.kr/dig/elb/elibrary" class="user_menu_link" title="내서재"> <span class="hidden">내서재</span> </a> </li> 
    <li class="user_menu_item cart"> <a href="<%=cp %>/bukkeubooks/cart.com?userId=${sessionScope.customInfo.userId }" class="user_menu_link"> <span class="hidden">장바구니</span> <span data-kbbfn="cart-size" style="display:none;" class="cnt"></span> </a> </li> <!-- DESC : 로그인 후 li.user_menu_item [ login ] class 추가 --> 
-      
+   
    <c:if test="${empty sessionScope.customInfo.userId }">
     <li > <a href="<%=cp %>/bukkeubooks/login.com" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
    </c:if>
@@ -666,8 +674,7 @@
    <c:if test="${!empty sessionScope.customInfo.userId }">
    <li > <a href="<%=cp %>/bukkeubooks/mypage.com?userId=${sessionScope.customInfo.userId }%userName=${sessionScope.customInfo.userName }" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
   </c:if>
-  
-   </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
+  </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
   <div class="auto_complete_wrap auto_complete_maintain" id="hFrame"> 
    <div class="search_content_wrap inKeyword"> 
     <div class="scroll_wrap"></div> 
@@ -1583,7 +1590,6 @@
  </nav> 
 </div>
 
-    
 </header>
     
     <main class="container_wrapper">

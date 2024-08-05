@@ -58,6 +58,8 @@
           sizes="700x700"
           href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-700x700-precomposed.png">
 
+<link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">     
+
     <link rel="apple-touch-icon-precomposed apple-touch-icon"
           sizes="180x180"
           href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-180x180-precomposed.png">
@@ -347,9 +349,12 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"><a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link book">
-   <span class="hidden">BukkeuBooks</span> </a> 
-  </div>
+  <div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
   <div class="gnb_search_box"> 
    <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 
    <option value="TOT">통합검색</option> 

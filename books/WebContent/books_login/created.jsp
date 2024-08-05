@@ -78,6 +78,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>교보문고</title>
+
+<link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
 <link rel="stylesheet"
@@ -330,12 +332,14 @@
 
 			<header class="header_wrapper">
 				<div class="header_inner">
-					<div class="logo_box">
-						<a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link"> <img
-							src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_member@2x.png"
-							alt="KYOBO 교보문고" />
-						</a>
-					</div>
+					<!-- 김지영 수정 -->
+<div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
+<!-- 김지영 수정 끝-->
 				</div>
 			</header>
 

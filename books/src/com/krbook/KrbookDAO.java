@@ -611,4 +611,62 @@ public class KrbookDAO {
 
 		return authorId;
 	}
+	
+	public List<KrbookDTO> get(int start, int end,
+			String searchKey, String searchValue){
+
+		List<KrbookDTO> lists = new ArrayList<KrbookDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+
+		try {
+
+			sql = "select * from (";
+			sql += "select rownum rnum, data.* from (";
+			sql += "select ISBN, subject, category1, category2, author,";
+			sql += "to_char(bookdate, 'YYYY-MM-DD') bookdate, page, booksize, price,publisher ";
+			sql += "from krbook where " + searchKey + " like ?"; 
+			sql += "order by bookdate desc) data)";
+			sql += "where rnum >= ? and rnum <= ?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, searchValue);
+			pstmt.setInt(2, start); 
+			pstmt.setInt(3, end);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+
+				KrbookDTO dto = new KrbookDTO();
+
+				dto.setISBN(rs.getString("ISBN"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setCategory1(rs.getString("category1"));
+				dto.setCategory2(rs.getString("category2"));
+				dto.setAuthor(rs.getString("author"));
+				dto.setBookdate(rs.getString("bookdate"));
+				dto.setPage(rs.getInt("page"));
+				dto.setBooksize(rs.getString("booksize"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setPublisher(rs.getString("publisher"));
+
+				lists.add(dto);
+
+			}
+			rs.close();
+			pstmt.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
+		return lists;
+	}
+	
+	
+
+	
 }

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* 모든 로고에 대한 공통 스타일 설정 */
+.logo_boxs .logo_link.books {
+    background: url('../images/common/ink/united/Bukkeu_logo.svg') no-repeat center center;
+    background-size: contain; /* 이미지 크기에 맞게 조정 */
+    display: inline-block;
+    width: 180px; /* 이미지의 너비와 동일하게 설정 */
+    height: 66px; /* 이미지의 높이와 동일하게 설정 */
+    text-indent: -9999px; /* 텍스트를 시각적으로 숨김 */
+}
+
+/* 특정 클래스에 대한 스타일 설정 */
+.wrapper .header_wrapper .header_inner .gnb_search_wrap .logo_boxs .logo_link.books {
+    background: url('../images/common/ink/united/Bukkeu_logo.svg') no-repeat center center;
+    background-size: cover; /* 이미지 크기에 맞게 조정 */
+    width: 180px; /* 원하는 너비로 조정 */
+    height: 65px; /* 원하는 높이로 조정 */
+}
+
+/* 다양한 헤더 상태에 대한 로고 스타일 설정 */
+.wrapper .header_wrapper.sps.sps-blw .header_inner .gnb_search_wrap .logo_boxs .logo_link.books,
+.wrapper .header_wrapper.fix_header .header_inner .gnb_search_wrap .logo_boxs .logo_link.books,
+.wrapper .header_wrapper.simple_header .header_inner .gnb_search_wrap .logo_boxs .logo_link.books,
+.wrapper .header_wrapper.header_v2.united_header .header_inner .gnb_search_wrap .logo_boxs .logo_links.books {
+    background: url('../images/common/ink/united/Bukkeu_logo.svg') no-repeat center center;
+    background-size: cover; /* 이미지 크기에 맞게 조정 */
+    width: 120px; /* 원하는 너비로 조정 */
+    height: 44px; /* 원하는 높이로 조정 */
+}

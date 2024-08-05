@@ -1,203 +1,297 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ko" data-view="ink" data-service="product">
+<html lang="en"
+    data-view="ink"
+    data-service="order"
+>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+        
+            
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        
+        
+        
 
+    
+        <meta name="title" content="교보문고">
+        <meta property="og:title" content="교보문고">
+    
 
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    
+        <meta name="description" content="꿈을 키우는 세상 교보문고는 온오프라인을 통틀어 대한민국 최고의 도서쇼핑몰이며 전자책, 음반, 기프트, 문화서비스까지 제공하는 종합문화기업입니다.">
+        <meta property="og:description" content="꿈을 키우는 세상 교보문고는 온오프라인을 통틀어 대한민국 최고의 도서쇼핑몰이며 전자책, 음반, 기프트, 문화서비스까지 제공하는 종합문화기업입니다.">
+    
 
-<meta name="title" content="일간 온라인 베스트셀러 | 국내도서 - 교보문고">
-<meta property="og:title" content="일간 온라인 베스트셀러 | 국내도서 - 교보문고">
-
-
-
-<meta name="description"
-	content="교보문고 온라인 베스트셀러 페이지에서는 온라인에서 주문된 도서, 전자책, 대여상품, 기프트, 교보only상품의 일간 판매량을 집계하여 소개합니다.">
-<meta property="og:description"
-	content="교보문고 온라인 베스트셀러 페이지에서는 온라인에서 주문된 도서, 전자책, 대여상품, 기프트, 교보only상품의 일간 판매량을 집계하여 소개합니다.">
-
-
-<meta property="og:type" content="website">
-<meta property="og:image"
-	content="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo@2x.png">
-<meta property="og:url"
-	content="https://product.kyobobook.co.kr/bestseller/online?period=001">
-
-
-<meta name='twitter:title' content="일간 온라인 베스트셀러 | 국내도서 - 교보문고">
-<meta name='twitter:description'
-	content="교보문고 온라인 베스트셀러 페이지에서는 온라인에서 주문된 도서, 전자책, 대여상품, 기프트, 교보only상품의 일간 판매량을 집계하여 소개합니다.">
-<meta name='twitter:card' content="summary">
-<meta name='twitter:url'
-	content="https://product.kyobobook.co.kr/bestseller/online?period=001">
-<meta name='twitter:image'
-	content="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo@2x.png">
-
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://image.kyobobook.co.kr/ink/images/kyobobook_meta.png">
+    <meta property="og:url" content="http://mobile.kyobobook.co.kr">
+    
+    
 
 
 
 <meta name="format-detection" content="date=no">
 
+        
+        
+    
+    
+    
+    <meta name="google-site-verification" content="vN9Zag6odZ4sMyJfDMMSZTqbD-nbmnh0ituV4pk4FV4" />
+
+    
+    
+
+<script>
+    let dconsole = console;
+    console = {};
+    console.log = function () {};
+    console.info = function () {};
+    console.warn = function () {};
+    console.error = function () {};
+</script>
 
 
-<link rel="canonical"
-	href="https://product.kyobobook.co.kr/bestseller/online" />
 
+
+    
+
+        
+        
+    
+    
+    <link rel="icon" type="image/png"
+          sizes="256x256"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_256x256.png">
+
+    
+    <link rel="icon" type="image/png"
+          sizes="196x196"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_196x196.png">
+
+    
+    <link rel="icon" type="image/png"
+          sizes="128x128"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_128x128.png">
+
+    
+    <link rel="icon" type="image/png"
+          sizes="48x48"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_48x48.png">
 
-<link rel="icon" type="image/png" sizes="256x256"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_256x256.png">
+    
+    <link rel="icon" type="image/png"
+          sizes="32x32"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_32x32.png">
+
+    
+    <link rel="icon" type="image/png"
+          sizes="16x16"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_16x16.png">
 
+    
+    
+        
+    <meta name="msapplication-TileImage" content="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
 
-<link rel="icon" type="image/png" sizes="196x196"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_196x196.png">
+        
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="700x700"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-700x700-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="180x180"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-180x180-precomposed.png">
 
-<link rel="icon" type="image/png" sizes="128x128"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_128x128.png">
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="167x167"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-167x167-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="152x152"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-152x152-precomposed.png">
 
-<link rel="icon" type="image/png" sizes="48x48"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_48x48.png">
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="144x144"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-144x144-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="120x120"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-120x120-precomposed.png">
 
-<link rel="icon" type="image/png" sizes="32x32"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_32x32.png">
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="114x114"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-114x114-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="80x80"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-80x80-precomposed.png">
 
-<link rel="icon" type="image/png" sizes="16x16"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/favicon_16x16.png">
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="72x72"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-72x72-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed apple-touch-icon"
+          sizes="60x60"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-60x60-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed"
+          href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-57x57-precomposed.png">
 
+    
 
-<meta name="msapplication-TileImage"
-	content="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-144x144-precomposed.png">
-<meta name="msapplication-TileColor" content="#222222">
+    
 
+    
+    
+<title>교보문고</title>
 
-<link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="700x700"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-700x700-precomposed.png">
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="180x180"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-180x180-precomposed.png">
+    
+        
+        
+            
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="167x167"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-167x167-precomposed.png">
+    
+        
+        
+    
+    
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery-ui.min.css" />
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="152x152"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-152x152-precomposed.png">
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="144x144"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-144x144-precomposed.png">
+        
+        
+            
+    
+    
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/star-rating/css/star-rating.min.css" />
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="120x120"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-120x120-precomposed.png">
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon"
-	sizes="114x114"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-114x114-precomposed.png">
+        
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon" sizes="80x80"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-80x80-precomposed.png">
+        
+        
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon" sizes="72x72"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-72x72-precomposed.png">
+        
+        
+            
+    
+    
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.css" />
 
-<link rel="apple-touch-icon-precomposed apple-touch-icon" sizes="60x60"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-60x60-precomposed.png">
 
-<link rel="apple-touch-icon-precomposed"
-	href="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/favicon/apple-touch-icon-57x57-precomposed.png">
+            
+    
+    
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.css" />
 
 
-<title>일간 온라인 베스트셀러 | 국내도서 - 부끄북스</title>
+        
+    
 
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
+    
+    
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/fo/css/loading.css" />
 
+    
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://contents.kyobobook.co.kr/resources/fo/css/style_ink.css?t=202408011444" data-name="kbb-cm-style" />
+    
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery-ui.min.css" />
 
 
+            
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/essential-vendors.min.js"></script>
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/vendors/star-rating/css/star-rating.min.css" />
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.css" />
+    
 
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery-ui.min.js" data-name="jquery-ui"></script>
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.css" />
 
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery.ui.spinner.js"></script>
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/fo/css/loading.css" />
 
 
-<link rel="stylesheet" type="text/css"
-	href="https://contents.kyobobook.co.kr/resources/fo/css/style_ink.css?t=202407251346"
-	data-name="kbb-cm-style" />
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/lottie-5.9.4/lottie.min.js"></script>
 
 
-<script
-	src="https://contents.kyobobook.co.kr/resources/vendors/essential-vendors.min.js"></script>
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/kbb-loading.js?t=202408011444"></script>
+    
 
 
-<script
-	src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery-ui.min.js"
-	data-name="jquery-ui"></script>
 
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/kbbjs-loader-v2.js?t=202408011444"></script>
+    
 
-<script
-	src="https://contents.kyobobook.co.kr/resources/vendors/jquery-ui-1.12.1/jquery.ui.spinner.js"></script>
 
+    
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.js?t=202408011444" data-name="kbb.js"></script>
+    
 
-<script
-	src="https://contents.kyobobook.co.kr/resources/vendors/lottie-5.9.4/lottie.min.js"></script>
 
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/kbb-loading.js?t=202407251346"></script>
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.shared.js?t=202408011444" data-name="kbb.shared.js"></script>
+    
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/kbbjs-loader-v2.js?t=202407251346"></script>
 
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.js?t=202407251346"
-	data-name="kbb.js"></script>
+    
+    
+        
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/search/kyobo_search_auto.js?t=202408011444"></script>
+    
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.shared.js?t=202407251346"
-	data-name="kbb.shared.js"></script>
-
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/search/kyobo_search_auto.js?t=202407251346"></script>
+    
 
 
 <script>
@@ -221,15 +315,15 @@ String cp = request.getContextPath();
             KbbjsURL = CDN_URL + KbbjsURL
         }
 
-        const KBBJS_VER = null
+        const KBBJS_VER = "v2.0\/latest"
         if (KBBJS_VER != null) {
             KbbjsURL += '/' + KBBJS_VER
         } else {
-            KbbjsURL = "https:\/\/product.kyobobook.co.kr\/lib\/kbb-js"
+            KbbjsURL = "https:\/\/order.kyobobook.co.kr\/lib\/kbb-js"
         }
 
         // KbbJS 배포 개선 작업 1차 - 속성 추가
-        KbbJS.setOption('loader.bootstamp', "202407251346")
+        KbbJS.setOption('loader.bootstamp', "202408011444")
         KbbJS.setOption('loader.baseURL', KbbjsURL)
 
         // 인증여부 속성 추가
@@ -250,7 +344,7 @@ String cp = request.getContextPath();
         /**
          * 서비스 호스트 설정
          */
-        const oServiceData = {"hosts":{"ebook-product":"https:\/\/ebook-product.kyobobook.co.kr","semo":"https:\/\/semo.kyobobook.co.kr","product":"https:\/\/product.kyobobook.co.kr","ecash":"https:\/\/ecash.kyobobook.co.kr","elibrary":null,"best":"https:\/\/best.kyobobook.co.kr","bookcast":"https:\/\/casting.kyobobook.co.kr","undefined":null,"search":"https:\/\/search.kyobobook.co.kr","ebook":"https:\/\/ebook.kyobobook.co.kr","member":"https:\/\/mmbr.kyobobook.co.kr","myroom":"https:\/\/my.kyobobook.co.kr","event":"https:\/\/event.kyobobook.co.kr","welcome":"https:\/\/www.kyobobook.co.kr","hottracks":"https:\/\/hottracks.kyobobook.co.kr\/","sam":"https:\/\/sam.kyobobook.co.kr","order":"https:\/\/order.kyobobook.co.kr"}}
+        const oServiceData = {"hosts":{"ebook-product":"https:\/\/ebook-product.kyobobook.co.kr","semo":"https:\/\/semo.kyobobook.co.kr","product":"https:\/\/product.kyobobook.co.kr","ecash":"https:\/\/ecash.kyobobook.co.kr","elibrary":"https:\/\/elibrary.kyobobook.co.kr","best":"https:\/\/best.kyobobook.co.kr","bookcast":"https:\/\/casting.kyobobook.co.kr","undefined":null,"search":"https:\/\/search.kyobobook.co.kr","ebook":"https:\/\/ebook.kyobobook.co.kr","member":"https:\/\/mmbr.kyobobook.co.kr","myroom":"https:\/\/my.kyobobook.co.kr","event":"https:\/\/event.kyobobook.co.kr","welcome":"https:\/\/www.kyobobook.co.kr","hottracks":"https:\/\/hottracks.kyobobook.co.kr\/","sam":"https:\/\/sam.kyobobook.co.kr","order":"https:\/\/order.kyobobook.co.kr"}}
         const oServiceHosts = _.get(oServiceData, 'hosts', {})
         _.forEach(_.keys(oServiceHosts), function (key) {
             let prop = key
@@ -298,129 +392,302 @@ String cp = request.getContextPath();
 </script>
 
 
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/kbb-netfunnel.js?t=202407251346"></script>
-
-
-
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/common-vars.js?t=202407251346"></script>
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/kbb-netfunnel.js?t=202408011444"></script>
+    
 
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/vars/common.js?t=202407251346"
-	data-name="vars.common"></script>
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/common-vars.js?t=202408011444"></script>
+    
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/vars/paper.js?t=202407251346"
-	data-name="vars.service"></script>
-
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.stats.js?t=202407251346"
-	data-name="kbb.stats.js"></script>
-
-
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.gautil.js?t=202407251346"
-	data-name="kbb.gautil.js"></script>
+    
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/vars/common.js?t=202408011444" data-name="vars.common"></script>
+    
 
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/common-vars.js?t=202407251346"></script>
-
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/util.js?t=202407251346"></script>
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/vars/paper.js?t=202408011444" data-name="vars.service"></script>
+    
 
 
 
 
-<script type="text/javascript"
-	src="https://contents.kyobobook.co.kr/resources/fo/js/ui-onk/options.js?t=202407251346"></script>
+    
+    
+    
+    
+    
+        
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.stats.js?t=202408011444" data-name="kbb.stats.js"></script>
+    
 
 
 
-<link rel="stylesheet"
-	href="https://contents.kyobobook.co.kr/resources/fo/css/service_ink.css"
-	data-name="kbb-cm-service-css">
-<script>
-        /* <![CDATA[ */
-        KbbJS.setOption('plugins.ui-service-bestseller.fragment', "online")
-        /* ]]> */
+    
+        
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/lib/kbb-js/kbb.gautil.js?t=202408011444" data-name="kbb.gautil.js"></script>
+    
+
+
+
+    
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/common-vars.js?t=202408011444"></script>
+    
+
+
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ga360/util.js?t=202408011444"></script>
+    
+
+
+
+
+
+
+        
+        
+        
+    
+    
+    
+    
+    <!-- common -->
+    
+        
+    
+
+    <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/fo/css/order_ink.css">
+
+    
+    <script>
+        //여러곳배송 테스트용
+            let tempStr = window.location;
+            if(tempStr.toString().indexOf('ordtest') > -1){
+               KbbJS.setOption('service.order.host', 'https://ordtest.ndev.kyobobook.co.kr')
+            }
+        //여러곳배송 테스트용
+        let order = {
+            common  : {}, // 공통 기능 등록
+            service : {}, // 각 페이지 기능 등록
+            popup   : {}, // 팝업 기능 등록
+            utils   : {}, // 유틸
+            user    : // 사용자 정보
+                {
+                    data: {},
+                    exists: false,
+                    notExists: true,
+                    // 핫트랙스 멤버등급
+                    hottracksMmbrGrd: (null)
+                },
+            system   : // 시스템 정보
+                (function () {
+                    return {
+                        get serviceStage() { return ("nprd"); },
+                        get userIp() {
+                            let tempIp = "1.234.209.126";
+                            let splitIp = [];
+                            if(tempIp.indexOf(',') > 0){
+                                tempIp = tempIp.split(',', 1)[0];
+                            }
+                            return tempIp;
+                        }
+                    }
+                })(),
+            /*
+             * order.startup: 메인 화면 초기화 (레이어 팝업은 설정 X)
+             * KbbJS.ready() -> KbbJS.auth.ready() -> order.startup.main() --> (optional) order.startup.success()
+             *                                                             +-> (optional) order.startup.error()
+             */
+            startup : {
+                /* KbbJS 초기화 완료되면 실행
+                 * 일반 함수 또는 async 함수 정의
+                 * usage:
+                 * order.startup.main = function() { ... }
+                 * order.startup.main = async function() { ... }
+                 */
+                main: "function or async function",
+                /* (선택) main 실행이 완료되면 실행
+                 * usage:
+                 * order.startup.success = function() { ... }
+                 */
+                success: "function",
+                /* (선택) main 실행중 오류가 발생하면 실행
+                 * usage:
+                 * order.startup.error = function() { ... }
+                 */
+                error: "function",
+            }, // 시작 메서드
+        };
     </script>
 
+    
+    
+    <!-- Polyfill javascript -->
+    
 
-<script type="text/javascript"
-	src="https://product.kyobobook.co.kr/lib/kbb-js/vendors.min.js?t=202407251346"
-	data-name="kbb-vendors.min.js"></script>
-
-
-
-<script type="text/javascript"
-	src="https://product.kyobobook.co.kr/lib/kbb-js/shared.min.js?t=202407251346"
-	data-name="kbb-shared.min.js"></script>
-
-
-
-<script type="text/javascript"
-	src="https://product.kyobobook.co.kr/lib/kbb-js/components.min.js?t=202407251346"
-	data-name="kbb-components.min.js"></script>
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/common/ui_order_ink.js?t=202408011444"></script>
+    
 
 
 
-<script type="text/javascript"
-	src="https://product.kyobobook.co.kr/lib/kbb-js/core.min.js?t=202407251346"
-	data-name="kbb-core.min.js"></script>
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/common/jquery.validate.min.js?t=202408011444"></script>
+    
+
+
+    
+    
+    <script type="text/javascript" src="/assets/js/common/jsviews.min.js?t=202408011444"></script>
+    
 
 
 
+
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/common/common.js?t=202408011444"></script>
+    
+
+
+
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/common/common-constant.js?t=202408011444"></script>
+    
+
+
+
+
+
+    
+<script>
+// PC 모바일 구분, Y:모바일, N:PC
+let isMobileYN = "N";
+</script>
+<script>
+    // TODO 임시
+    function _importData() {
+        return {
+            ordrId: ("O24087942726"),
+         	tmprMmbrNum: ("20240801102831_07185")
+        };
+    }
+</script>
+
+    
+
+        
+        
+        
+        
+            
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/lib/kbb-js/v2.0/latest/vendors.min.js?t=202408011444" data-name="kbb-vendors.min.js"></script>
+    
+
+
+
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/lib/kbb-js/v2.0/latest/shared.min.js?t=202408011444" data-name="kbb-shared.min.js"></script>
+    
+
+
+
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/lib/kbb-js/v2.0/latest/components.min.js?t=202408011444" data-name="kbb-components.min.js"></script>
+    
+
+
+
+    
+    
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/lib/kbb-js/v2.0/latest/core.min.js?t=202408011444" data-name="kbb-core.min.js"></script>
+    
+
+
+
+
+
+        
+        
+        
+    
 </head>
-
-
-
-
-
-
-
-
-
-
-
 <body>
 
-	<div id="KbbLoading" class="loading_box show">
-		<div class="loading_box_inner">
-			<div class="loading_target"></div>
-		</div>
-		<div class="loading_dimmed"></div>
-	</div>
-
-
-	<div class="skip_nav_wrap">
-		<a href="#contents">본문 바로가기</a>
-	</div>
-
-
-	<div class="wrapper" id="mainDiv">
-		<!-- //// -->
-
- <header class="header_wrapper has_banner header_v2 mall_book sps" id="welcome_header_wrap">
     
-        <div class="top_banner_wrap" id="welcome_top_banner">
-            <div class="top_banner_inner">
-                <a href="https://event.kyobobook.co.kr/detail/223174">
-                    <img class="img_top_banner" src="https://contents.kyobobook.co.kr/display/i_1200_70_8aba92a1ae0347b6a48c9c6366e4c122.jpg"
-                         alt="독서가 35인의 추천 독서율을 높이자 2탄">
-                </a>
-                <button type="button" class="btn_close_banner">배너 닫기</button>
+        <div id="KbbLoading"
+    class="loading_box show"
+>
+    <div class="loading_box_inner">
+        <div class="loading_target"></div>
+    </div>
+    <div class="loading_dimmed"></div>
+</div>
+
+
+    
+
+    
+    
+        
+        
+            
+            <div class="skip_nav_wrap">
+                <a href="#contents">본문 바로가기</a>
             </div>
-        </div>
+            <div class="wrapper" id="mainDiv">
+                
+                
+    
+    
+    
+    
+    
+        
+        
+
+    <header class="header_wrapper has_banner header_v2 united_header mall_book simple_header" id="welcome_header_wrap">
     
     <!--
     <th:block th:if="${(alCode=='EET'||alCode=='EMT'||alCode=='EHT'||alCode=='EAT') and alBannerGbn!='true'}">
@@ -436,71 +703,50 @@ String cp = request.getContextPath();
  <div class="service_mall_inner"> 
   <div class="service_mall_box"> 
    <ul class="service_mall_list"> 
-    <li class="service_mall_item tab book">
-    	<a href="https://www.kyobobook.co.kr/" class="service_mall_link" 
-    	onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '부끄북스', '');">부끄북스</a></li> 
-    <li class="service_mall_item tab ebook">
-    	<a href="https://ebook.kyobobook.co.kr/" class="service_mall_link" 
-    	onclick="ga360.GA_Event('click_공통_PC', '헤더', '', 'eBook', '');">eBook</a></li> 
+    <li class="service_mall_item tab book"><a href="https://www.kyobobook.co.kr/" class="service_mall_link" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '교보문고', '');">교보문고</a></li> 
+    <li class="service_mall_item tab ebook"><a href="https://ebook.kyobobook.co.kr/" class="service_mall_link" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', 'eBook', '');">eBook</a></li> 
     
+     
+     
     
-    
-  
    </ul> 
   </div> 
   <div class="customer_service_box"> 
-   <ul> 
-    <li>
-     <c:if test="${empty sessionScope.customInfo.userId }">
-    <a href="<%=cp %>/bukkeubooks/created.com"><font style="font-size: 12px; line-height: 18px; letter-spacing: -0.01em; color: #595959; opacity: 0.8; vertical-align: top;">
-    &nbsp;&nbsp;회원가입&nbsp;&nbsp; ㅣ&nbsp;</font></a>
-    </c:if>
-    <c:if test="${!empty sessionScope.customInfo.userId }">
-    
-    </c:if>
-
-    <c:if test="${empty sessionScope.customInfo.userId }">
-    <a href="<%=cp %>/bukkeubooks/login.com">
-    <font style="font-size: 12px; line-height: 18px; letter-spacing: -0.01em; color: #595959; opacity: 0.8; vertical-align: top;">
-    &nbsp;&nbsp;로그인&nbsp;&nbsp; ㅣ&nbsp;</font></a>  
-    </c:if>
-    <c:if test="${! empty sessionScope.customInfo.userId }">
-    <a href="<%=cp %>/bukkeubooks/logout.com">
-    <font style="font-size: 12px; line-height: 18px; letter-spacing: -0.01em; color: #595959; opacity: 0.8; vertical-align: top;">
-    &nbsp;&nbsp;로그아웃&nbsp;&nbsp; ㅣ&nbsp;</font></a>  
-    </c:if>
-    
-    <a href="https://order.kyobobook.co.kr/myroom/member/order-list"><font style="font-size: 12px; line-height: 18px; letter-spacing: -0.01em; color: #595959; opacity: 0.8; vertical-align: top;">
-    &nbsp;&nbsp;주문배송&nbsp;&nbsp; ㅣ&nbsp;</font></a>  
-    <a href="https://www.kyobobook.co.kr/cscenter"><font style="font-size: 12px; line-height: 18px; letter-spacing: -0.01em; color: #595959; opacity: 0.8; vertical-align: top;">
-    &nbsp;&nbsp;Q&A&nbsp;&nbsp; ㅣ&nbsp;</font></a></li> 
+   <ul class="customer_service_list"> 
+    <li class="customer_service_item" style="display: none"><a href="https://mmbr.kyobobook.co.kr/join" class="util_link" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '회원가입', '');">회원가입</a></li> 
+    <li class="customer_service_item" style="display: none"><a class="util_link" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '로그인', '');">로그인</a></li> 
+    <li class="customer_service_item member_benefit"> <button type="button" class="btn_member_benefit" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '회원혜택', '');"><span class="text">회원혜택</span></button> 
+     <ul class="member_benefit_list"> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '교보북클럽', '');">교보북클럽</a></li> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit/grade" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '등급별혜택', '');">등급별 혜택</a></li> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit/new" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '신규회원혜택', '');">신규회원 혜택</a></li> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit/prestige" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', 'PrestigeLounge', '');">Prestige Lounge</a></li> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit/discount" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '제휴포인트/상품권', '');">제휴포인트/상품권</a></li> 
+      <li class="member_benefit_item"><a class="member_benefit_link" href="https://mmbr.kyobobook.co.kr/benefit/service" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '참좋은교보문고', '');">참좋은교보문고</a></li> 
+     </ul> </li> 
+    <li class="customer_service_item order"><a href="https://order.kyobobook.co.kr/myroom/member/order-list" class="util_link">주문배송</a></li> 
+     
+    <li class="customer_service_item"><a href="https://www.kyobobook.co.kr/cscenter" class="util_link" onclick="ga360.GA_Event('click_공통_PC', '헤더', '', '고객센터', '');">고객센터</a></li> 
    </ul> 
   </div> 
  </div> 
 </div>
-
-<!---------------------------------------- 여기까지 Q&A창 ------------------------------------->
 <script>
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-   <!-- 김지영 수정 -->
-<div class="logo_box">
-    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
-        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
-        <span class="hidden">BukkeuBooks</span>
-    </a>
-</div>
-<!-- 김지영 수정 끝--> 
+  <div class="logo_box"> <a href="https://www.kyobobook.co.kr/" class="logo_link book"> <span class="hidden">교보문고</span> </a> 
+  </div> 
   <div class="gnb_search_box"> 
-   <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 
+   <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode"> 
    <option value="TOT">통합검색</option> 
+   <option value="KBO">교보문고</option> 
+    
    </select> 
    </div> 
    <div class="search_input_wrap"> 
-    <input  type="text" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value="" name="searchValue" onclick="<%=cp%>/bukkeubooks/bookinfo.com"> 
-    
-    <!-- <input type="hidden" name="searchBoxEventurl" id="searchBoxEventurl" value="">  -->
+    <input id="searchKeyword" type="search" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value=""> 
+    <input type="hidden" name="searchBoxEventurl" id="searchBoxEventurl" value=""> 
     <script>
                 jQuery(function () {
                     jQuery.getJSON('/api/adv?url=/INK/ink_wel_new/ink_wel@wel_02?callback=', function (data) {
@@ -511,22 +757,14 @@ String cp = request.getContextPath();
                     });
                 });                      
             </script> <button type="button" class="btn_ip_clear"> <span class="hidden">초기화</span> </button> 
-   </div> <a href="${bookUrl}" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
-  </div>
+   </div> <a href="javascript:goAutoSearchLayer()" data-role="gnb-search-submit" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
+  </div> 
   <ul class="user_menu_list"> 
    <li class="user_menu_item cash"> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general" class="user_menu_link" title="e캐시"> <span class="hidden">e캐시</span> </a> </li> 
    <li class="user_menu_item library"> <a href="https://elibrary.kyobobook.co.kr/dig/elb/elibrary" class="user_menu_link" title="내서재"> <span class="hidden">내서재</span> </a> </li> 
-   <li class="user_menu_item cart"> <a href="<%=cp %>/bukkeubooks/cart.com?userId=${sessionScope.customInfo.userId }" class="user_menu_link"> <span class="hidden">장바구니</span> <span data-kbbfn="cart-size" style="display:none;" class="cnt"></span> </a> </li> <!-- DESC : 로그인 후 li.user_menu_item [ login ] class 추가 --> 
-   
-   <c:if test="${empty sessionScope.customInfo.userId }">
-    <li > <a href="<%=cp %>/bukkeubooks/login.com" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
-   </c:if>
-   
-   <c:if test="${!empty sessionScope.customInfo.userId }">
-   <li > <a href="<%=cp %>/bukkeubooks/mypage.com?userId=${sessionScope.customInfo.userId }%userName=${sessionScope.customInfo.userName }" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
-  </c:if>
-     
-    </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
+   <li class="user_menu_item cart"> <a href="https://order.kyobobook.co.kr/cart" class="user_menu_link"> <span class="hidden">장바구니</span> <span data-kbbfn="cart-size" style="display:none;" class="cnt"></span> </a> </li> <!-- DESC : 로그인 후 li.user_menu_item [ login ] class 추가 --> 
+   <li class="user_menu_item my"> <a href="#" data-render="ssr" class="profile-icon user_menu_link"> <span class="img_box no_img"> <img alt="로그인"> </span> <span class="hidden">마이</span> </a> <script src="https://contents.kyobobook.co.kr/resources/fo/js/user-profile.js"></script> </li> 
+  </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
   <div class="auto_complete_wrap auto_complete_maintain" id="hFrame"> 
    <div class="search_content_wrap inKeyword"> 
     <div class="scroll_wrap"></div> 
@@ -534,14 +772,40 @@ String cp = request.getContextPath();
    <div class="search_content_wrap noKeyword"> 
     <div class="scroll_wrap"> 
      <div class="recommend_keyword_area"> 
-      
+      <div class="title_wrap title_size_def"> 
+       <p class="title_heading">추천 검색어</p> 
+      </div> 
+      <div class="tag_wrap" id="recommendKeywordBox"> 
+      </div> 
      </div> 
      <div class="keyword_contents_area"> 
       <div class="recent_keyword_box"> 
       </div> 
       <div class="keyword_prod_box" id="keyWordProdBox"> 
       </div> 
-      
+      <div class="hot_keyword_box" id="hotKeywordBox"> 
+       <div class="title_wrap title_size_def"> 
+        <p class="title_heading">실시간 인기 검색어</p> 
+        <div class="right_area"> <!-- form_sel --> <!--<div class="form_sel" data-class="type_arw auto_complete_maintain">
+                                <select title="연령기준 정렬" id="ageSel">
+                                    <option value="">전연령</option>
+                                    <option value="10">10대</option>
+                                    <option value="20">20대</option>
+                                    <option value="30">30대</option>
+                                    <option value="40">40대↑</option>
+                                </select>
+                            </div>--> <!-- //form_sel --> <!-- form_sel --> <!--<div class="form_sel" data-class="type_arw auto_complete_maintain">
+                                <select title="성별기준 정렬" id="genderSel">
+                                    <option value="">전성별</option>
+                                    <option value="1">남성</option>
+                                    <option value="2">여성</option>
+                                </select>
+                            </div>--> <!-- //form_sel --> 
+        </div> 
+       </div> 
+       <div class="hot_keyword_list_wrap"> 
+       </div> 
+      </div> 
      </div> 
     </div> 
     <div class="util_area"> 
@@ -558,7 +822,7 @@ String cp = request.getContextPath();
      <div class="tab_list_wrap"> 
       <ul class="tabs"> 
        <li class="tab_item"> <a href="#tabAnbCategory" class="tab_link"> <span class="tab_text">카테고리 전체보기</span> </a> </li> 
-   
+        
       </ul> 
      </div> 
      <div id="tabAnbCategory" class="tab_content"> 
@@ -567,7 +831,7 @@ String cp = request.getContextPath();
         <ul class="tabs"> 
          <li class="tab_item ui-tabs-active ui-state-active"> <a href="#tabAnbCategoryKyobo" class="tab_link"> <span class="tab_text">교보문고</span> </a> </li> 
          <li class="tab_item"> <a href="#tabAnbCategoryEbook" class="tab_link"> <span class="tab_text">eBook</span> </a> </li> 
-          
+         
         </ul> 
        </div> 
        <div id="tabAnbCategoryKyobo" class="tab_content anb_category"> 
@@ -576,7 +840,7 @@ String cp = request.getContextPath();
           <div class="tab_list_wrap"> 
            <ul class="tabs"> 
             <li class="tab_item"> <a href="#tabAnbCategorySub01" class="tab_link"> <span class="tab_text">국내도서</span> </a> </li> 
-            
+
            </ul> 
           </div> 
           <div id="tabAnbCategorySub01" class="tab_content has_banner"> 
@@ -1176,38 +1440,30 @@ String cp = request.getContextPath();
            <div class="banner_box"> 
            </div> 
           </div> 
-          <div id="tabAnbCategorySub02" class="tab_content has_banner"> 
-           <div class="custom_scroll_wrap"> 
-            
-           </div> 
-           <div class="banner_box"> 
-           </div> 
-          </div> 
-          <div id="tabAnbCategorySub03" class="tab_content has_banner"> 
-           <div class="custom_scroll_wrap"> 
-        
-           </div> 
-           <div class="banner_box"> 
-           </div> 
-          </div> 
-          <div id="tabAnbCategorySub04" class="tab_content has_banner"> 
-           <div class="custom_scroll_wrap"> 
-            
-           </div> 
-           <div class="banner_box"> 
-           </div> 
-          </div> 
+     
          </div> 
         </div> 
-        
+        <div class="anb_category_bottom"> 
+         <ul class="recommend_service_list"> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/barodrim" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/pc_icon_8d7a3306ef6045cdb406881a63b4d6a9.png" alt="바로드림"> </span> <span class="title">바로드림</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://product.kyobobook.co.kr/today-book" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 1_017c321f59504c6f995c5c4c90bcd382.jpg" alt="오늘의 선택"> </span> <span class="title">오늘의 선택</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/service/profile/main" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 4_dea56a082097433c80a6491aca4fcad6.jpg" alt="인물&amp;작품"> </span> <span class="title">인물&amp;작품</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/gift" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 5_6f76bd72614f4a24a89d905386b32c84.jpg" alt="선물하기"> </span> <span class="title">선물하기</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/review" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 6_a0981652bec94c7094de142a9440c909.jpg" alt="베스트리뷰"> </span> <span class="title">베스트리뷰</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/handwriting/contest" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 7_bd7dd305777e46b0b914490a234ec720.jpg" alt="손글씨캠페인"> </span> <span class="title">손글씨캠페인</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://www.kyobobook.co.kr/culture/main" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/bn – 8_ead7c54f641e45fca4bf7bb27330f4c3.jpg" alt="문화공간"> </span> <span class="title">문화공간</span> </a> </li> 
+          <li class="recommend_service_item"> <a href="https://product.kyobobook.co.kr/pod/main" class="recommend_service_link"> <span class="img_box"> <img loading="lazy" src="https://contents.kyobobook.co.kr/display/바로출판_POD_1bd71e6c18bd47e0b23bc2e4da998cd4.png" alt="바로출판"> </span> <span class="title">바로출판</span> </a> </li> 
+         </ul> 
+        </div> 
        </div> 
-       <div id="tabAnbCategoryEbook" class="tab_content anb_category"> <!-- tabAnbCategorySam인 경우 아래 css와 js를 삭제해주세요. 미삭제시 충돌 발생합니다.  --> <!--css파일--> 
+        <div id="tabAnbCategoryEbook" class="tab_content anb_category"> <!-- tabAnbCategorySam인 경우 아래 css와 js를 삭제해주세요. 미삭제시 충돌 발생합니다.  --> <!--css파일--> 
         <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/dig-fo/dig/css/ebook_gnb_ink.css"> <!--//css파일--> <!--js파일--> 
         <script src="https://contents.kyobobook.co.kr/resources/dig-fo/dig/js/gnb/gnb.js"></script> <!--//js파일--> 
         <div class="anb_category_inner category ebookgnb"> 
          <ul class="category_tab"> 
           <li class="current"> <button type="button" data-value="002">eBook</button> </li> 
-         
+          <li> <button type="button" data-value="002">오디오(북)</button> </li> 
+          <li> <button type="button" data-value="002">동영상</button> </li> 
          </ul> 
          <div class="category_wrap"> <!-- style="order:2" 정렬 순서 값 --> 
           <div class="category_inner first"> 
@@ -1359,70 +1615,234 @@ String cp = request.getContextPath();
          </div> 
          <div class="category_wrap"> <!-- style="order:2" 정렬 순서 값 --> 
           <div class="category_inner first"> 
-           
+           <div> 
+            <p class="title_heading">일반</p> 
+            <ul class="category_menu ebook-sub-area"> 
+             <li> <a href="#"><span>인문</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=&amp;clst3=&amp;landing=Y">인문전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0701&amp;clst3=&amp;landing=Y">문학의이해</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0703&amp;clst3=&amp;landing=Y">문학이론</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0715&amp;clst3=&amp;landing=Y">언어학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0719&amp;clst3=&amp;landing=Y">글쓰기</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0721&amp;clst3=&amp;landing=Y">독서법/독서지도</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0723&amp;clst3=&amp;landing=Y">교양철학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0725&amp;clst3=&amp;landing=Y">철학이론</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0727&amp;clst3=&amp;landing=Y">동양철학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0729&amp;clst3=&amp;landing=Y">서양철학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0733&amp;clst3=&amp;landing=Y">인문학일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0735&amp;clst3=&amp;landing=Y">인문교양</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0737&amp;clst3=&amp;landing=Y">교육일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0739&amp;clst3=&amp;landing=Y">교육이론/교육방법</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0741&amp;clst3=&amp;landing=Y">유/초등부교육</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0745&amp;clst3=&amp;landing=Y">교양심리</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0747&amp;clst3=&amp;landing=Y">심리이론</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0749&amp;clst3=&amp;landing=Y">심리치료/정신분석</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3855&amp;cmdt=AUD&amp;clst1=07&amp;clst2=0799&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>종교</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=&amp;clst3=&amp;landing=Y">종교전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=0901&amp;clst3=&amp;landing=Y">종교일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=0905&amp;clst3=&amp;landing=Y">불교</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=0907&amp;clst3=&amp;landing=Y">기독교</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=0909&amp;clst3=&amp;landing=Y">가톨릭</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3856&amp;cmdt=AUD&amp;clst1=09&amp;clst2=0999&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>국어/외국어</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=&amp;clst3=&amp;landing=Y">국어/외국어전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1301&amp;clst3=&amp;landing=Y">한국/한국어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1305&amp;clst3=&amp;landing=Y">문법/단어/독해/작문</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1307&amp;clst3=&amp;landing=Y">영어교재/문고</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1311&amp;clst3=&amp;landing=Y">수험영어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1313&amp;clst3=&amp;landing=Y">비즈니스영어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1315&amp;clst3=&amp;landing=Y">어린이영어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1317&amp;clst3=&amp;landing=Y">일본어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1319&amp;clst3=&amp;landing=Y">중국어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1325&amp;clst3=&amp;landing=Y">영어회화/청취</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3857&amp;cmdt=AUD&amp;clst1=13&amp;clst2=1399&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>정치/사회</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=&amp;clst3=&amp;landing=Y">정치/사회전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1501&amp;clst3=&amp;landing=Y">사회과학일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1503&amp;clst3=&amp;landing=Y">사회문제/사회복지</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1505&amp;clst3=&amp;landing=Y">여성학/페미니즘</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1507&amp;clst3=&amp;landing=Y">언론/신문/방송</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1511&amp;clst3=&amp;landing=Y">정치/외교</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1513&amp;clst3=&amp;landing=Y">행정/정책</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3858&amp;cmdt=AUD&amp;clst1=15&amp;clst2=1517&amp;clst3=&amp;landing=Y">법률/소송</a> 
+              </div> </li> 
+             <li> <a href="#"><span>역사/문화</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=&amp;clst3=&amp;landing=Y">역사/문화전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1701&amp;clst3=&amp;landing=Y">역사일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1703&amp;clst3=&amp;landing=Y">역사인물</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1705&amp;clst3=&amp;landing=Y">역사기행</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1707&amp;clst3=&amp;landing=Y">세계사</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1709&amp;clst3=&amp;landing=Y">서양사</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1715&amp;clst3=&amp;landing=Y">한국사</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1723&amp;clst3=&amp;landing=Y">신화/신화학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1727&amp;clst3=&amp;landing=Y">주제가 있는 역사</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3859&amp;cmdt=AUD&amp;clst1=17&amp;clst2=1799&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>과학/공학</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=&amp;clst3=&amp;landing=Y">과학/공학전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1901&amp;clst3=&amp;landing=Y">과학이론</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1903&amp;clst3=&amp;landing=Y">교양과학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1905&amp;clst3=&amp;landing=Y">생활과학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1907&amp;clst3=&amp;landing=Y">수학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1909&amp;clst3=&amp;landing=Y">물리학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1913&amp;clst3=&amp;landing=Y">생물학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1915&amp;clst3=&amp;landing=Y">지구과학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1917&amp;clst3=&amp;landing=Y">천문학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3860&amp;cmdt=AUD&amp;clst1=19&amp;clst2=1999&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3861&amp;cmdt=AUD&amp;clst1=21&amp;clst2=&amp;clst3=&amp;landing=Y"><span>IT/프로그래밍</span></a> </li> 
+             <li> <a href="#"><span>건강/의학</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=&amp;clst3=&amp;landing=Y">건강/의학전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=2301&amp;clst3=&amp;landing=Y">건강일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=2303&amp;clst3=&amp;landing=Y">질병치료/예방</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=2315&amp;clst3=&amp;landing=Y">뇌건강</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=2317&amp;clst3=&amp;landing=Y">의학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3862&amp;cmdt=AUD&amp;clst1=23&amp;clst2=2399&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>가정/생활/요리</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=&amp;clst3=&amp;landing=Y">가정/생활/요리전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2501&amp;clst3=&amp;landing=Y">가정생활일반</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2509&amp;clst3=&amp;landing=Y">임신/태교/출산</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2511&amp;clst3=&amp;landing=Y">육아</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2513&amp;clst3=&amp;landing=Y">자녀교육</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2515&amp;clst3=&amp;landing=Y">부모교육</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2517&amp;clst3=&amp;landing=Y">홈인테리어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2519&amp;clst3=&amp;landing=Y">살림/정리</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2523&amp;clst3=&amp;landing=Y">요리</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2525&amp;clst3=&amp;landing=Y">와인/칵테일/음료</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3863&amp;cmdt=AUD&amp;clst1=25&amp;clst2=2527&amp;clst3=&amp;landing=Y">음식문화/음료</a> 
+              </div> </li> 
+             <li> <a href="#"><span>여행/취미</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=&amp;clst3=&amp;landing=Y">여행/취미전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2701&amp;clst3=&amp;landing=Y">국내여행</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2703&amp;clst3=&amp;landing=Y">해외여행</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2705&amp;clst3=&amp;landing=Y">테마여행</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2709&amp;clst3=&amp;landing=Y">여행에세이</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2711&amp;clst3=&amp;landing=Y">취미/실용</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3864&amp;cmdt=AUD&amp;clst1=27&amp;clst2=2799&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>예술/대중문화</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=&amp;clst3=&amp;landing=Y">예술/대중문화전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2903&amp;clst3=&amp;landing=Y">예술론/미학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2905&amp;clst3=&amp;landing=Y">미술</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2909&amp;clst3=&amp;landing=Y">음악</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2913&amp;clst3=&amp;landing=Y">연극/희곡</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2915&amp;clst3=&amp;landing=Y">영화/드라마</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2921&amp;clst3=&amp;landing=Y">대중문화이론</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2923&amp;clst3=&amp;landing=Y">대중음악/연예</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3865&amp;cmdt=AUD&amp;clst1=29&amp;clst2=2999&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>유아</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=&amp;clst3=&amp;landing=Y">유아전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3101&amp;clst3=&amp;landing=Y">유아놀이</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3103&amp;clst3=&amp;landing=Y">배우기/익히기</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3105&amp;clst3=&amp;landing=Y">그림책</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3107&amp;clst3=&amp;landing=Y">유아 교양</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3109&amp;clst3=&amp;landing=Y">육아/좋은부모</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3111&amp;clst3=&amp;landing=Y">종교/신화</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3113&amp;clst3=&amp;landing=Y">예술/역사/인물</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3115&amp;clst3=&amp;landing=Y">역사와 인물</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3117&amp;clst3=&amp;landing=Y">영어/외국어</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3119&amp;clst3=&amp;landing=Y">0~3세</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3121&amp;clst3=&amp;landing=Y">4~7세</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3123&amp;clst3=&amp;landing=Y">유아전집</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3866&amp;cmdt=AUD&amp;clst1=31&amp;clst2=3199&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>아동</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=&amp;clst3=&amp;landing=Y">아동전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3303&amp;clst3=&amp;landing=Y">어린이학습/자기계발</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3305&amp;clst3=&amp;landing=Y">어린이문학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3307&amp;clst3=&amp;landing=Y">아동만화</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3309&amp;clst3=&amp;landing=Y">초등1~2학년</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3311&amp;clst3=&amp;landing=Y">초등3~4학년</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3313&amp;clst3=&amp;landing=Y">초등5~6학년</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3315&amp;clst3=&amp;landing=Y">아동전집</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3867&amp;cmdt=AUD&amp;clst1=33&amp;clst2=3399&amp;clst3=&amp;landing=Y">기타</a> 
+              </div> </li> 
+             <li> <a href="#"><span>청소년</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=&amp;clst3=&amp;landing=Y">청소년전체</a> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3501&amp;clst3=&amp;landing=Y">공부방법</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3505&amp;clst3=&amp;landing=Y">진로/자기계발</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3507&amp;clst3=&amp;landing=Y">청소년 고전</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3509&amp;clst3=&amp;landing=Y">청소년 소설</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3511&amp;clst3=&amp;landing=Y">청소년 인문교양</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3515&amp;clst3=&amp;landing=Y">청소년 철학/심리</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3517&amp;clst3=&amp;landing=Y">청소년 정치/사회</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3521&amp;clst3=&amp;landing=Y">청소년 과학</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3523&amp;clst3=&amp;landing=Y">청소년 역사</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3525&amp;clst3=&amp;landing=Y">청소년 경제</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3527&amp;clst3=&amp;landing=Y">청소년 자기계발</a><a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3868&amp;cmdt=AUD&amp;clst1=35&amp;clst2=3599&amp;clst3=&amp;landing=Y">기타 </a> 
+              </div> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3869&amp;cmdt=AUD&amp;clst1=37&amp;clst2=&amp;clst3=&amp;landing=Y"><span>교재/수험서</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3870&amp;cmdt=AUD&amp;clst1=39&amp;clst2=&amp;clst3=&amp;landing=Y"><span>외국도서</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3871&amp;cmdt=AUD&amp;clst1=41&amp;clst2=&amp;clst3=&amp;landing=Y"><span>매거진</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3872&amp;cmdt=AUD&amp;clst1=61&amp;clst2=&amp;clst3=&amp;landing=Y"><span>멀티미디어</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3873&amp;cmdt=AUD&amp;clst1=71&amp;clst2=&amp;clst3=&amp;landing=Y"><span>로맨스</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3874&amp;cmdt=AUD&amp;clst1=73&amp;clst2=&amp;clst3=&amp;landing=Y"><span>로맨스판타지</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3875&amp;cmdt=AUD&amp;clst1=75&amp;clst2=&amp;clst3=&amp;landing=Y"><span>BL</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3876&amp;cmdt=AUD&amp;clst1=79&amp;clst2=&amp;clst3=&amp;landing=Y"><span>판타지</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3877&amp;cmdt=AUD&amp;clst1=81&amp;clst2=&amp;clst3=&amp;landing=Y"><span>무협</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3878&amp;cmdt=AUD&amp;clst1=85&amp;clst2=&amp;clst3=&amp;landing=Y"><span>추리</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3879&amp;cmdt=AUD&amp;clst1=87&amp;clst2=&amp;clst3=&amp;landing=Y"><span>미스터리</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3880&amp;cmdt=AUD&amp;clst1=89&amp;clst2=&amp;clst3=&amp;landing=Y"><span>스릴러</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3881&amp;cmdt=AUD&amp;clst1=90&amp;clst2=&amp;clst3=&amp;landing=Y"><span>섹슈얼로맨스</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3882&amp;cmdt=AUD&amp;clst1=93&amp;clst2=&amp;clst3=&amp;landing=Y"><span>웹툰</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+           <div style="order:1"> 
+            <p class="title_heading">자기계발</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3839&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0301&amp;clst3=&amp;landing=Y"><span>성공/처세</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3840&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0303&amp;clst3=&amp;landing=Y"><span>화술/협상</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3841&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0307&amp;clst3=&amp;landing=Y"><span>비즈니스소양</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3842&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0305&amp;clst3=&amp;landing=Y"><span>세일즈/매너</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3843&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0309&amp;clst3=&amp;landing=Y"><span>인간관계</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3844&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0311&amp;clst3=&amp;landing=Y"><span>자기능력계발</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3845&amp;cmdt=AUD&amp;clst1=03&amp;clst2=0399&amp;clst3=&amp;landing=Y"><span>기타</span></a> </li> 
+            </ul> 
+           </div> 
+           <div style="order:3"> 
+            <p class="title_heading">경제/경영</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3883&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0101&amp;clst3=&amp;landing=Y"><span>경제일반</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3884&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0105&amp;clst3=&amp;landing=Y"><span>무역</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3885&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0103&amp;clst3=&amp;landing=Y"><span>세계경제</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3886&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0107&amp;clst3=&amp;landing=Y"><span>교통/관광</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3887&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0109&amp;clst3=&amp;landing=Y"><span>재테크/금융</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3888&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0111&amp;clst3=&amp;landing=Y"><span>경영일반</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3889&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0113&amp;clst3=&amp;landing=Y"><span>경영관리</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3890&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0115&amp;clst3=&amp;landing=Y"><span>경영전략</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3891&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0117&amp;clst3=&amp;landing=Y"><span>기업실무관리</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3892&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0119&amp;clst3=&amp;landing=Y"><span>마케팅/세일즈</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3893&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0121&amp;clst3=&amp;landing=Y"><span>창업</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3894&amp;cmdt=AUD&amp;clst1=01&amp;clst2=0199&amp;clst3=&amp;landing=Y"><span>기타</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+           <div style="order:2"> 
+            <p class="title_heading">시/에세이</p> 
+            <ul class="category_menu"> 
+             <li> <a href="#"><span>시</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3895&amp;cmdt=AUD&amp;clst1=05&amp;clst2=0501&amp;clst3=&amp;landing=Y">시전체</a> 
+              </div> </li> 
+             <li> <a href="#"><span>에세이</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3896&amp;cmdt=AUD&amp;clst1=05&amp;clst2=0503&amp;clst3=&amp;landing=Y">에세이전체</a> 
+              </div> </li> 
+             <li> <a href="#"><span>테마시/에세이</span></a> 
+              <div> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3897&amp;cmdt=AUD&amp;clst1=05&amp;clst2=0505&amp;clst3=&amp;landing=Y">테마시/에세이전체</a> 
+              </div> </li> 
+            </ul> 
+           </div> 
+           <div style="order:3"> 
+            <p class="title_heading">소설</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3898&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1101&amp;clst3=&amp;landing=Y"><span>한국소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3899&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1103&amp;clst3=&amp;landing=Y"><span>영미소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3900&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1105&amp;clst3=&amp;landing=Y"><span>일본소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3901&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1107&amp;clst3=&amp;landing=Y"><span>중국소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3902&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1109&amp;clst3=&amp;landing=Y"><span>러시아소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3903&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1111&amp;clst3=&amp;landing=Y"><span>프랑스소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3904&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1113&amp;clst3=&amp;landing=Y"><span>독일소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3905&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1115&amp;clst3=&amp;landing=Y"><span>북유럽소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3906&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1117&amp;clst3=&amp;landing=Y"><span>기타나라소설</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3907&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1119&amp;clst3=&amp;landing=Y"><span>희곡</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3908&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1121&amp;clst3=&amp;landing=Y"><span>소설요약/소설가이드</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3909&amp;cmdt=AUD&amp;clst1=11&amp;clst2=1199&amp;clst3=&amp;landing=Y"><span>기타</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+          </div> 
+          <div class="category_inner"> 
+           <div> 
+            <p class="title_heading">스페셜코너</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/presentebook">선물하기</a> </li> 
+             <li> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general">교보e캐시</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/ebookitem">eBook 집중탐구</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/mmbrbnft">혜택 라운지</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/evt/evtclnd">이벤트 캘린더</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/evt/nwpbclnd">신간 캘린더</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=19">교보 오리지널</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/landing/new?lsc=AUD">신간</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/rtspage?dgctExprFldCode=001">RTS</a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="category_wrap"> <!-- style="order:2" 정렬 순서 값 --> 
+          <div class="category_inner first"> 
+           <div> 
+            <p class="title_heading">학습/자기계발</p> 
+            <ul class="category_menu ebook-sub-area"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3924&amp;cmdt=VID&amp;clst1=01&amp;clst2=0111&amp;clst3=&amp;landing=Y"><span>직무교육</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3925&amp;cmdt=VID&amp;clst1=01&amp;clst2=0105&amp;clst3=&amp;landing=Y"><span>어학</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3926&amp;cmdt=VID&amp;clst1=01&amp;clst2=0109&amp;clst3=&amp;landing=Y"><span>자격증</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3927&amp;cmdt=VID&amp;clst1=01&amp;clst2=0101&amp;clst3=&amp;landing=Y"><span>초중고</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3928&amp;cmdt=VID&amp;clst1=01&amp;clst2=0199&amp;clst3=&amp;landing=Y"><span>기타</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+           <div> 
+            <p class="title_heading">재테크</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3912&amp;cmdt=VID&amp;clst1=07&amp;clst2=0701&amp;clst3=&amp;landing=Y"><span>주식</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3913&amp;cmdt=VID&amp;clst1=07&amp;clst2=0703&amp;clst3=&amp;landing=Y"><span>부동산</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3914&amp;cmdt=VID&amp;clst1=07&amp;clst2=0799&amp;clst3=&amp;landing=Y"><span>기타</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+           <div> 
+            <p class="title_heading">아동</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3910&amp;cmdt=VID&amp;clst1=11&amp;clst2=1103&amp;clst3=&amp;landing=Y"><span>아동전집</span></a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=3911&amp;cmdt=VID&amp;clst1=11&amp;clst2=1101&amp;clst3=&amp;landing=Y"><span>어린이학습/자기계발</span></a> </li> 
+            </ul> 
+           </div> 
+          </div> 
+          <div class="category_inner"> 
+           <div style="order:1"> 
+            <p class="title_heading">스페셜코너</p> 
+            <ul class="category_menu"> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/presentebook">선물하기</a> </li> 
+             <li> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general">교보e캐시</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/ebookitem">eBook 집중탐구</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/mmbrbnft">혜택 라운지</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/evt/evtclnd">이벤트 캘린더</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/evt/nwpbclnd">신간 캘린더</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/showcase?pageNo=19">교보 오리지널</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/landing/new?lsc=VID">신간</a> </li> 
+             <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/rtspage?dgctExprFldCode=001">RTS</a> </li> 
+            </ul> 
+           </div> 
           </div> 
           <div class="category_inner"> 
           </div> 
          </div> 
         </div> 
         <ul class="quick_service"> 
-         
+         <li> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/09/8c7e466872e84b00ac4301bcb6589c63.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">교보e캐시</span> </a> </li> 
+         <li> <a href="https://sam.kyobobook.co.kr/dig/pnd/showcase?pageNo=12" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/09/ff1578a6f0df4d63be1ad9091476321f.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">sam무제한</span> </a> </li> 
+         <li> <a href="https://event.kyobobook.co.kr/detail/202290" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/10/2cbc1495b0a94b1fa5b7e5699a2407a8.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">북드림</span> </a> </li> 
+         <li> <a href="https://ebook.kyobobook.co.kr/dig/cff/e-library" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/09/43639a9dda72458da9a37da37d879bc3.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">전자도서관</span> </a> </li> 
+         <li> <a href="https://ebook.kyobobook.co.kr/dig/etc/landing/rent" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/09/aa0506d3d4154d90860be4bb11334511.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">대여eBook</span> </a> </li> 
+         <li> <a href="https://ebook.kyobobook.co.kr/dig/pnd/scholar" class="recommend_service_link"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2022/09/1a606ad0e6f9458fb424b941ddf20a94.png" alt="eBook선물하기 이미지" width="70px" height="70px"> </span> <span class="title">학술논문</span> </a> </li> 
+         <li class="banner_gnb"> <a href="https://ebook.kyobobook.co.kr/dig/etc/ebookitem"> <img src="https://contents.kyobobook.co.kr/pmtn/dwas/images/prom/banner/2024/02/766a46b9ea6146e8846835d65ad41021.jpg" alt="배너 이미지" width="295px" height="95px"> </a> </li> 
         </ul> <!-- // 주력 서비스 --> 
-       </div> 
-        
+       </div>
+       
        
       </div> 
      </div> 
-     <div id="tabAnbService" class="tab_content anb_service"> 
-      <div class="custom_scroll_wrap"> 
-       <ul class="all_service_list"> 
-        <li class="all_service_item"> <a href="https://www.kyobobook.co.kr/" class="btn_arw_link"> <span class="text">주요서비스</span> </a> 
-         <ul class="sub_depth_list"> 
-          <li class="depth_item"> <a href="https://product.kyobobook.co.kr/bestseller/total" class="depth_link">종합 베스트셀러</a> </li> 
-          <li class="depth_item"> <a href="https://product.kyobobook.co.kr/bestseller/steady" class="depth_link">스테디셀러</a> </li> 
-          <li class="depth_item"> <a href="https://product.kyobobook.co.kr/new/" class="depth_link">신상품</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/service/gift-promotion/main" class="depth_link">사은품</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/service/special-price" class="depth_link">특가</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/service/re-price" class="depth_link">정가인하</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/service/profile/main" class="depth_link">인물&amp;작품</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/gift" class="depth_link">선물하기</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/recommend/main" class="depth_link">추천</a> </li> 
-          <li class="depth_item"> <a href="https://www.kyobobook.co.kr/deliveryLounge" class="depth_link">배송라운지</a> </li> 
-         </ul> </li> 
-        <li class="all_service_item"> <a href="https://event.kyobobook.co.kr/" class="btn_arw_link"> <span class="text">이벤트 / 혜택</span> </a> 
-         <ul class="sub_depth_list"> 
-          <li class="depth_item"> <a href="https://event.kyobobook.co.kr/winner" class="depth_link">이벤트당첨자 </a> </li> 
-          <li class="depth_item"> <a href="https://event.kyobobook.co.kr/" class="depth_link">이벤트</a> </li> 
-          <li class="depth_item"> <a href="https://event.kyobobook.co.kr/attendance" class="depth_link">출석체크</a> </li> 
-         </ul> </li> 
-        <li class="all_service_item"> 
-         <div class="title_wrap title_size_sm"> 
-          <p class="title_heading">ONLY서비스</p> 
-         </div> 
-         
-        
-        
-        
-        <li class="all_service_item"> 
-  
-         
-        <li class="all_service_item"> 
-         
-          </li> 
-       </ul> 
-      </div> 
-     </div> 
+     
     </div> 
    </div> 
   </div> 
-
-<ul class="gnb_list"> 
-   <li class="gnb_item"> <a href="<%=cp %>/bukkeubooks/bestpage.com" class="gnb_link"> <em>베스트</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li> 
-   <li class="gnb_item"> <a href="" class="gnb_link"> <em>신상품</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li> 
-   <li class="gnb_item"> <a href="" class="gnb_link"> <em>이벤트</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li>  
+  <ul class="gnb_list"> 
+   <li class="gnb_item"> <a href="https://event.kyobobook.co.kr/detail/223324" class="gnb_link"> <em>베스트</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li> 
+   <li class="gnb_item"> <a href="https://event.kyobobook.co.kr/detail/223174" class="gnb_link"> <em>신상품</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li> 
+   <li class="gnb_item"> <a href="https://event.kyobobook.co.kr/detail/223174" class="gnb_link"> <em>이벤트</em> <span class="ico_new"> <span class="hidden">추천 메뉴</span> </span> </a> </li> 
+  
+   <li class="gnb_item"> <a href="https://product.kyobobook.co.kr/new/" class="gnb_link"> 신상품 </a> </li> 
+   <li class="gnb_item"> <a href="https://event.kyobobook.co.kr/" class="gnb_link"> 이벤트 </a> </li> 
+   <li class="gnb_item"> <a href="https://www.kyobobook.co.kr/service/gift-promotion/main" class="gnb_link"> 사은품 </a> </li> 
+   <li class="gnb_item"> <a href="https://www.kyobobook.co.kr/picks" class="gnb_link"> PICKS </a> </li> 
+   <li class="gnb_item"> <a href="https://casting.kyobobook.co.kr/" class="gnb_link"> CASTing </a> </li> 
+   <li class="gnb_item"> <a href="https://product.kyobobook.co.kr/KYO" class="gnb_link"> 교보ONLY </a> </li> 
   </ul> 
   <ul class="gnb_sub_list"> 
-   
+   <li class="gnb_sub_item"><a href="https://www.kyobobook.co.kr/benefit" class="gnb_sub_link">할인혜택</a> </li> 
+   <li class="gnb_sub_item"><a href="https://event.kyobobook.co.kr/daily-check" class="gnb_sub_link">출석체크</a> </li> 
    <li class="gnb_sub_item more_service"> <button type="button" class="btn_more_service"><span class="hidden">서비스 더보기</span></button> 
     <ul class="more_service_list"> 
      <li class="more_service_item"> <a href="https://www.kyobobook.co.kr/barodrim" class="more_service_link">바로드림</a> </li> 
@@ -1435,1377 +1855,1509 @@ String cp = request.getContextPath();
      <li class="more_service_item"> <a href="https://product.kyobobook.co.kr/pod/main" class="more_service_link">POD</a> </li> 
     </ul> </li> 
   </ul> 
-  <div class="curtain_banner_wrap"> <button type="button" class="btn_curtain_expand" id="welcome_curtain_thumb"> <span class="img_box"> <img src="../books_homepage/chim4.png" alt="우주최강 침착맨" width="85%"> </span> </button> 
-   <div class="curtain_banner_box" id="welcome_curtain_banner"> <button type="button" class="btn_curtain_close"> <span class="hidden">커튼 배너 닫기</span> </button> <a href="https://chimhaha.net/" class="curtain_banner_link"> <img src="../books_homepage/chim2.jpg" alt="한국인이면 침튜브봅시다."  width="609" height="1045"> </a> 
-   </div>
+  <div class="curtain_banner_wrap"> <button type="button" class="btn_curtain_expand" id="welcome_curtain_thumb"> <span class="img_box"> <img src="https://contents.kyobobook.co.kr/display/i_95_44_3d260e7e783b4ef784a02b1a99140d9a.jpg" alt="리커버:k 1~101"> </span> </button> 
+   <div class="curtain_banner_box" id="welcome_curtain_banner"> <button type="button" class="btn_curtain_close"> <span class="hidden">커튼 배너 닫기</span> </button> <a href="https://event.kyobobook.co.kr/detail/223324" class="curtain_banner_link"> <img src="https://contents.kyobobook.co.kr/display/INK_00_공통_02_커튼배너_02_확장형_1200x440_bac0f754d7a44d23b8e177c5fb03278f.jpg" alt="좋은 책의 재발견 x 응모하면 e교환권 처음의 리커버, 다음의 리커버 교보문고 리커버:k 1~101"> </a> 
    </div> 
+  </div> 
  </nav> 
 </div>
-
     
 </header>
-		<!-- 1 끝 --> 
 
 
-		<!-- main시작 -->
-		<main class="container_wrapper"> <!-- breadcrumb_wrap --> <section
-			class="breadcrumb_wrap">
-		<div class="breadcrumb_inner">
-			<ol class="breadcrumb_list">
-
-				<li class="breadcrumb_item"><a
-					href="https://www.kyobobook.co.kr/" class="home_link">HOME</a></li>
-				<li class="breadcrumb_item no_sub"><a
-					href="https://product.kyobobook.co.kr/bestseller/total"
-					class="btn_sub_depth">베스트셀러</a></li>
-				<!-- 1 depth lnb -->
-				<li class="breadcrumb_item"><a
-					href="https://product.kyobobook.co.kr/bestseller/online"
-					class="btn_sub_depth"> <span id="depthTitle"></span>
-				</a>
-					<div class="sub_depth_grid">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="/bestseller/total?period=002" class="depth_link">종합
-										베스트</a></li>
-								<li class="depth_item"><a
-									href="/bestseller/online?period=001" class="depth_link">온라인
-										베스트</a></li>
-								<li class="depth_item"><a href="/bestseller/realtime"
-									class="depth_link">실시간 베스트</a></li>
-								<li class="depth_item"><a
-									href="/bestseller/store?period=002" class="depth_link">매장별
-										베스트</a></li>
-								<li class="depth_item"><a
-									href="/bestseller/person?period=001" class="depth_link">인물
-										베스트</a></li>
-								<li class="depth_item"><a href="/bestseller/steady"
-									class="depth_link">스테디셀러</a></li>
-							</ul>
-						</div>
-					</div></li>
-				<!-- //1 depth lnb 끝 -->
-				<!-- 2 depth -->
-				<li class="breadcrumb_item"><a class="btn_sub_depth"> <span
-						id="tabTitle"></span>
-				</a>
-					<div class="sub_depth_grid col1">
-						<!-- repeat(li.depth_item 최대 10개) -->
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list" id="tabList">
-								<!-- DESC : 활성화된 depth active class 추가 -->
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=000"
-									class="depth_link">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=002&amp;saleCmdtDsplDvsnCode=TOT"
-									class="depth_link">국내도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=002&amp;period=001&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">외국도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=006&amp;period=001&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">교보ONLY</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=003&amp;period=001&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">eBook</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=004&amp;period=001&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">sam</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;period=001&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=GFT"
-									class="depth_link">핫트랙스</a></li>
-							</ul>
-						</div>
-					</div></li>
-				<!-- 2 depth 끝 -->
-
-				<!-- 3 depth 시작 -->
-				<li class="breadcrumb_item" style="display: none;"
-					id="domestic_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="domestic_breadcrumb_title"></span>
-				</a>
-					<div id="domestic_breadcrumb_list" class="sub_depth_grid col3">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=002&amp;saleCmdtDsplDvsnCode=TOT"
-									class="depth_link" value="">전체</a></li>
-
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=01"
-									class="depth_link" value="01">소설</a></li>
-
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=03"
-									class="depth_link" value="03">시/에세이</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=17"
-									class="depth_link" value="17">정치/사회</a></li>
-
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=19"
-									class="depth_link" value="19">역사/문화</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=33"
-									class="depth_link" value="33">컴퓨터/IT</a></li>
-
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=001&amp;period=001&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=35"
-									class="depth_link" value="35">잡지</a></li>
-
-							</ul>
-						</div>
-					</div></li>
-				<!-- 3 depth 끝 -->
-
-				<!-- //상위 탭이 존재하는 경우 -->
-				<!-- 외국도서 3 depth -->
-				<li class="breadcrumb_item" style="display: none;"
-					id="foreign_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="foreign_breadcrumb_title"></span>
-				</a>
-					<div class="sub_depth_grid col1">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=002&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">외국도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=002&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=ENG"
-									class="depth_link">서양도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=002&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=JAP"
-									class="depth_link">일본도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004"
-									class="depth_link">기타언어권</a></li>
-							</ul>
-						</div>
-					</div></li>
-				<!-- 외국도서 3 depth 끝 -->
-				<!-- 외국도서 4 depth -->
-				<li class="breadcrumb_item" style="display: none;"
-					id="foreign_sub_breadcrumb_wrap"><a class="btn_sub_depth">
-						<span id="foreign_sub_breadcrumb_title"></span>
-				</a>
-
-
-					<div id="foreign_sub_breadcrumb_list"
-						class="sub_depth_grid col1 hidden" value="foreignList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=002"
-									class="depth_link">전체</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div id="western_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col2" value="westernList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=ENG"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=01"
-									class="depth_link" value="01">문학</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=03"
-									class="depth_link" value="03">취미/실용/여행</a>
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=19"
-									class="depth_link" value="19">문구/멀티/비도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=81"
-									class="depth_link" value="81">ELT/수험서</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div id="jap_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col2" value="japanList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=JAP"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=41"
-									class="depth_link" value="41">잡지</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=43"
-									class="depth_link" value="43">엔터테인먼트</a>
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=59"
-									class="depth_link" value="59">인문/사회</a></li>
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=67"
-									class="depth_link" value="67">중국도서</a></li>
-							</ul>
-						</div>
-					</div>
-					<div id="etc_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col1" value="etcList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode="
-									class="depth_link" value="">전체</a></li>
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=002&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=90"
-									class="depth_link" value="90">스페인도서</a></li>
-							</ul>
-						</div>
-					</div></li>
-
-				<li class="breadcrumb_item" style="display: none;"
-					id="ebook_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="ebook_breadcrumb_title"></span>
-				</a>
-					<div class="sub_depth_grid col3" value="ebookList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=002"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=001"
-									class="depth_link" value="001">경제경영</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=019"
-									class="depth_link" value="019">과학/공학</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=021"
-									class="depth_link" value="021">IT/프로그래밍</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=023"
-									class="depth_link" value="023">건강/의학</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=039"
-									class="depth_link" value="039">외국도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=041"
-									class="depth_link" value="041">매거진</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=071"
-									class="depth_link" value="071">로맨스</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=091"
-									class="depth_link" value="091">단행본만화</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=093"
-									class="depth_link" value="093">웹툰</a></li>
-
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=003&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=920"
-									class="depth_link" value="920">동영상</a></li>
-							</ul>
-						</div>
-					</div></li>
-
-				<li class="breadcrumb_item" style="display: none;"
-					id="sam_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="sam_breadcrumb_title"></span>
-				</a>
-					<div class="sub_depth_grid col3" value="samList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=002"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=001"
-									class="depth_link" value="001">경제경영</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=003"
-									class="depth_link" value="003">자기계발</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=019"
-									class="depth_link" value="019">과학/공학</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=021"
-									class="depth_link" value="021">IT/프로그래밍</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=023"
-									class="depth_link" value="023">건강/의학</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=039"
-									class="depth_link" value="039">외국도서</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=041"
-									class="depth_link" value="041">매거진</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=071"
-									class="depth_link" value="071">로맨스</a></li>
-
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=087"
-									class="depth_link" value="087">미스터리</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=089"
-									class="depth_link" value="089">스릴러</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?period=001&amp;dsplDvsnCode=004&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=090"
-									class="depth_link" value="090">섹슈얼로맨스</a></li>
-
-							</ul>
-						</div>
-					</div></li>
-				<li class="breadcrumb_item" style="display: none;"
-					id="hot_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="hot_breadcrumb_title"></span>
-				</a>
-					<div class="sub_depth_grid col1">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=GFT"
-									class="depth_link">기프트</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=MUC"
-									class="depth_link">음반</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?saleCmdtClstCode=000400&amp;dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004"
-									class="depth_link">영상</a></li>
-							</ul>
-						</div>
-					</div></li>
-				<li class="breadcrumb_item" style="display: none;"
-					id="hot_sub_breadcrumb_wrap"><a class="btn_sub_depth"> <span
-						id="hot_sub_breadcrumb_title"></span>
-				</a>
-
-
-					<div id="hotGift_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col1" value="giftList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=GFT&amp;period=001"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000000&amp;period=001"
-									class="depth_link" value="000000">필기구</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000001&amp;period=001"
-									class="depth_link" value="000001">디자인문구</a></li>
-
-							</ul>
-						</div>
-					</div>
-
-					<div id="hotMusic_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col2" value="recordList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=003&amp;saleCmdtDsplDvsnCode=MUC&amp;period=001"
-									class="depth_link" value="">전체</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000300&amp;period=001"
-									class="depth_link" value="000300">가요</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000301&amp;period=001"
-									class="depth_link" value="000301">POP</a></li>
-
-							</ul>
-						</div>
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000309&amp;period=001"
-									class="depth_link" value="000309">국악</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000310&amp;period=001"
-									class="depth_link" value="000310">유아/아동</a></li>
-
-							</ul>
-						</div>
-					</div>
-
-					<div id="hotVideo_sub_breadcrumb_list"
-						class="sub_depth_grid hidden col1" value="videoList">
-						<div class="sub_depth_box">
-							<ul class="sub_depth_list">
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000400&amp;period=001"
-									class="depth_link" value="000400">Blu-Ray</a></li>
-								<li class="depth_item"><a
-									href="https://product.kyobobook.co.kr/bestseller/online?dsplDvsnCode=005&amp;dsplTrgtDvsnCode=004&amp;saleCmdtClstCode=000401&amp;period=001"
-									class="depth_link" value="000401">DVD</a></li>
-							</ul>
-						</div>
-					</div></li>
-			</ol>
-		</div>
-		</section> <!-- section끝 --> <!-- //breadcrumb_wrap --> <!-- contents_wrap --> <section
-			class="contents_wrap aside">
-		<div class="contents_inner">
-			<!-- LNB -->
-			<aside class="aside_wrap"> <!-- 베스트 셀러 제목 -->
-			<div class="aside_header">
-				<div class="title_wrap title_size_xxl">
-					<span class="title_heading">베스트셀러</span>
-				</div>
-			</div>
-
-
-			<!-- 왼쪽 -->
-
-			<div class="aside_body">
-				<div class="snb_wrap">
-					<ul class="snb_list category">
-						<li class="snb_item"><a class="snb_link depth_title"
-							href="/bestseller/total?period=002" category2="종합 베스트"
-							onclick="pushBestsellerLnbDataLayer(this)">종합 베스트</a>
-
-							<ul class="snb_list">
-								<li class="snb_item"><a href="/bestseller/total?period=002"
-									class="snb_link" category2="종합 베스트" category3="주간"
-									onclick="pushBestsellerLnbDataLayer(this)">주간</a></li>
-								<li class="snb_item"><a href="/bestseller/total?period=003"
-									class="snb_link" category2="종합 베스트" category3="월간"
-									onclick="pushBestsellerLnbDataLayer(this)">월간</a></li>
-								<li class="snb_item"><a href="/bestseller/total?period=004"
-									class="snb_link" category2="종합 베스트" category3="연간"
-									onclick="pushBestsellerLnbDataLayer(this)">연간</a></li>
-							</ul></li>
-						<li class="snb_item"><a class="snb_link depth_title"
-							href="/bestseller/online?period=001" category2="온라인 베스트"
-							onclick="pushBestsellerLnbDataLayer(this)">온라인 베스트</a>
-
-							<ul class="snb_list">
-								<li class="snb_item active"><a
-									href="/bestseller/online?period=001" class="snb_link"
-									category2="온라인 베스트" category3="일간"
-									onclick="pushBestsellerLnbDataLayer(this)">일간</a></li>
-								<li class="snb_item"><a
-									href="/bestseller/online?period=002" class="snb_link"
-									category2="온라인 베스트" category3="주간"
-									onclick="pushBestsellerLnbDataLayer(this)">주간</a></li>
-								<li class="snb_item"><a
-									href="/bestseller/online?period=003" class="snb_link"
-									category2="온라인 베스트" category3="월간"
-									onclick="pushBestsellerLnbDataLayer(this)">월간</a></li>
-							</ul></li>
-
-						<li class="snb_item"><a class="snb_link depth_title"
-							href="/bestseller/realtime" category2="실시간 베스트"
-							onclick="pushBestsellerLnbDataLayer(this)">실시간 베스트</a></li>
-
-
-						<li class="snb_item"><a class="snb_link depth_title"
-							href="/bestseller/person?period=001" category2="인물 베스트"
-							onclick="pushBestsellerLnbDataLayer(this)">인물 베스트</a>
-
-							<ul class="snb_list">
-								<li class="snb_item"><a
-									href="/bestseller/person?period=001" class="snb_link"
-									category2="인물 베스트" category3="일간"
-									onclick="pushBestsellerLnbDataLayer(this)">일간</a></li>
-								<li class="snb_item"><a
-									href="/bestseller/person?period=002" class="snb_link"
-									category2="인물 베스트" category3="주간"
-									onclick="pushBestsellerLnbDataLayer(this)">주간</a></li>
-								<li class="snb_item"><a
-									href="/bestseller/person?period=003" class="snb_link"
-									category2="인물 베스트" category3="월간"
-									onclick="pushBestsellerLnbDataLayer(this)">월간</a></li>
-							</ul></li>
-						<li class="snb_item"><a class="snb_link depth_title"
-							href="/bestseller/steady" category2="스테디셀러"
-							onclick="pushBestsellerLnbDataLayer(this)">스테디셀러</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- 왼쪽 끝 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--> </aside>
-
-			<!-- contents -->
-			<section id="contents" class="section_wrap"> <!-- aside 구분에 따른 Title 문구 변경 -->
-			<div class="title_wrap title_size_lg has_sub_title">
-				<h1 class="title_heading">
-					<span class="hidden">교보문고 </span>
-					<!-- // 추가 220509 sub_title_wrap 구조 추가, 집계기준 버튼 추가 -->
-
-
-					온라인 <span>일간</span> 베스트 <span class="hidden">셀러</span>
-				</h1>
-				<!-- 수정 220509 SEO H태그 적용 -->
-
-				<!-- 추가 220509 sub_title_wrap 구조 추가, 집계기준 버튼 추가 -->
-				<div class="sub_title_wrap">
-					<p class="info_text">
-
-
-						인터넷에서 판매되는 상품의 지난 <span>하루</span>간 가장 많이 판매된 순위입니다.
-					<div class="right_area">
-						<button type="button" class="btn_xs btn_line_gray" id="btnTooltip">
-							<span class="ico_info"></span> <span class="text">집계기준</span>
-						</button>
-					</div>
-				</div>
-
-			</div>
-
-
-			<!-- contents_inner --> <!-- tab_wrap -->
-			<div class="tab_wrap type_line justify">
-				<!-- 탭메뉴(전체, 국내도서, 외국도서 eBook, sam, 핫트랙스, 교보 ONLY) -->
-				<!-- tab_list_wrap -->
-				<div class="tab_list_wrap" id="mainTabs">
-					<ul class="tabs">
-						<!-- 종합 베스트 TABx / 온라인베스트(전체/국내/외국/ebbok/sam/핫트랙스/교보only) 매장별/연령대/연도별(국내/외국) 특가/인물(국내/외국/교보only) -->
-						<li class="tab_item ui-state-active"><a class="tab_link"
-							item-list-tab="일간" category2="온라인 베스트" category3="전체"
-							category4="전체" onclick="pushBestsellerTabDataLayer(this)"> <span
-								class="tab_text" value="000">전체</span>
-						</a></li>
-
-						<li class="tab_item"><a class="tab_link" item-list-tab="일간"
-							category2="온라인 베스트" category3="국내도서" category4="전체"
-							onclick="pushBestsellerTabDataLayer(this)"> <span
-								class="tab_text" value="001">국내도서</span>
-						</a></li>
-
-
-
-						<li class="tab_item"><a class="tab_link" item-list-tab="일간"
-							category2="온라인 베스트" category3="eBook" category4="전체"
-							onclick="pushBestsellerTabDataLayer(this)"> <span
-								class="tab_text" value="003">eBook</span>
-						</a></li>
-
-
-
-					</ul>
-				</div>
-				<!-- //tab_list_wrap -->
-
-
-				<!-- tab_content -->
-				<div class="tab_wrap type_tag type_fold" id="foldDiv" data-type-btn>
-					<!-- 서브메뉴(탭) -->
-					<!-- 국내도서 -->
-					<div class="tab_list_wrap" id="domesticList" style="display: none;">
-						<div class="tab_swiper_wrap swiper-container">
-							<ul class="tabs swiper-wrapper">
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="전체"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text">전체</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="소설"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="01">소설</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="시/에세이"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="03">시/에세이</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="인문"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="05">인문</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="과학"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="29">과학</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="만화"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="47">만화</span>
-									</button>
-								</li>
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="국내도서" category4="한국소개도서"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="53">한국소개도서</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide type_purple">
-									<button type="button" class="tab_link">
-										<span class="tab_text" data-value="FRE">정가제Free 베스트</span>
-									</button>
-								</li>
-
-							</ul>
-						</div>
-						<button type="button" class="btn_tag_more">
-							<span class="ico_tag_more"></span> <span class="hidden">더보기</span>
-						</button>
-					</div>
-
-					<!-- 국내도서 끝 -->
-
-					<!-- ebook -->
-
-					<!-- ebook -->
-					<div class="tab_list_wrap" id="ebookList" style="display: none;">
-						<div class="tab_swiper_wrap swiper-container">
-							<ul class="tabs swiper-wrapper">
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="전체"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text">전체</span>
-									</button>
-								</li>
-
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="자기계발"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="003">자기계발</span>
-									</button>
-								</li>
-
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="인문"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="007">인문</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="종교"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="009">종교</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="소설"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="011">소설</span>
-									</button>
-								</li>
-
-
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="여행/취미"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="027">여행/취미</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="예술/대중문화"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="029">예술/대중문화</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="로맨스"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="071">로맨스</span>
-									</button>
-								</li>
-
-
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="단행본만화"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="091">단행본만화</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="웹툰"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="093">웹툰</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="오디오북"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="910">오디오북</span>
-									</button>
-								</li>
-
-								<li class="tab_item swiper-slide">
-									<button type="button" class="tab_link" item-list-tab="일간"
-										category2="온라인 베스트" category3="ebook" category4="동영상"
-										onclick="pushBestsellerTabDataLayer(this)">
-										<span class="tab_text" data-value="920">동영상</span>
-									</button>
-								</li>
-
-							</ul>
-						</div>
-						<button type="button" class="btn_tag_more">
-							<span class="ico_tag_more"></span> <span class="hidden">더보기</span>
-						</button>
-					</div>
-					<!-- ebook끝 -->
-
-
-
-					<!-- tab_content -->
-					<div class="tab_content" id="tabRoot">
-						<!-- list_sort_wrap -->
-						<div class="list_sort_wrap">
-							<!-- 연도별 베스트 -->
-
-
-							<!-- 실시간 베스트 -->
-
-
-							<!-- 온라인/매장별/연령대/특가/인물 베스트 -->
-							<span class="sort_desc" id="baseDateText"></span>
-
-							<!--
-        집계 기준이 주간/월간/연간인 경우 노출
-        주간: 전주 수요일~금주 화요일
-        월간: 1주 수요일~4주 화요일
-        연간: 1월 1주 수요일~12월 4주 화요일
-    -->
-							<div class="right_area">
-								<!-- 연도별 베스트 -->
-
-								<!-- 집계 기준이 주간/월간/연간인 경우 노출 -->
-
-								<div class="form_sel" data-class="type_sm" style="width: 201px;">
-									<select title="목록 보기 유형 선택" id="selList">
-									</select>
-								</div>
-								<!-- // 집계 기준이 주간/월간/연간인 경우 노출 -->
-
-								<!-- 스테디셀러인 경우 -->
-
-								<!-- //스테디셀러인 경우 -->
-
-								<div class="form_sel" data-class="type_sm">
-									<select title="목록 보기 유형 선택" id="selListPer">
-										<option value="20">20개씩 보기</option>
-										<option value="50">50개씩 보기</option>
-									</select>
-								</div>
-
-
-								<div class="switch_list_btn_wrap"
-									data-target="#tabRoot .switch_prod_wrap">
-									<button type="button"
-										class="btn_sm btn_line_gray ico_list active" data-type="list">
-										<span class="hidden">리스트형으로 보기</span>
-									</button>
-									<button type="button" class="btn_sm btn_line_gray ico_img"
-										data-type="img">
-										<span class="hidden">이미지형으로 보기</span>
-									</button>
-								</div>
-
+    <!-- 컨텐츠 -->
+ <section id="contents" class="contents_wrap">
+            <div class="contents_inner">
+                <div class="cart_top_wrap" data-sps-offset="324">
+                    <div class="cart_top_inner">
+                        <div class="cart_title_box">
+                            <div class="title_wrap title_size_lg">
+                                <div class="right_area">
+                                    <ol class="step_round_text_list">
+                                        <li class="step_item"><span class="step_num">1</span>장바구니</li>
+                                        
+                                        <li class="step_item"><span class="step_num">2</span>주문/결제</li>
+                                        <li class="step_item active"><span class="step_num">3</span>주문완료</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart_body payment">
+                    <div class="payment_complete_inner">
+                        <h1 class="hidden">주문완료</h1>
+
+                        <div class="payment_complete_header_wrap">
+                            주문이 완료되었어요.<br>
+                            <div class="order_number"><strong>주문번호 <span class="count" data-complet-ordr-id="">O24087942726</span></strong></div>
+                            <!--<span>주문번호 <span class="count" data-complet-ordr-id></span></span>-->
+                        </div>
+
+						<!--round_blue_box-->
+						<div class="round_blue_box hidden" data-online-box="">
+							<div class="box_title_group">
+								<p class="text bank_info">
+									입금계좌 : <span class="bank_account">국민은행 6574-9014-0139-05</span>
+								</p>
+								<p class="text desc">
+									10일 이내 입금이 되지 않을 경우 주문이 자동취소됩니다.
+								</p>
 							</div>
+							<!--//box_title_group-->
+						</div>
+						<!--//round_blue_box-->
+
+						<!-- 수정 220325 디자인 컬러 변경으로 클래스 수정 -->
+						<div class="round_green_box hidden" data-barodream-box="">
+                            <p class="box_title_group">
+								<span class="text">
+									<span class="ico_location_primary_green"><span class="hidden">위치</span></span>
+									<span class="fc_green" data-baro-dream-dlpn-text="">광화문점</span><!-- 수정 240214 바로드림 UI/UX 개선 -->
+								</span>
+                                <!-- 수정 240214 바로드림 UI/UX 개선 -->
+                                <span class="text">
+									<span data-barodream-box-text="">에서 아래 상품이 준비됩니다.</span>
+								</span>
+                                <!-- //수정 240214 바로드림 UI/UX 개선 -->
+                            </p>
+							<!--//box_title_group-->
+						</div>
+						<!--//round_green_box-->
+						<!-- //수정 220325 디자인 컬러 변경으로 클래스 수정  -->
+
+                        <div class="title_wrap payment_complete">
+                            <h2 class="title_heading">주문상품 <span class="hidden" data-barodream-title-area=""> / 받는 분</span></h2>
+                        </div>
+
+                    	<div class="fold_box_wrap type_box" data-type="multi" data-type-no-gift-area="">
+                            <ul class="fold_box_list">
+                                
+                                <li class="fold_box" style="height: 83px;">
+                                    <div class="fold_box_header size_xs">
+                                        <span class="header_text">
+                                            <span class="title"><span data-product-first-title="">[국내도서]하루 5분 습관 수업</span>
+                                                <span data-product-other-show="" class="hidden">외 <span class="count" data-product-other-cnt=""></span>개</span>
+                                                (총 상품 <span class="count" data-product-total-cnt="">1</span>개)</span>
+                                        </span>
+                                        <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
+                                    </div>
+                                    <div class="fold_box_contents">
+                                        <div class="tbl_prod_wrap ordering">
+                                            <table class="tbl_prod">
+                                                <caption>주문상품 테이블로 상품정보,수량,금액, 배송방법을(를) 나타낸 표입니다.</caption>
+                                                <colgroup>
+                                                    <col>
+                                                    <col style="width: 150px;">
+                                                </colgroup>
+                                                <thead class="hidden">
+                                                <tr>
+                                                    <th scope="col">상품정보,수량,금액</th>
+                                                    <th scope="col">배송방법</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody data-product-list="">
+                                                
+
+                                                
+						    <tr>
+						        <td class="prod">
+						            <div class="prod_area horizontal">
+						                <!--DESC:핫트랙스 상품일때 [.prod_thumb_box] 에 [.type_square_round] 추가-->
+						                <div class="prod_thumb_box size_sm">
+						                    <!--DESC:링크일경우 aTag 추가 다음상품에 예제있음-->
+						                    
+											
+                                                <a target="_blank" href="https://product.kyobobook.co.kr/detail/S000001949991" class="prod_link">
+                                            
+							                    <span class="img_box">
+							                        <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191280340.jpg" alt="[국내도서]하루 5분 습관 수업">
+							                    </span>
+						                    </a>
+						                    
+						                </div>
+						                <div class="prod_info_box size_sm">
+						                    <!--DESC:링크일경우 aTag로 변경-->
+						                    <span class="prod_info">
+						                        <!--<span class="prod_name">[국내도서] [국내도서]하루 5분 습관 수업</span>-->
+						                        <span class="prod_name">[국내도서]하루 5분 습관 수업</span>
+						                    </span>
+
+				                            <div class="prod_option">
+					                        	
+					                        	
+				                            </div>
+						                    <div class="prod_price">
+						                        <span class="price">
+						                            <span class="val">11,700</span>
+						                            <span class="unit">원</span>
+						                        </span>
+						                        <span class="count">/ 1개</span>
+						                    </div>
+						                </div>
+						            </div>
+						        </td>
+						        <td>
+						            <div class="badge_box">
+						                
+						                	
+								        		
+								        		
+                                                    <!-- 교보배송 상품 중 -->
+                                                    
+                                                    <span class="badge_sm badge_pill badge_primary"><span class="text">새벽배송</span></span>
+                                                    
+                                                    <!-- 그 외 -->
+                                                    
+								        		
+							                	
+						                	
+						                
+						            </div>
+						        </td>
+						    </tr>
+						</tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </li>
+								<!--//fold_box-->
+                            </ul>
+                        </div>
+
+                        <div class="fold_box_wrap type_box hidden" data-type="multi" data-type-barodream-area="">
+                            <ul class="fold_box_list">
+                                
+                                <li class="fold_box">
+                                    <div class="fold_box_header size_xs">
+                                        <span class="header_text">
+                                            <span class="title"><span data-product-first-title="">[국내도서]하루 5분 습관 수업</span>
+                                                <span data-product-other-show="" class="hidden">외 <span class="count" data-product-other-cnt=""></span>개</span>
+                                                (총 상품 <span class="count" data-product-total-cnt="">1</span>개)</span>
+                                        </span>
+                                        <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
+                                    </div>
+                                    <div class="fold_box_contents">
+                                        <div class="tbl_prod_wrap ordering">
+                                            <table class="tbl_prod">
+                                                <caption>주문상품 테이블로 상품정보,수량,금액, 배송방법을(를) 나타낸 표입니다.</caption>
+                                                <colgroup>
+                                                    <col>
+                                                    <col style="width: 150px;">
+                                                </colgroup>
+                                                <thead class="hidden">
+                                                <tr>
+                                                    <th scope="col">상품정보,수량,금액</th>
+                                                    <th scope="col">배송방법</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody data-product-list="">
+                                                
+
+                                                
+						    <tr>
+						        <td class="prod">
+						            <div class="prod_area horizontal">
+						                <!--DESC:핫트랙스 상품일때 [.prod_thumb_box] 에 [.type_square_round] 추가-->
+						                <div class="prod_thumb_box size_sm">
+						                    <!--DESC:링크일경우 aTag 추가 다음상품에 예제있음-->
+						                    
+											
+                                                <a target="_blank" href="https://product.kyobobook.co.kr/detail/S000001949991" class="prod_link">
+                                            
+							                    <span class="img_box">
+							                        <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191280340.jpg" alt="[국내도서]하루 5분 습관 수업">
+							                    </span>
+						                    </a>
+						                    
+						                </div>
+						                <div class="prod_info_box size_sm">
+						                    <!--DESC:링크일경우 aTag로 변경-->
+						                    <span class="prod_info">
+						                        <!--<span class="prod_name">[국내도서] [국내도서]하루 5분 습관 수업</span>-->
+						                        <span class="prod_name">[국내도서]하루 5분 습관 수업</span>
+						                    </span>
+
+				                            <div class="prod_option">
+					                        	
+					                        	
+				                            </div>
+						                    <div class="prod_price">
+						                        <span class="price">
+						                            <span class="val">11,700</span>
+						                            <span class="unit">원</span>
+						                        </span>
+						                        <span class="count">/ 1개</span>
+						                    </div>
+						                </div>
+						            </div>
+						        </td>
+						        <td>
+						            <div class="badge_box">
+						                
+						                	
+								        		
+								        		
+                                                    <!-- 교보배송 상품 중 -->
+                                                    
+                                                    <span class="badge_sm badge_pill badge_primary"><span class="text">새벽배송</span></span>
+                                                    
+                                                    <!-- 그 외 -->
+                                                    
+								        		
+							                	
+						                	
+						                
+						            </div>
+						        </td>
+						    </tr>
+						</tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </li>
+								<!--//fold_box-->
+								<li class="fold_box no_fold">
+									<div class="fold_box_fixed">
+										<div class="fold_box_fixed_inner">
+											<div class="tbl_row_wrap">
+												<table class="tbl_row">
+													<caption>받는 분 테이블로 받는 분을(를) 나타낸 표입니다.</caption>
+													<colgroup>
+														<col style="width: 160px;">
+														<col style="width: auto;">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">받는 분</th>
+															<td>
+																<div class="person_info">
+																	<span class="name" data-delivery-recv-name="">윤선호</span>
+																	<span class="gap">/</span>
+																	<span class="phone_number" data-delivery-recv-phone="">010-7687-9313</span>
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!--//tbl_row_wrap-->
+										</div>
+										<!--//fold_box_fixed_inner-->
+									</div>
+									<!--//fold_box_fixed-->
+								</li>
+								<!--//fold_box-->
+                            </ul>
+                        </div>
+
+                        <div class="fold_box_wrap type_box hidden" data-type="multi" data-type-gift-area="">
+							<ul class="fold_box_list">
+								<li class="fold_box" style="height: 83px;">
+									<div class="fold_box_header size_xs">
+										<span class="header_text">
+											총
+											<span class="count" data-gift-other-cnt=""></span>
+											명 / 총
+											<span class="count" data-gift-total-cnt="">1</span>
+											개
+										</span>
+										<button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
+									</div>
+									<!--//fold_box_header-->
+									<div class="fold_box_contents">
+										<div class="tbl_prod_wrap ordering">
+											<table class="tbl_prod">
+												<caption>주문상품 테이블로 상품정보,수량,금액, 배송방법을(를) 나타낸 표입니다. 테이블로 상품정보,수량,금액, 배송방법을(를) 나타낸 표입니다.</caption>
+												<colgroup>
+													<col>
+													<col style="width: 150px;">
+												</colgroup>
+												<thead class="hidden">
+													<tr>
+														<th scope="col">상품정보,수량,금액</th>
+														<th scope="col">배송방법</th>
+													</tr>
+												</thead>
+                                                <tbody data-product-list="">
+                                                
+
+                                                
+						    <tr>
+						        <td class="prod">
+						            <div class="prod_area horizontal">
+						                <!--DESC:핫트랙스 상품일때 [.prod_thumb_box] 에 [.type_square_round] 추가-->
+						                <div class="prod_thumb_box size_sm">
+						                    <!--DESC:링크일경우 aTag 추가 다음상품에 예제있음-->
+						                    
+											
+                                                <a target="_blank" href="https://product.kyobobook.co.kr/detail/S000001949991" class="prod_link">
+                                            
+							                    <span class="img_box">
+							                        <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191280340.jpg" alt="[국내도서]하루 5분 습관 수업">
+							                    </span>
+						                    </a>
+						                    
+						                </div>
+						                <div class="prod_info_box size_sm">
+						                    <!--DESC:링크일경우 aTag로 변경-->
+						                    <span class="prod_info">
+						                        <!--<span class="prod_name">[국내도서] [국내도서]하루 5분 습관 수업</span>-->
+						                        <span class="prod_name">[국내도서]하루 5분 습관 수업</span>
+						                    </span>
+
+				                            <div class="prod_option">
+					                        	
+					                        	
+				                            </div>
+						                    <div class="prod_price">
+						                        <span class="price">
+						                            <span class="val">11,700</span>
+						                            <span class="unit">원</span>
+						                        </span>
+						                        <span class="count">/ 1개</span>
+						                    </div>
+						                </div>
+						            </div>
+						        </td>
+						        <td>
+						            <div class="badge_box">
+						                
+						                	
+								        		
+								        		
+                                                    <!-- 교보배송 상품 중 -->
+                                                    
+                                                    <span class="badge_sm badge_pill badge_primary"><span class="text">새벽배송</span></span>
+                                                    
+                                                    <!-- 그 외 -->
+                                                    
+								        		
+							                	
+						                	
+						                
+						            </div>
+						        </td>
+						    </tr>
+						</tbody>
+											</table>
+										</div>
+										<!--//tbl_prod_wrap-->
+									</div>
+									<!--//fold_box_contents-->
+								</li>
+								<!--//fold_box-->
+							</ul>
+							<!--//fold_box_list-->
 						</div>
 
-
-						<div class="list_result_wrap">
-							<!-- pagination -->
-							<div class="pagination"></div>
-
-							<!-- right_area(찜하기, 장바구니, Excel다운로드) -->
-							<div class="right_area">
-								<div class="item_group">
-									<span class="form_chk"> <input id="chkAllBestsellerChk"
-										type="checkbox"> <label for="chkAllBestsellerChk">전체선택</label>
-									</span>
-
-
-									<button type="button" class="btn_wish size_sm"
-										data-kbbfn="wish-item-list" data-kbbfn-myrcode='001'
-										data-kbbfn-nbopcode='001'
-										data-kbbfn-list="#tabRoot .prod_list">
-										<span class="ico_wish"></span> <span class="hidden">찜하기</span>
-									</button>
-									<button data-kbbfn-cartList="#tabRoot .prod_list"
-										id="btnAllInBasket" type="button" class="btn_sm btn_line_gray"
-										data-kbbfn="cart-item"
-										data-kbbfn-cartAllCheck='#tabRoot #chkAllBestsellerChk'>
-										<span class="ico_cart"></span> <span class="text">장바구니</span>
-									</button>
-
+                        
+                        <div class="fold_box_wrap type_box hidden" data-type="multi" data-type-multi-address-area="">
+							<div class="fold_box_list" data-type-multi-address-list="">
+								<div class="fold_box no_fold">
+									<div class="fold_box_header size_xs">
+										<span class="header_text">
+											총
+											<span class="count" data-gift-other-cnt=""></span>
+											명 / 총
+											<span class="count" data-gift-total-cnt="">1</span>
+											개
+										</span>
+									</div>
+									<!--//fold_box_fixed-->
 								</div>
-								<div class="item_group">
-									<button type="button" class="btn_sm btn_line_gray"
-										id="excel_btn" onclick="pushDataLayerForDownExcel()">
-										<span class="ico_excel"></span> <span class="text">Excel다운로드</span>
-									</button>
-									<!-- 온라인 베스트 -->
-
-									<button type="button" class="btn_filter selected"
-										id="samFilterBtn" style="display: none;">
-										<span class="text">필터</span>
-									</button>
-
-								</div>
+								<!--//fold_box-->
+								<!-- 여러곳배송 상품영역 -->
 							</div>
-							<script>
-    /**
-     * GA 엑셀 다운로드 클릭
-     */
-    function pushDataLayerForDownExcel () {
-        window.dataLayer.push({ ecommerce: null })
-        window.dataLayer.push({
-            event: 'item_event',
-            event_name: 'click_element',
-            ecommerce: {
-                title: 'Excel다운로드',
-                type: 'Excel다운로드 버튼'
-            }
-        })
-    }
+							<!--//fold_box_list-->
+						</div>
+						<!--//fold_box_wrap-->
+
+                        
+                        <div class="title_wrap payment_complete hidden" data-recipient-info-title="">
+							<h2 class="title_heading">선물 받는 분 정보</h2><!-- 수정 220415 SEO H태그 적용 -->
+						</div>
+						<!--//title_wrap-->
+                        
+<div data-barodream-no-mnbr=""></div>
+
+<div data-gift-mnbr=""></div>
+
+
+<script id="tmpl_barodream_mnbr" type="text/template">
+    <div class="payment_box_wrap">
+        <div class="payment_body_wrap" data-barodream-mnbr="main">
+            <div class="tbl_row_wrap">
+                <table class="tbl_row">
+                    <caption>받는 분 테이블로 받는 분 정보을(를) 나타낸 표입니다.</caption>
+                    <colgroup>
+                        <col style="width: 210px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">받는 분 정보</th>
+                        <td>
+                            <div class="form_info_single">
+                                <span class="person_info">
+                                    <span class="name" data-barodream-mnbr="name">{{:mnbrName}}</span>
+                                    <span class="gap">/</span>
+                                    <span class="phone_number" data-barodream-mnbr="phone">{{:mnbrPhone}}</span>
+                                </span>
+                                <button type="button" class="btn_xs btn_line_gray" data-barodream-mnbr="show_form" data-barodream-mnbr-open="close"><span class="text">변경</span></button>
+                                {{if serviceType == "P"}}
+                                
+                                <div class="bubble_speech_desc arw_left_top">픽업박스에서 도서가 준비되면 휴대폰으로 <span class="fw_bold">인증번호</span>가 전송됩니다.</div>
+                                {{/if}}
+                                {{if serviceType == "G"}}
+                                <div class="bubble_speech_desc arw_left_top {{:serviceType}}">결제 후 이 번호로 기프트카드 정보가 <span class="fw_bold">문자</span> 전송됩니다.</div>
+                                {{/if}}
+                                {{if serviceType == "C"}}
+                                <div class="bubble_speech_desc arw_left_top">결제 후 이 번호로 <span class="fw_bold">주문 관련정보</span>가 전송됩니다.</div>
+                                {{/if}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="payment_body_wrap hidden" data-barodream-mnbr="change_form">
+            <div class="tbl_row_wrap">
+                <table class="tbl_row">
+                    <caption>받는 분 정보 입력 테이블로 이름, 휴대폰을(를) 나타낸 표입니다.</caption>
+                    <colgroup>
+                        <col style="width: 210px;">
+                        <col style="width: auto">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row"><span class="hidden">이름, 휴대폰</span></th>
+                        <td>
+                            <div class="form_col_group w_300">
+                                <div class="col_box">
+                                    <input type="text" class="form_ip" placeholder="이름을 입력해 주세요." title="이름 입력" data-barodream-mnbr="input_name">
+                                </div><!--//col_box-->
+                                <div class="col_box">
+                                    <div class="input_btn_out_box">
+                                        <input type="tel" class="form_ip" placeholder="휴대폰번호를 - 없이 입력해 주세요." title="휴대폰 번호 입력" data-barodream-mnbr="input_phone">
+                                        <button type="button" class="btn_ip btn_primary" data-barodream-mnbr="action_update"><span class="text">변경</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//form_row_group-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--//tbl_row_wrap-->
+        </div>
+        <!--//payment_body_wrap-->
+    </div>
 </script>
 
-						</div>
-						
-						
-	<!-- 테이블 넣어볼까??????????????????????????????????????????????????? -->
-	<c:set var="rank" value="0" />
-<div class="view_type_list switch_prod_wrap">
-              <!-- List -->
-              <c:forEach var="dto" items="${lists }">
-              
-               <ol class="prod_list" style="">
-               <li class="prod_item" data-binding="true" data-id="S000213800371">
-               <div class="prod_chk_group">
-               <span class="form_chk no_label">
-               <input id="chkBest11" type="checkbox">
-               <label for="chkBest11"><span class="hidden">상품선택</span></label></span>
-               <div class="rank_status up "><span class="hidden">순위 상승</span><c:set var="rank" value="${rank + 1 }" /> ${rank }</div>
-               </div>
-               <div class="prod_area horizontal"><div class="prod_thumb_box size_lg">
-               <a class="prod_link" href="https://product.kyobobook.co.kr/detail/S000213800371">
-               <span class="img_box">
-               <a href="<%=cp %>/bukkeubooks/bookinfo.com?ISBN=${dto.ISBN}">
-               <img src="${bookFilePath }/${dto.cover}"></a>
-               </span>
-               </a>
-               <div class="prod_viewer_control">
-               <a href= "location:" target="_blank" class="btn_prod_viewer">
-               <span class="ico_blank"></span><span class="text">
-               새창보기</span></a>
-               </div></div><div class="prod_info_box">
-               <span class="">
- 
- 
- 
- 
- 
- 
- 
-  <div class="auto_overflow_wrap prod_name_group">
-    <div class="auto_overflow_contents">
-      <div class="auto_overflow_inner">
-        <a href="<%=cp %>/bukkeubooks/bookinfo.com?ISBN=${dto.ISBN}" class="prod_info">
-          ${dto.subject }
-        </a>
-      </div>
+
+<script id="tmpl_barodream_no_mnbr" type="text/template">
+    <div class="payment_box_wrap">
+        <div class="payment_body_wrap">
+            <div class="tbl_row_wrap">
+                <table class="tbl_row">
+                    <caption>받는 분 정보 테이블로 받는 분 정보을(를) 나타낸 표입니다.</caption>
+                    <colgroup>
+                        <col style="width: 210px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">받는 분 정보</th>
+                        <td>
+                            <div class="form_col_group">
+                                <div class="col_box">
+                                    <span class="form_desc fc_spot">상품수령을위해 휴대폰 인증을 해주세요!</span>
+                                    <input type="text" class="form_ip" placeholder="이름을 입력해 주세요." title="이름 입력" data-barodream-no-mnbr="input_name">
+                                </div>
+                                <div class="col_box">
+                                    <div class="input_btn_box">
+                                        <input type="tel" class="form_ip" placeholder="휴대폰번호를 - 없이 입력해 주세요." title="휴대폰 번호 입력" data-barodream-no-mnbr="input_phone">
+                                        <button type="button" class="btn_ip btn_light_gray w_120" data-barodream-no-mnbr="action_auth_request">
+                                            <span class="text" data-barodream-no-mnbr="btn_auth_request">인증번호 전송</span></button>
+                                    </div>
+                                </div>
+                                <div class="col_box hidden" data-barodream-no-mnbr="auth_form">
+                                    <div class="input_btn_box">
+                                        <div class="time_limit">
+                                            <!-- DESC : 유효성 검사 결과에 따라 .valid_check에 클래스 추가
+                                                - 유효성 검사 성공 시 : success
+                                                - 유효성 검사 실패 시 : fail
+                                            -->
+                                            <!-- valid_check -->
+                                            <div class="valid_check fail" data-barodream-no-mnbr="valid_check">
+                                                <input type="number" title="인증번호 입력" class="form_ip" placeholder="인증번호 6자리를 입력해 주세요." data-barodream-no-mnbr="input_auth">
+                                                <span class="valid_desc" data-barodream-no-mnbr="msg_auth">인증번호가 발송되었습니다. 받은 인증번호를 입력해주세요. (3분 이내)</span>
+                                            </div>
+                                            <!-- //valid_check -->
+                                            <span class="time_count" data-barodream-no-mnbr="msg_timer">3:00</span>
+                                        </div>
+                                        <button type="button" class="btn_ip btn_line_primary w_120" data-barodream-no-mnbr="btn_auth_check"><span class="text">확인</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--//tbl_row_wrap-->
+        </div>
+        <!--//payment_body_wrap-->
     </div>
-  </div>
-  <span class="prod_author">${dto.author } ·  ${dto.publisher }  <span class="date"> · ${dto.bookdate }</span></span>
-  <div class="prod_price"><span class="percent">10%</span>
-  <span class="price"><span class="val">${Math.round(dto.price * 0.9) }</span><span class="unit">원</span></span>
-  <span class="price_normal"><span class="text">정가</span><s class="val">${dto.price }원</s></span>
-  <span class="gap">|</span><span class="point">${dto.page }p</span></div>
- <div class="prod_bottom">
- <div class="review_summary_wrap type_sm">
- <span class="review_klover_box"><span class="review_klover_text font_size_xxs">9.61</span>
- <span class="review_desc">(82개의 리뷰)</span></span>
- </div></div></div></div>
- <div class="prod_order_state">
- <span class="badge_sm badge_pill badge_primary"><span class="text">새벽배송</span></span>
- <p class="order_state_desc">
- <p class="order_state_desc"><strong class="blue">내일(8/6,화 오전 7시 전) 도착</strong></p></p>
- </div>
- <div class="prod_btn_wrap">
- 	<button class="btn_wish_icon" type="button" data-kbbfn="wish-item" data-kbbfn-myrcode="001" data-kbbfn-nbopcode="001" data-kbbfn-id="S000213800371" data-kbbfn-bid="9791170611561">
- 	<span class="ico_wish"></span>
- 	<span class="hidden">관심 등록</span></button>
- 	<div class="btn_wrap full">
- 	<a class="btn_light_gray btn_sm" data-kbbfn="cart-item" data-kbbfn-spbcode="002" data-kbbfn-dvsncode="KOR" data-kbbfn-grpcode="SGK" data-kbbfn-pid="S000213800371" data-kbbfn-bid="9791170611561" data-kbbfn-adult="0">
- 	<span class="text">장바구니</span></a>
- 	<a class="btn_primary btn_sm" data-kbbfn="cart-item" data-kbbfn-spbcode="001" data-kbbfn-dvsncode="KOR" data-kbbfn-grpcode="SGK" data-kbbfn-pid="S000213800371" data-kbbfn-bid="9791170611561" data-kbbfn-adult="0">
- 	<span class="text">바로구매</span>
- 	</a></div></div></li>
- 	</ol>
- 	
-  
-  
-   </c:forEach>
-  
-    <!-- 페이징 처리 -->
-
-      
-  
-   
-   
-   </div>
-	<div align="center" style="width: 80%; height: 150px;"  >
-      		<dl>
-      		<c:if test="${dataCount!=0 }">
-      			<p style="font-size: 15pt;">${pageIndexList }</p>
-      		</c:if>
-      		<c:if test="${dataCount==0 }">
-      			등록된 정보가 없습니다     		
-      		</c:if>
-  	 		</dl>
-      	
-     	</div>
-      
+</script>
 
 
-
-
-
-
-
-<!-- 테이블 끝~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->		
-
-						<!-- list contents -->
-						<div id="samFilterWrap" class="list_filter_wrap">
-							<div class="list_filter_option">
-								<div class="list_filter_option_bunddle">
-									<span class="form_rdo"> <input id="samFilter-1"
-										name="samFilter" type="radio" value="004" checked="true">
-										<label for="samFilter-1">sam 프리미엄</label>
-									</span> <span class="form_rdo"> <input id="samFilter-2"
-										name="samFilter" type="radio" value="009"> <label
-										for="samFilter-2">sam 무제한</label>
-									</span>
-								</div>
+<script id="tmpl_gift_mnbr" type="text/template">
+<div class="payment_box_wrap">
+	<div class="payment_body_wrap">
+		<div class="tbl_row_wrap">
+			<table class="tbl_row">
+				<caption>선물받는 분 정보</caption>
+				<colgroup>
+					<col style="width: 210px;" />
+					<col style="width: auto;" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">선물받는 분 정보</th>
+						<td>
+							<div class="tbl_row_wrap xsmall">
+								<table class="tbl_row">
+									<caption>받는 분 정보</caption>
+									<colgroup>
+										<col style="width: 20%;" />
+										<col style="width: auto;" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">받는 분 ({{:ordrGftCnt}}명)</th>
+											<td>
+												<div class="auto_overflow_wrap overflow">
+													<div class="auto_overflow_contents">
+														<div class="auto_overflow_inner">
+															<div class="info_inner">
+																{{for list}}
+																<div class="info_item">
+																	<span class="person_info">
+																		<span class="name">{{:gftRcmsMmbrName}}</span>
+																		<span class="gap">/</span>
+																		<span class="phone_number">{{:cnplPatrCntt}}</span>
+																	</span>
+																</div>
+    															{{/for}}
+																<!--//info_item-->
+															</div>
+														</div>
+														<!--//auto_overflow_inner-->
+													</div>
+													<!--//auto_overflow_contents-->
+													<div class="auto_overflow_footer floating {{if ordrGftCnt <= 5}}hidden{{/if}}">
+														<button type="button" class="btn_more_body" data-btn-toggle="moreGift"><span class="ico_arw"></span><span class="hidden">받는 분 더보기</span></button>
+													</div>
+													<!--//auto_overflow_footer-->
+												</div>
+												<!-- //case 2-1 : 넘친 경우 - 펼치기/접기 -->
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">보내는 사람 표시</th>
+											<td>
+												<div class="form_info_single">
+													<span class="default_text fc_black"><span class="fw_bold">FROM.</span> {{:fullname}}</span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<!--
+												001	핸드폰번호
+												002	이메일
+												106	카카오친구
+												알림톡 : 교보문고 채널 알림톡으로 카카오톡이 발송됩니다.
+												이메일 : 안내문구 별도 없음
+											-->
+											<th scope="row">발송방법</th>
+											<td>
+												<div class="form_info_single">
+												{{if cnplPatrCode == "001"}}
+												<div class="default_text fc_black">알림톡</div>
+												<div class="text_sub_spot">교보문고 채널 알림톡으로 카카오톡이 발송됩니다.</div>
+												{{else}}
+												<div class="default_text fc_black">이메일</div>
+												<div class="text_sub_spot">결제 후 이메일로 선물이 전송됩니다.</div>
+												{{/if}}
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="util_filter">
-								<button type="button" class="btn_xs btn_light_gray"
-									id="applyBtn">
-									<span class="text">적용</span>
-								</button>
-							</div>
-							<button type="button" class="btn_filter_close">
-								<span class="hidden">닫기</span>
-							</button>
-						</div>
-						<div class="view_type_list switch_prod_wrap">
-							<!-- List -->
-							<ol class="prod_list"></ol>
-
-							<!-- pagination -->
-							<div class="pagination"></div>
-						</div>
-						<!-- // 상품 리스트형 / 썸네일형 -->
-					</div>
-					<!-- // tab_content -->
-
-				</div>
-				<!-- // tab_content -->
-			</div>
-
-
-			</section>
+							<!--//tbl_row_wrap xsmall-->
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		</section> <!-- //contents_wrap --> </main>
-		<!-- main끝 -->
-
-		<!-- 가운데--- -->
-
-
-
-		<!-- 가운데 끝! -->
-
-		<!-- 윙배너 -->
-		<section class="fly_menu_wrapper sps" id="fly_wing_banner">
-		<div class="fly_menu_inner">
-			<a href="javascript:void(0)" class="fly_menu_banner"
-				onclick="ga360.GA_Event('click_공통_PC', '사이드바', '', '배너', '');"><img></a>
-
-			<div class="fly_event_area">
-				<a href="javascript:void(0)" class="fly_menu_link"
-					onclick="ga360.GA_Event('click_공통_PC', '사이드바', '', '이벤트', '');">이벤트</a>
-				<div class="fly_event_banner">
-					<div class="swiper-container">
-						<ul class="swiper-wrapper">
-
-						</ul>
-					</div>
-					<div class="swiper_control_box">
-						<button type="button" class="swiper-button-prev">
-							<span class="hidden">이전</span>
-						</button>
-						<div class="swiper-pagination"></div>
-						<button type="button" class="swiper-button-next">
-							<span class="hidden">다음</span>
-						</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="fly_link_box">
-				<a id="wing_coupon" href="javascript:void(0)" class="fly_menu_link"
-					onclick="ga360.GA_Event('click_공통_PC', '사이드바', '', '쿠폰/혜택', '');">쿠폰/혜택</a>
-			</div>
-		</div>
-		</section>
-
-
-		<!-- // 윙배너 -->
-
-
-
-
-
-		<!-- $ -->
-		<div class="floating_wrapper">
-
-
-
-			<button type="button" class="btn_history no_item"
-				data-role="btn-dialog" data-target="#popHistoryContents"
-				data-kbbfn="ui-recently-contents"
-				onclick="ga360.GA_Event('click_공통_PC', '사이드바', '', '최근본상품', '');">
-				<span class="img_box"> <img
-					src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/ico_view_history@2x.png"
-					alt="최근 본 컨텐츠 임시 이미지">
-				</span> <span class="hidden">최근 본 컨텐츠 모두보기</span> <span class="count">0</span>
-			</button>
-
-
-
-
-
-
-			<a href="#top" class="btn_go_top" title="최상위 화면으로"> <span
-				onclick="ga360.GA_Event('click_공통_PC', '사이드바', '', '맨위로', '');">TOP</span>
-
-
-			</a>
-
-
-		</div>
-		<!-- $ 끝 -->
-
-
-
-
-
-
-		<!-- 밑에 공지사항  -->
-		<footer class="footer_wrapper" data-kbbfn="ui-module"
-			data-kbbfn-name="footer-notice">
-
-
-
-		<div class="footer_body">
-			<div class="footer_inner">
-				<div class="logo_box">
-
-
-
-					<div class="logo_box">
-						<a href="https://www.kyobobook.co.kr/" class="logo_link book">
-
-							<img alt="KYOBO 교보문고"
-							srcset="
-            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer.png 1x,
-            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@1.5x.png 1.5x,
-            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@2x.png 2x" />
-
-						</a>
-					</div>
-
-				</div>
-
-
-
-				<div class="footer_contents_wrap">
-					<div class="footer_contents_left">
-
-						<div class="footer_menu_box">
-
-							<ul class="footer_menu_list">
-
-
-								<li class="footer_menu_item"><a
-									class="footer_menu_link" target="_blank"
-									href="https://company.kyobobook.co.kr/ims/user/Intro/r/go?param=intro">회사소개</a>
-								</li>
-
-
-
-								<li class="footer_menu_item"><a
-									class="footer_menu_link"
-									href="https://www.kyobobook.co.kr/contents/provision">이용약관</a>
-								</li>
-
-
-
-								<li class="footer_menu_item privacy"><a
-									class="footer_menu_link"
-									href="https://www.kyobobook.co.kr/contents/privacy-policy">개인정보처리방침</a>
-								</li>
-
-
-								<li class="footer_menu_item"><a
-									class="footer_menu_link" target="_blank"
-									href="https://ehr.kyobobook.co.kr/recr/recruit_system_1.jsp">채용정보</a>
-								</li>
-
-							</ul>
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-		</footer>
-
+		<!--//tbl_row_wrap-->
 	</div>
-	<!-- ////끝 -->
-	<!-- 추가!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	<!--//payment_body_wrap-->
+</div>
+</script>
+
+<script id="tmpl_gift_mnbr_complete" type="text/template">
+<div class="payment_box_wrap">
+	<div class="payment_body_wrap">
+		<div class="tbl_row_wrap">
+			<table class="tbl_row">
+				<caption>선물받는 분 정보</caption>
+				<colgroup>
+					<col style="width: 210px;" />
+					<col style="width: auto;" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">받는 분 ({{:ordrGftCnt}}명)</th>
+						<td>
+							<div class="auto_overflow_wrap">
+								<div class="auto_overflow_contents">
+									<div class="auto_overflow_inner">
+										<div class="info_inner">
+											{{for list}}
+											<div class="info_item">
+												<span class="person_info">
+													<span class="name">{{:gftRcmsMmbrName}}</span>
+													<span class="gap">/</span>
+													<span class="phone_number">{{:cnplPatrCntt}}</span>
+												</span>
+											</div>
+    										{{/for}}
+											<!--//info_item-->
+										</div>
+									</div>
+									<!--//auto_overflow_inner-->
+								</div>
+								<!--//auto_overflow_contents-->
+								<div class="auto_overflow_footer floating {{if ordrGftCnt <= 5}}hidden{{/if}}">
+									<button type="button" class="btn_more_body" data-btn-toggle="moreGift"><span class="ico_arw"></span><span class="hidden">받는 분 더보기</span></button>
+								</div>
+								<!--//auto_overflow_footer-->
+							</div>
+							<!-- //case 2-1 : 넘친 경우 - 펼치기/접기 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">보내는 사람 표시</th>
+						<td>
+							<div class="form_info_single">
+								<span class="default_text fc_black"><span class="fw_bold">FROM.</span> {{:fullname}}</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<!--
+							001	핸드폰번호
+							002	이메일
+							106	카카오친구
+							알림톡 : 교보문고 채널 알림톡으로 카카오톡이 발송됩니다.
+							이메일 : 안내문구 별도 없음
+						-->
+						<th scope="row">발송방법</th>
+						<td>
+							<div class="form_info_single">
+								{{if cnplPatrCode == "001"}}
+								<div class="default_text fc_black">알림톡</div>
+								<div class="text_sub_spot">교보문고 채널 알림톡으로 카카오톡이 발송됩니다.</div>
+								{{else}}
+								<div class="default_text fc_black">이메일</div>
+								<div class="text_sub_spot">결제 후 이메일로 선물이 전송됩니다.</div>
+								{{/if}}
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--//tbl_row_wrap-->
+	</div>
+	<!--//payment_body_wrap-->
+</div>
+</script>
+
+
+    
+    <script type="text/javascript" src="/assets/js/order/barodream.js?t=202408011444"></script>
+    
 
 
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/netfunnel/custom-netfunnel.js"
-		data-name="netfunnel"></script>
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/css-element-queries/ResizeSensor.js"
-		data-name="ResizeSensor"></script>
+						<!-- 주문완료 상품목록(여러곳배송 아닌 경우) -->
+						<script type="text/template" id="id_commodity_item" data-jsv-tmpl="jsvTmpl">
+						    <tr>
+						        <td class="prod">
+						            <div class="prod_area horizontal">
+						                <!--DESC:핫트랙스 상품일때 [.prod_thumb_box] 에 [.type_square_round] 추가-->
+						                <div class="prod_thumb_box size_sm">
+						                    <!--DESC:링크일경우 aTag 추가 다음상품에 예제있음-->
+						                    {{if saleCmdtDvsnCode == 'OPT'}}
+											<a onclick="return false;" class="prod_link">
+												<span class="img_box">
+													<img src="{{:saleCmdtImgUrl}}" alt="{{:cmdtName}}" />
+												</span>
+											</a>
+											{{else}}
+											{{if saleCmdtClstCode == '9909'}}
+                                                <a target="_blank" class="prod_link">
+                                            {{else}}
+                                                <a target="_blank" href="{{:href}}" class="prod_link">
+                                            {{/if}}
+							                    <span class="img_box">
+							                        <img src="{{:saleCmdtImgUrl}}" alt="{{:cmdtName}}" />
+							                    </span>
+						                    </a>
+						                    {{/if}}
+						                </div>
+						                <div class="prod_info_box size_sm">
+						                    <!--DESC:링크일경우 aTag로 변경-->
+						                    <span class="prod_info">
+						                        <!--<span class="prod_name">[{{:saleCmdtDvsnCodeName}}]{{if ordrCmdtKindCode == '130'}}[대여]{{/if}} {{:cmdtName}}</span>-->
+						                        <span class="prod_name">{{:cmdtName}}</span>
+						                    </span>
+						                    
+				                            <div class="prod_option">
+					                        	{{if prinCntt != '0' && ordrCmdtKindCode == '120'}}
+						                        	<span class="text">[분철신청] <span class="fw_bold">분철 {{:prinCntt}}권</span> (교환/반품불가)</span>
+								            	{{/if}}
+					                        	{{if untItmName != '' && untItmName != null}}
+							                        <span class="text">옵션 : </span><span class="val">{{:untItmName}}</span>
+					                        	{{/if}}
+				                            </div>
+						                    <div class="prod_price">
+						                        <span class="price">
+						                            <span class="val">{{:~commaFormat(cmdtLastStlmAmnt)}}</span>
+						                            <span class="unit">원</span>
+						                        </span>
+						                        <span class="count">/ {{:ordrPrgsCdtnQntt}}개</span>
+						                    </div>
+						                </div>
+						            </div>
+						        </td>
+						        <td>
+						            <div class="badge_box">
+						                {{if baroYn == 'Y'}}
+						                <span class="badge_sm badge_pill badge_line_primary"><span class="text">바로드림</span></span>
+						                {{else}}
+						                	{{if saleCmdtDvsnCodeName.indexOf('해외') >= 0}}
+						                	<span class="badge_sm badge_pill badge_primary_ord"><span class="text">{{:saleCmdtDvsnCodeName}}</span></span>
+						                	{{else}}
+								        		{{if saleCmdtDvsnCode == 'OPT'}}
+								        		<span class="badge_sm badge_pill badge_line_primary"><span class="text">사은품</span></span>
+								        		{{/if}}
+								        		{{if saleCmdtDvsnCode != 'OPT'}}
+                                                    <!-- 교보배송 상품 중 -->
+                                                    {{if dlvrTypeLabel != null && dlvrTypeLabel != ''}}
+                                                    <span class="badge_sm badge_pill badge_primary"><span class="text">{{:dlvrTypeLabel}}</span></span>
+                                                    {{/if}}
+                                                    <!-- 그 외 -->
+                                                    {{if (dlvrTypeLabel == null || dlvrTypeLabel == '') && dlvrPatrGrpCode != '010'}}
+                                                    <span class="badge_sm badge_pill badge_primary_ord"><span class="text">{{:dlvrPatrGrpCodeName}}</span></span>
+                                                    {{/if}}
+								        		{{/if}}
+							                	{{if saleCmdtGrpDvsnCode == 'SGP'}}
+							                	<span class="badge_sm badge_pill badge_black"><span class="text">패키지</span></span>
+							                	{{/if}}
+						                	{{/if}}
+						                {{/if}}
+						            </div>
+						        </td>
+						    </tr>
+						</script>
+						<!-- //주문완료 상품목록(여러곳배송 아닌 경우) -->
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/awesomplete/awesomplete.min.js"
-		data-name="awesomplete"></script>
+						<!-- 주문완료 상품목록(여러곳배송인 경우) expanded -->
+						<script type="text/template" id="id_multi_commodity_item">
+						    <!--div class="fold_box{{if index == 1}} expanded{{/if}}"-->
+						    <div class="fold_box{{if index == 1}} {{/if}}">
+						        <div class="fold_box_header bg_gray">
+						            <div class="delevery_people_header_box">
+						            	<div class="header_text">배송지 {{:index}}</div>
+										<div class="header_desc">
+											<div class="person_info">
+												<span class="name">{{:rcvrName}}</span>
+												<span class="gap">/</span>
+												<span class="phone_number">{{:rcvrPrtbTlnm}}</span>
+											</div>
+										</div>
+						            </div>
+						            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
+						        </div>
+						        <!--//fold_box_header-->
+						        <div class="fold_box_contents">
+						            <div class="payment_shipping_wrap">
+						                <div class="address_item no_line">
+						                    <div class="address_info_box">
+						                        <div class="address">[{{:delvToZip}}] {{:delvToAddress1}}, {{:delvToAddress2}}</div>
+						                        <div class="address_person">
+						                            <span class="name fw_regular">{{:rcvrName}}</span>
+						                            <span class="gap">/</span>
+						                            <span class="phone_number">{{:rcvrPrtbTlnm}}</span>
+						                        </div>
+						                    </div>
+						                    <!--//address_info_box-->
+						                </div>
+						                <!--//address_item-->
+						                <div class="payment_shipping_prod_wrap">
+						                    <ul class="prod_list">
+						                        {{for ordrCmdtList}}
+						                        <li class="prod_item">
+													<div class="prod_area">
+														<div class="prod_thumb_box size_sm">
+														 	{{if saleCmdtDvsnCode == 'OPT'}}
+															<a onclick="return false;" class="prod_link">
+																<span class="img_box">
+																	<img src="{{:saleCmdtImgUrl}}" alt="{{:cmdtName}}" />
+																</span>
+															</a>
+															{{else}}
+															<a target="_blank" href="{{:href}}" class="prod_link">
+																<span class="img_box">
+																	<img src="{{:saleCmdtImgUrl}}" alt="{{:cmdtName}}" />
+																</span>
+															</a>
+															{{/if}}
+														</div>
+														<div class="prod_info_box size_sm">
+						                                    <a target="_blank" href="{{:href}}" class="prod_info">
+						                                        <span class="prod_name">[{{:saleCmdtDvsnCodeName}}]{{if ordrCmdtKindCode == '130'}}[대여]{{/if}} {{:cmdtName}}</span>
+															</a>
+															<div class="prod_price">
+																<span class="price">
+						                                            <span class="val">{{:~commaFormat(cmdtLastStlmAmnt)}}</span>
+																	<span class="unit">원</span>
+																</span>
+						                                        <span class="count">수량 : {{:ordrPrgsCdtnQntt}}</span>
+															</div>
+														</div>
+													</div>
+												</li>
+						                        {{/for}}
+						                    </ul>
+						                </div>
+						                <!--//payment_shipping_prod_wrap-->
+						                <!-- 추가 220325 더보기 영역 추가 -->
+						                <div class="btn_wrap auto hidden" data-multi-more-btn="show">
+						                    <button type="button" class="btn_more_cont"><span class="text">더보기</span><span class="ico_arw"></span></button>
+						                </div>
+						                <!-- // 추가 220325 더보기 영역 추가 -->
+						        	</div>
+						        </div>
+						        <!--//fold_box_contents-->
+						    </div>
+						</script>
+						<!-- //주문완료 상품목록(여러곳배송인 경우) -->
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/star-rating/krajee-gly-ko-bundle.min.js"></script>
+                        <div class="title_wrap payment_complete">
+                            <h2 class="title_heading">결제정보</h2>
+                        </div>
+                        <div class="payment_box_wrap">
+                            <div class="payment_body_wrap">
+                                <div class="tbl_row_wrap">
+                                    <table class="tbl_row">
+                                        <caption>결제정보 테이블로 을(를) 나타낸 표입니다.</caption>
+                                        <colgroup>
+                                            <col style="width: 160px;">
+                                            <col style="width: auto;">
+                                        </colgroup>
+                                        <!-- 20240122 주문 / 할인 금액 주석 처리 -->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row">주문금액</th>-->
+<!--                                            <td>-->
+<!--                                                <div class="payment_complete_price_box">-->
+<!--                                                    <span class="price">-->
+<!--                                                        <span class="val" data-payment-order-amt></span>-->
+<!--                                                        <span class="unit">원</span>-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row">할인금액</th>-->
+<!--                                            <td>-->
+<!--                                                <div class="payment_complete_price_box">-->
+<!--                                                    <span class="price">-->
+<!--                                                        <span class="val" data-payment-discount-amt></span>-->
+<!--                                                        <span class="unit">원</span>-->
+<!--                                                    </span>-->
+<!--                                                </div>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+                                        <!-- // 20240122 주문 / 할인 금액 주석 처리 -->
+                                        <tfoot>
+                                        <tr>
+                                            <th class="delete_line" scope="row">최종 결제 금액</th>
+                                            <td class="delete_line">
+                                                <div class="payment_complete_price_box">
+                                                    <span class="price total">
+                                                        <span class="val" data-payment-amt="">14,200</span>
+                                                        <span class="unit">원</span>
+                                                    </span>
+                                                    <span class="price_method" data-payment-method="">카카오페이</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/scrollpos-styler/scrollPosStyler.min.js"
-		data-name="scrollPosStyler"></script>
+                        <div class="title_wrap payment_complete" order-complete-multi-delivery-title="">
+                            <h2 class="title_heading">배송지 정보</h2>
+                        </div>
+                        <div class="payment_box_wrap" order-complete-multi-delivery-list="">
+                            <div class="payment_body_wrap">
+                                <div class="tbl_row_wrap">
+                                    <table class="tbl_row">
+                                        <caption>배송지 정보 테이블로 받는 사람, 받는 주소, 배송요청사항을(를) 나타낸 표입니다.</caption>
+                                        <colgroup>
+                                            <col style="width: 160px;">
+                                            <col style="width: auto;">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">받는 사람</th>
+                                            <td>
+                                                <div class="person_info">
+                                                    <span class="name" data-delivery-recv-name="">윤선호</span>
+                                                    <span class="gap">/</span>
+                                                    <span class="phone_number" data-delivery-recv-phone="">010-7687-9313</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">받는 주소</th>
+                                            <td data-delivery-recv-address="">[13614] 경기도 성남시 분당구 정자일로 72 (금곡동, 청솔마을한라아파트) 309-405</td>
+                                        </tr>
+                                        <tr style="display: none;">
+                                            <th scope="row">배송요청사항</th>
+                                            <td data-delivery-message="">
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/blurify-master/blurify.min.js"
-		data-name="blurify"></script>
-
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/masonry/masonry.pkgd.min.js"
-		data-name="masonry"></script>
-
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.js"
-		data-name="swiper"></script>
-
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/svgxuse/svgxuse.js"
-		data-name="svgxuse"></script>
-
-	<script
-		src="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.js"
-		data-name="simplebar"></script>
-
-	<script type="text/javascript"
-		src="https://contents.kyobobook.co.kr/resources/fo/js/ui-onk/pub/ui_ink.js?t=202407251346"
-		data-name="kbb-cm-script"></script>
-
-	<script type="text/javascript" src="/assets/js/vars.js?t=202407251346"></script>
-
-	<script src="/assets/js/func/service/bestseller-main.js"></script>
-
-	<script>
-        $(function () {
-            pushDataLayerForBestseller()
-        })
-
-        /**
-         * GA 종이책 베스트 카테고리별 페이지 진입(페이지 로드)
-         */
-        function pushDataLayerForBestseller () {
-            window.dataLayer.push({
-                event: 'ecommerce_item',
-                event_name: 'view_item_list',
-                item_list_id: 'bestseller',
-                item_list_name: '종이책 카테고리-베스트',
-                item_list_tab: "\uC628\uB77C\uC778 \uBCA0\uC2A4\uD2B8"
-            })
-        }
-
-        /**
-         * 베스트셀러 lnb GA 호출
-         */
-        function pushBestsellerLnbDataLayer (element) {
-            const dataLayerObject = {
-                event: 'ecommerce_item',
-                event_name: 'view_item_list',
-                item_list_id: 'bestseller',
-                item_list_name: '종이책 카테고리-베스트',
-                item_list_tab:
-                    element.getAttribute('item-list-tab')
-                    || element.getAttribute('category2')
-                    || element.getAttribute('category3'),
-                category: '베스트셀러',
-                category2: element.getAttribute('category2')
-            }
-
-            const category3 = element.getAttribute('category3')
-            if (category3) {  // category3 값이 있으면 객체에 추가
-                dataLayerObject.category3 = category3
-            }
-
-            window.dataLayer.push(dataLayerObject)
-        }
-
-        /**
-         * 베스트셀러 Tab GA 호출
-         * @param element
-         */
-        function pushBestsellerTabDataLayer (element) {
-            const dataLayerObject = {
-                event: 'ecommerce_item',
-                event_name: 'view_item_list',
-                item_list_id: 'bestseller',
-                item_list_name: '종이책 카테고리-베스트',
-                item_list_tab:
-                    element.getAttribute('item-list-tab')
-                    || element.getAttribute('category2')
-                    || element.getAttribute('category3'),
-                category: '베스트셀러',
-                category2: element.getAttribute('category2')
-            }
-
-            // category3
-            const category3 = element.getAttribute('category3')
-            if (category3) {
-                dataLayerObject.category3 = category3
-            }
-
-            // category4
-            const category4 = element.getAttribute('category4')
-            if (category4) {
-                dataLayerObject.category4 = category4
-            }
-
-            // category5
-            const category5 = element.getAttribute('category5')
-            if (category5) {
-                dataLayerObject.category5 = category5
-            }
-
-            window.dataLayer.push(dataLayerObject)
-        }
+                        <!-- 수정 230213 광고 배너 -->
+                        <!-- 수정 230213 광고 배너 -->
+<div class="payment_banner_wrap" data-order-adbannerarea="">
+    <script type="text/x-template" id="adBannerList" data-jsv-tmpl="jsvTmpl">
+        <a href ="{{:linkUrl}}"><img src={{:imgFileUrl}} alt="광고" data-adv-bnr /></a>
     </script>
 
+        <a href="https://imac.kyobobook.co.kr:443/click/INK/ink_sub_new/ink_sub_channel@order_1?adsno=155112&amp;ctvno=117528&amp;clkno=117568"><img src="https://contents.kyobobook.co.kr/advrcntr/IMAC/creatives/2024/06/28/72441/shopped_0628_new.png" alt="광고" data-adv-bnr=""></a>
+    </div>
+<!-- //수정 230213 광고 배너 -->
+                        <!-- //수정 230213 광고 배너 -->
 
-	</script>
-<html>
+                    </div>
+
+                    <div class="btn_wrap page_bottom">
+                        <button type="button" class="btn_lg btn_line_primary" onclick="location.href='https://www.kyobobook.co.kr/'"><span class="text">쇼핑 계속</span></button>
+                        <button type="button" class="btn_lg btn_primary" data-complete-order-detail-link-button="" value="001"><span class="text">주문내역상세</span></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 선물하기 주문 시 이벤트 팝업 -->
+            <div class="interests_enrollment_layer_wrap presentEvent" data-present-event-wrap="">
+                <div class="enrollment_layer_inner">
+                    <button type="button" class="btn_layer_close" data-layer-close=""><span class="ico_layer_close"></span><span class="hidden">닫기</span></button>
+                    <div class="enrollment_content">
+                        <p class="alert_text">방금 하신 선물, 후기를 남겨주세요.<br>선물하게 된 사연을 써주시면 <b>1만원</b> 드려요!</p>
+                        <!-- btn_wrap -->
+                        <div class="btn_wrap auto">
+                            <button type="button" class="btn_md btn_light_gray" data-layer-close=""><span class="text">닫기</span></button>
+                            <button type="button" class="btn_md btn_primary" data-activity-present-events-btn=""><span class="text">사연 쓰기</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // 선물하기 주문 시 이벤트 팝업 -->
+
+            <!-- 장바구니 이벤트 팝업 -->
+            <div class="interests_enrollment_layer_wrap bookEvent" data-book-event-wrap="">
+                <div class="enrollment_layer_inner">
+                    <button type="button" class="btn_layer_close" data-layer-close=""><span class="ico_layer_close"></span><span class="hidden">닫기</span></button>
+                    <div class="enrollment_content">
+                        <p class="alert_text">장바구니에 책 3권 <b>더</b> 담고 댓글 달면,<br>추첨을 통해 그 책을 선물해 드려요!</p>
+                        <!--<p class="alert_text fc_spot">추첨을 통해 e교환권 1만원을 드려요</p>-->
+                        <!-- btn_wrap -->
+                        <div class="btn_wrap auto">
+                            <button type="button" class="btn_md btn_light_gray" data-layer-close=""><span class="text">닫기</span></button>
+                            <button type="button" class="btn_md btn_primary" data-activity-book-events-btn=""><span class="text">행사 보기</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // 장바구니 이벤트 팝업 -->
+
+            <!-- 관심정보 등록 팝업 -->
+            <div class="interests_enrollment_layer_wrap interests_wrap" data-interest-wrap="">
+                <div class="enrollment_layer_inner">
+                    <button type="button" class="btn_layer_close" data-layer-close=""><span class="ico_layer_close"></span><span class="hidden">닫기</span></button>
+                    <div class="enrollment_content">
+                        <p class="alert_text">오늘 구매한 책의 작가/시리즈를 관심정보로 등록해보세요!</p>
+                        <p class="alert_text fc_spot">신간출간알림을 가장 먼저 받아볼 수 있어요</p>
+                        <!-- btn_wrap -->
+                        <div class="btn_wrap auto">
+                            <button type="button" class="btn_md btn_light_gray" data-layer-close=""><span class="text">닫기</span></button>
+                            <button type="button" class="btn_md btn_primary" data-add-wish-info-btn=""><span class="text">관심정보 등록</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // 관심정보 등록 팝업 -->
+
+
+            <!-- 참여가능한 이벤트 알림 팝업 -->
+            
+            <!-- //참여가능한 이벤트 알림 팝업 -->
+
+        </section>
+        
+        <footer class="footer_wrapper" data-kbbfn="ui-module" data-kbbfn-name="footer-notice">
+    
+    <div class="footer_header default">
+    
+    <div class="footer_inner">
+        <div class="notice_wrap">
+            <span class="notice_text">공지사항</span><a href="https://www.kyobobook.co.kr/cscenter/notice/detail/1004309" class="notice_link">상품권(해피머니, 컬쳐캐쉬) 사용 일시 중지 안내</a>
+        </div>
+        <div class="notice_wrap winner">
+            <span class="notice_text">당첨자발표</span><a href="https://event.kyobobook.co.kr/winner/detail/1004349" class="notice_link">[인문/교양]《A.W 토저 브랜드전》 댓글 이벤트 당첨자 발표</a>
+        </div>
+    </div>
+</div>
+    
+    <div class="footer_body">
+    <div class="footer_inner">
+    <div class="logo_box">
+        
+        
+    <!-- <th:block th:insert="common/fragments/onk/logo :: main(logoPosition='footer')" /> -->
+    <div class="logo_box">
+    <a href="https://www.kyobobook.co.kr/" class="logo_link book">
+    
+    
+    
+    
+        <img alt="KYOBO 교보문고" srcset="
+            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer.png 1x,
+            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@1.5x.png 1.5x,
+            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@2x.png 2x">
+    
+</a>
+
+    
+</div>
+
+        <div class="right_box">
+            
+            <div class="family_site_box">
+    
+    
+        <button type="button" class="btn_family_site"><span class="text">Family Site</span></button>
+        <ul class="family_site_list">
+            
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kyobo.com">교보생명</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.iprovest.com">교보증권</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kyobodts.co.kr">교보DTS</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kyoborealco.co.kr">교보리얼코</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kyoboaxa-im.co.kr">교보악사자산운용</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.lifeplanet.co.kr">교보라이프플래닛생명</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kcasonsa.co.kr">KCA 손해사정</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kcase.co.kr">KCA 서비스</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kyobotrust.co.kr">교보자산신탁주식회사</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.daesan.or.kr">대산문화재단</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.kbedu.or.kr">교보교육재단</a>
+    </li>
+    <li class="family_site_item">
+        
+        <a class="family_site_link" target="_blank" href="https://www.dsa.or.kr">대산농촌재단</a>
+    </li>
+
+        </ul>
+    
+</div>
+            
+            
+<div class="sns_share_box">
+    
+        <a class="btn_sns_share youtube" target="_blank" href="https://www.youtube.com/c/kbooknews"><span class="hidden">youtube 공유</span></a>
+    
+        <a class="btn_sns_share fb" target="_blank" href="https://www.facebook.com/kyobobookonline?orderClick=rwk"><span class="hidden">facebook 공유</span></a>
+    
+        <a class="btn_sns_share insta" target="_blank" href="https://www.instagram.com/kyobobook_online/"><span class="hidden">instagram 공유</span></a>
+    
+</div>
+
+        </div>
+    </div>
+    <div class="footer_contents_wrap">
+        <div class="footer_contents_left">
+            
+            <div class="footer_menu_box">
+    
+    <ul class="footer_menu_list">
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://company.kyobobook.co.kr/ims/user/Intro/r/go?param=intro">회사소개</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/provision">이용약관</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item privacy">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/privacy-policy">개인정보처리방침</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/youth-policy">청소년보호정책</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://big.kyobobook.co.kr">대량주문안내</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/partners/chargeperson">협력사여러분</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://ehr.kyobobook.co.kr/recr/recruit_system_1.jsp">채용정보</a>
+            </li>
+
+        
+            
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://ad.kyobobook.co.kr">광고소개</a>
+            </li>
+
+        
+    </ul>
+    
+</div>
+            
+            <address class="footer_info_box">
+    
+    
+    <span class="info_text">대표이사 : 안병현, 김상훈</span>
+    <span class="gap">|</span>
+    <span class="info_text">서울특별시 종로구 종로 1</span>
+    <span class="gap">|</span>
+    
+    <span class="info_text">사업자등록번호 : 102-81-11670</span> <br>
+    <span class="info_text call">대표전화 : 1544-1900(발신자 부담전화)</span>
+    
+    <span class="gap">|</span>
+    <span class="info_text">FAX : 0502-987-5711(지역번호 공통)</span>
+    <span class="gap">|</span>
+    <span class="info_text">서울특별시 통신판매업신고번호 : 제 653호</span>
+
+    
+    <a href="http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=1028111670" class="btn_footer_link" target="_blank">사업자정보확인</a>
+    
+    
+
+</address>
+            <div class="copyright">
+    
+    <span>© KYOBO BOOK CENTRE</span>
+</div>
+        </div>
+        <div class="footer_contents_right">
+            <div class="footer_service">
+                <span class="service_text">토스페이먼츠 구매안전서비스 </span>
+                <a href="https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=ink0911" class="btn_footer_link" target="_blank">서비스 가입 확인</a>
+                <p class="service_desc">
+                    고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서 가입한 <br>
+                    토스페이먼츠의 구매안전서비스를 이용하실 수 있습니다.
+                </p>
+            </div>
+            <div class="footer_mark_isms">
+    <a target="_blank" href="https://www.kyobobook.co.kr/pop_isms" class="mark_link">
+        정보보호관리체계<br>
+        ISMS 인증획득
+    </a>
+    
+    <p class="mark_desc">
+        [인증범위] 인터넷 교보문고 및 브랜드 서비스 운영<br>
+        [유효기간] 2023.11.15 ~ 2026.11.14
+    </p>
+</div>
+
+        </div>
+    </div>
+</div>
+</div>
+</footer>
+<!-- NetFUNNEL 스크립트 -->
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/netfunnel/custom-netfunnel.js" data-name="netfunnel"></script>
+
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/css-element-queries/ResizeSensor.js" data-name="ResizeSensor"></script>
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/awesomplete/awesomplete.min.js" data-name="awesomplete"></script>
+
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/star-rating/krajee-gly-ko-bundle.min.js"></script>
+
+
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/scrollpos-styler/scrollPosStyler.min.js" data-name="scrollPosStyler"></script>
+
+
+
+
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/blurify-master/blurify.min.js" data-name="blurify"></script>
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/masonry/masonry.pkgd.min.js" data-name="masonry"></script>
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.js" data-name="swiper"></script>
+
+
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/svgxuse/svgxuse.js" data-name="svgxuse"></script>
+
+
+    
+    
+    
+    
+    <script src="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.js" data-name="simplebar"></script>
+
+
+
+
+        
+        
+        
+            
+            
+    
+    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ui_ink.js?t=202408011444" data-name="kbb-cm-script"></script>
+    
+
+
+        
+        
+        
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/common/startup-main.js?t=202408011444"></script>
+    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            OrderApp({
+                pdtImgUri: "https:\/\/contents.kyobobook.co.kr\/pdt",
+                pdtResizeImgUri: "https:\/\/contents.kyobobook.co.kr\/sih\/pdt\/fit-in",
+            });
+        });
+    </script>
+
+    
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// stats.js 공통 스크립트에서 처리되고 있어 주문에서는 제외함.
+//    fbq('init', '247842611347428');
+//    fbq('track', 'PageView');
+</script>
+<noscript>
+    <!-- Facebook KYOBO, HOTTRACKS -->
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=247842611347428&ev=PageView&noscript=1"/>
+    <!--<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2595348470556537&ev=PageView&noscript=1"/>-->
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- 네이버 검색 광고 공통 적용 스크립트 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add={};
+    wcs_add["wa"] = "s_453f4415ebcb";
+    if (!_nasa) var _nasa={};
+    wcs.inflow("kyobobook.co.kr");
+    wcs_do(_nasa);
+</script>
+
+<!-- 뷰저블 서비스 공통적용 스크립트 -->
+<script type=""text/javascript"">
+(function(w, d, a){
+w.__beusablerumclient__ = {
+load : function(src){
+var b = d.createElement("script");
+b.src = src; b.async=true; b.type = "text/javascript";
+d.getElementsByTagName("head")[0].appendChild(b);
+}
+};w.__beusablerumclient__.load(a);
+})(window, document, '//rum.beusable.net/script/b190418e233458u50/935b3ef9ea');
+</script>
+<!-- Kakao Pixel Code -->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
+<script type="text/javascript">
+    kakaoPixel('1830363100807970928').pageView();
+    //kakaoPixel('3956769510541341836').pageView();
+</script>
+<!-- End Kakao Pixel Code -->
+
+
+    
+    
+    
+    <script type="text/javascript" src="/assets/js/order/order-complete.js?t=202408011444"></script>
+    
+
+
+    <!--<th:block th:insert="~{common/fragments/custom/tag::BOOT_SCRIPT(url=${'/assets/js/order/order-ga360.js'})}" />-->
+    
+    
+    <script type="text/javascript" src="/assets/js/order/order-save-info.js?t=202408011444"></script>
+    
+
+
+    
+    
+    <script type="text/javascript" src="/assets/js/order/order-gtm.js?t=202408011444"></script>
+    
+
+
+    
+    
+    <script type="text/javascript" src="/assets/js/order/order-analytics.js?t=202408011444"></script>
+    
+
+
+
+    <!-- 20231215 KbbJS.ui.loaded 값이 제대로 설정되지 않아 로딩바가 노출되지 않는 문제 임시 수정 -->
+    <script>
+        KbbJS.ui.loaded = true
+    </script>
+
 </body>
 </html>

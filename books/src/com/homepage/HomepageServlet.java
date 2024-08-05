@@ -25,6 +25,8 @@ import com.author.AuthorDTO;
 import com.author.AuthorFileDTO;
 import com.best.BestDAO;
 import com.best.BestDTO;
+import com.cart.CartDAO;
+import com.cart.CartDTO;
 import com.krbook.BookFileDTO;
 import com.krbook.GetText;
 import com.krbook.KrbookDAO;
@@ -61,9 +63,11 @@ public class HomepageServlet extends HttpServlet{
 		String cp = req.getContextPath();
 		Connection conn = DBConn.getConnection();
 		KrbookDAO krdao = new KrbookDAO(conn);
+		BestDAO bestdao = new BestDAO(conn);
 		HomepageDAO homedao = new HomepageDAO(conn);
 		AuthorDAO authordao = new AuthorDAO(conn);
 		LoginDAO dao = new LoginDAO(conn);
+		CartDAO cdao = new CartDAO(conn);
 		GetText gt = new GetText();
 		MyPage myPage = new MyPage();
 
@@ -103,11 +107,11 @@ public class HomepageServlet extends HttpServlet{
 
 			String ISBN = req.getParameter("ISBN");
 			//String ISBN = "9788901285108";
-			
+
 
 			KrbookDTO dto = krdao.getReadData(ISBN);
 			BookFileDTO filedto = krdao.getfileReadData(ISBN);
-			
+
 
 			int rank = krdao.getRank(ISBN);
 			int reviewCount = krdao.getReviewCount(ISBN);
@@ -118,15 +122,11 @@ public class HomepageServlet extends HttpServlet{
 			String authorId = krdao.getAuthorId(ISBN);
 			//String authorid = "1000010001";
 
-		System.out.println(authorId);
 			AuthorDTO adto = authordao.getData(authorId);
+			System.out.println(authorId);
 			AuthorFileDTO fadto = authordao.getFileData(authorId);
 
-			//System.out.println(adto);
-
 			String authorIntro = gt.getText(fadto.getAuthorintro());
-
-			//System.out.println(authorIntro);
 
 			req.setAttribute("authorIntro", authorIntro);
 			req.setAttribute("authorPath", authorPath);
@@ -179,14 +179,17 @@ public class HomepageServlet extends HttpServlet{
 			// 책 정보 페이지 끝
 
 			// info_ok 
-		}else if(uri.indexOf("info_ok.com")!=-1) {
+		}else if(uri.indexOf("bookinfo_ok.com")!=-1) {
 
+			System.out.println(session);
 
 			if(session==null) {
 
 				String message = "로그인 하십시오";
 
-				url = cp + "/bkJoin/join.do"; //????? 로그인 페이지로 가게 resp.sendRedirect(url);
+				url = cp + "/bukkeubooks/login.com"; //????? 로그인 페이지로 가게 
+				resp.sendRedirect(url);
+				return;
 
 			}
 
@@ -401,12 +404,14 @@ public class HomepageServlet extends HttpServlet{
 
 		}else if(uri.indexOf("logout.com")!=-1) {	
 
-			session = req.getSession();
+			session = req.getSession(false);
 
-			session.removeAttribute("customInfo"); //info안에 있는 id와 name을 지움
-			session.invalidate(); //변수 자체를 지움
+			if(session!=null) {
+				session.removeAttribute("customInfo"); //info안에 있는 id와 name을 지움
+				session.invalidate(); //변수 자체를 지움
+			}
 
-			url = cp + "/bukkeubooks/bukkeubooks.com"; // "index.jsp"로 이동
+			url = cp + "/bukkeubooks/bukkeubooks.com";
 			resp.sendRedirect(url);
 
 			//			로그 아웃 끝
@@ -643,14 +648,99 @@ public class HomepageServlet extends HttpServlet{
 
 			// 장바구니
 		}else if(uri.indexOf("cart.com")!=-1){
+			
+			CartDTO cdto = new CartDTO();
 
-			url ="/books_cart/cart.jsp";
+			String ISBN = req.getParameter("ISBN");
+			//String ISBN = "9791170611561";
+
+			KrbookDTO krdto = krdao.getReadData(ISBN) ;
+			BookFileDTO filedto = krdao.getfileReadData(ISBN);
+
+			//int count = Integer.parseInt(req.getParameter("count"));
+			int count = 1;
+
+			//userid 읽어오기
+			session = req.getSession();
+
+			CustomInfo info = (CustomInfo)session.getAttribute("customInfo");
+			//String userId = "mebig7879";
+
+			cdto.setUserId(info.getUserId());
+			//cdto.setUserId(userId);
+			//-//userid  카트 디비에 넣기
+			cdto.setCount(count);
+
+			cdto.setISBN(ISBN);
+
+			cdto.setCoverimage(filedto.getCover());
+			cdto.setSubject(krdto.getSubject());
+			cdto.setPrice(krdto.getPrice());
+
+			cdao.insertData(cdto); 
+			//cart DB에 넣음
+
+			//cdto.setCount(Integer.parseInt(req.getParameter("count")));
+
+			List<CartDTO> ccdto = cdao.getCartLists();
+
+			req.setAttribute("ccdto", ccdto);
+
+			req.setAttribute("bookFilePath", bookFilePath);
+
+			url = "/books_cart/cart.jsp";
 			forward(req, resp, url);
 
+		}else if(uri.indexOf("bestpage.com")!=-1){
 
+			String pageNum = req.getParameter("pageNum");
+
+			int currentPage = 1;
+
+			if(pageNum!=null){
+				currentPage = Integer.parseInt(pageNum);//변수 받기라서 ""안씀 주의
+			}
+			int dataCount = krdao.getDataCount();
+
+			//한 페이지에 출력할 데이터의 갯수
+			int numPerPage = 5;
+
+			int totalPage = myPage.getPageCount(numPerPage, dataCount);
+
+			//System.out.print(totalPage);
+
+			//전체 페이지 수보다 표시할 페이지가 큰 경우
+			//..표시할 페이지를 전체 페이지로 만들기우한 코딩
+			if(currentPage>totalPage){
+				currentPage = totalPage;//12페이지 보고 있다가 삭제했을 때 보고있는 페이지를 11로 바꿔줌
+			}
+
+			//데이터베이스에서 가져올 rownum의 시작과 끝위치(공식)
+			int start = (currentPage-1)*numPerPage +1;
+			int end = (currentPage) * numPerPage;
+			//int end = start + numPerPage -1;
+
+			List<BestDTO> lists= bestdao.getListsBest(start, end);
+
+			String listUrl = cp+"/bukkeubooks/bestpage.com";
+			String pageIndexList = myPage.pageIndexList(currentPage, totalPage, listUrl);
+
+
+			req.setAttribute("bookFilePath", bookFilePath);
+			req.setAttribute("bookPath", bookPath);
+
+			req.setAttribute("lists", lists);
+
+			req.setAttribute("pageIndexList", pageIndexList);
+			req.setAttribute("dataCount", dataCount);
+			req.setAttribute("totalPage", totalPage);
+			req.setAttribute("pageNum", currentPage);//이거 주의 pageNum 에 현재 페이지 넣어야 삭제시 그 페이지에 남아잇음
+
+			url ="/books_best/bestpage.jsp";
+			forward(req, resp, url);
 		}
-
 	}
+
 }
 
 

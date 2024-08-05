@@ -183,7 +183,7 @@
     <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.css" />
 
 
-            
+     <link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">       
     
     
     <link rel="stylesheet" href="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.css" />
@@ -865,9 +865,14 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"><a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link book">
-   <span class="hidden">BukkeuBooks</span> </a> 
-  </div>
+   <!-- 김지영 수정 -->
+<div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
+<!-- 김지영 수정 끝--> 
   <div class="gnb_search_box"> 
    <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 
    <option value="TOT">통합검색</option> 
@@ -3031,7 +3036,7 @@
     					</span>
     					</label>
     			
-			<form id="ratingForm" action="<%=cp %>/bkInfo/info_ok.com" method="post">
+			<form id="ratingForm" action="<%=cp %>/bukkeubooks/bookinfo_ok.com" method="post">
 				<div class="form_cont">
 				    <div class="byte_check_wrap">
 				    <!-- id="ReviewList1_e9e68426-f4f0-4e05-9f4f-fca1fd71aebf_post_reviewText" -->
@@ -3211,7 +3216,7 @@
             
                 <span class="prod_info_title">총 상품 금액</span>
                 <span class="prod_info_price">
-                    <span class="val">${dto.price }</span>
+                    <span class="val">${Math.round(dto.price*0.9) }</span>
                     <span class="unit">원</span>
                 </span>
             
@@ -3231,7 +3236,7 @@
                     <span class="ico_wish"></span><span class="hidden">찜하기</span>
                 </button>
                 <a id="present" type="button" class="btn_lg btn_line_gray"><span class="ico_gift"></span><span class="text">선물하기</span></a>
-                <button id="basket" type="button" class="btn_lg btn_line_primary" onclick="&#39;KOR&#39; == &#39;KOR&#39; ? window.EigeneCartFunc() : &#39;&#39;;"><span class="text">장바구니</span></button>
+                <button id="basket" type="button" class="btn_lg btn_line_primary" onclick="location.href='<%=cp%>/bukkeubooks/cart.com?ISBN=${dto.ISBN }'"><span class="text">장바구니</span></button>
                 
                 
 

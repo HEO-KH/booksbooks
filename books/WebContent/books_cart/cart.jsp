@@ -154,7 +154,7 @@
 
     
     
-<title>교보문고</title>
+<title>부끄북스</title>
 
 
 
@@ -352,19 +352,19 @@
                 case 'ebookproduct':
                 case 'ebook-product':
                     prop = 'ebookProduct';
-                    break
+                    break;
                 case 'elibrary':
                     prop = 'eLibrary'
-                    break
+                    break;
             }
             let value = _.get(oServiceHosts, key)
             if (value == null) {
                 // 기본 호스트 설정
                 switch (key.toLowerCase()) {
-                    case 'welcome': value = 'www'; break
-                    case 'myroom': value = 'my'; break
-                    case 'bookcast': value = 'casting'; break
-                    case 'member': value = 'mmbr'; break
+                    case 'welcome': value = 'www'; break;
+                    case 'myroom': value = 'my'; break;
+                    case 'bookcast': value = 'casting'; break;
+                    case 'member': value = 'mmbr'; break;
                     case 'ebookproduct':
                     case 'ebook-product':
                         value = 'ebook-product'
@@ -642,12 +642,51 @@
     
 </head>
 <body>
+   
     
-     <div class="skip_nav_wrap">
+
+    
+    
+        
+        
+            
+            <div class="skip_nav_wrap">
+                <a href="#contents">본문 바로가기</a>
+            </div>
+            <div class="wrapper contents_detail_view" id="mainDiv">
+                
+                
+    
+        
+        
+
+    <header class="header_wrapper has_banner header_v2 mall_book sps" id="welcome_header_wrap">
+    
+    <!--
+    <th:block th:if="${(alCode=='EET'||alCode=='EMT'||alCode=='EHT'||alCode=='EAT') and alBannerGbn!='true'}">
+        <div class="top_banner_wrap" id="welcome_top_banner">
+            <div class="top_banner_inner">
+                <a href="https://event.kyobobook.co.kr/detail/206105"><img class="img_top_banner" src="https://contents.kyobobook.co.kr/pmtn/2023/book/230104_ebs/bn/bnM_02.png" alt="EBS X 교보문고 고객님을 위한 5천원 열공 혜책!"></a>
+                <button type="button" class="btn_close_banner">배너 닫기</button>
+            </div>
+        </div>
+    </th:block>
+    -->
+    
+<script>
+    </script>
+
+    
+<div class="skip_nav_wrap">
                 <a href="#contents">본문 바로가기</a>
             </div>
             <div class="wrapper welcome" id="mainDiv">
                 
+                
+    
+        
+        
+
     <header class="header_wrapper has_banner header_v2 mall_book sps" id="welcome_header_wrap">
     
         <div class="top_banner_wrap" id="welcome_top_banner">
@@ -722,16 +761,25 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"><a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link book">
-   <span class="hidden">BukkeuBooks</span> </a> 
-  </div>
+ 
+  <!-- 김지영 수정 -->
+<div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
+<!-- 김지영 수정 끝--> 
+  <form name="myForm" method="post">
   <div class="gnb_search_box"> 
    <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 
-   <option value="TOT">통합검색</option> 
+   <option>선택</option> 
+   <option value="subject">제목</option> 
+   <option value="author">작가</option> 
    </select> 
    </div> 
    <div class="search_input_wrap"> 
-    <input  type="text" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value="" name="searchValue" onclick="<%=cp%>/bukkeubooks/bookinfo.com"> 
+    <input  type="text" class="ip_gnb_search" title="통합검색어 입력" autocomplete="off" value="" name="searchValue" onclick="<%=cp%>/bukkeubooks/list.com"> 
     
     <!-- <input type="hidden" name="searchBoxEventurl" id="searchBoxEventurl" value="">  -->
     <script>
@@ -744,13 +792,13 @@
                     });
                 });                      
             </script> <button type="button" class="btn_ip_clear"> <span class="hidden">초기화</span> </button> 
-   </div> <a href="${bookUrl}" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
-  </div>
+   </div> <a href="<%=cp%>/bukkeubooks/list.com" class="btn_gnb_search"> <span class="hidden">검색</span> </a> 
+  </div></form>
   <ul class="user_menu_list"> 
    <li class="user_menu_item cash"> <a href="https://ecash.kyobobook.co.kr/dig/opr/ecash/general" class="user_menu_link" title="e캐시"> <span class="hidden">e캐시</span> </a> </li> 
    <li class="user_menu_item library"> <a href="https://elibrary.kyobobook.co.kr/dig/elb/elibrary" class="user_menu_link" title="내서재"> <span class="hidden">내서재</span> </a> </li> 
    <li class="user_menu_item cart"> <a href="<%=cp %>/bukkeubooks/cart.com?userId=${sessionScope.customInfo.userId }" class="user_menu_link"> <span class="hidden">장바구니</span> <span data-kbbfn="cart-size" style="display:none;" class="cnt"></span> </a> </li> <!-- DESC : 로그인 후 li.user_menu_item [ login ] class 추가 --> 
-      
+   
    <c:if test="${empty sessionScope.customInfo.userId }">
     <li > <a href="<%=cp %>/bukkeubooks/login.com" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
    </c:if>
@@ -758,8 +806,7 @@
    <c:if test="${!empty sessionScope.customInfo.userId }">
    <li > <a href="<%=cp %>/bukkeubooks/mypage.com?userId=${sessionScope.customInfo.userId }%userName=${sessionScope.customInfo.userName }" data-render="ssr" class="profile-icon user_menu_link"><br/><img alt="로그인" src="../books_homepage/mypage.png"> 마이</a></li> 
   </c:if>
-  
-   </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
+  </ul> <!-- DESC : 레이어 활성화 시 [ active ] class 추가 --> 
   <div class="auto_complete_wrap auto_complete_maintain" id="hFrame"> 
    <div class="search_content_wrap inKeyword"> 
     <div class="scroll_wrap"></div> 
@@ -1680,7 +1727,6 @@
 
 
 
-
         
         
         
@@ -1743,9 +1789,9 @@
                                         <ol class="step_round_text_list">
                                             <!-- DESC : 활성화된 step [active] class 추가 -->
                                             <li class="step_item active"><span class="step_num">1</span>장바구니</li>
-                                            <li class="step_item"><span class="step_num">2</span>사은품선택</li>
-                                            <li class="step_item"><span class="step_num">3</span>주문/결제</li>
-                                            <li class="step_item"><span class="step_num">4</span>주문완료</li>
+                                          
+                                            <li class="step_item"><span class="step_num">2</span>주문/결제</li>
+                                            <li class="step_item"><span class="step_num">3</span>주문완료</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -1792,21 +1838,223 @@
                                 
                                 
                                     <div class="no_data_desc_sub">마음에 드는 상품을 담아보세요!</div>
-                                    <div class="btn_wrap" data-no-data>
-                                        <button type="button" class="btn_sm btn_primary" onclick="location.href=&#39;https://www.kyobobook.co.kr/&#39;"><span class="text">계속 쇼핑하기</span></button>
+                                    <div class="btn_wrap" data-no-data="">
+                                        <button type="button" class="btn_sm btn_primary" onclick="location.href='https://www.kyobobook.co.kr/'"><span class="text">계속 쇼핑하기</span></button>
                                     </div>
                                 
                             </div>
                             <!-- //no_data -->
 
-                            <div class="no_data size_sm" id="data-cart-list-ing-010">
+                            <div class="no_data size_sm" id="data-cart-list-ing-010" style="display: none;">
                                 <div class="no_data_desc">데이터를 불러오는 중입니다.</div>
                             </div>
 
                             <div class="fold_box_wrap type_order" data-type="multi">
-                                <ul class="fold_box_list" spbkKindGoodsList>
+                                <ul class="fold_box_list" spbkkindgoodslist="">
                                     <!-- 상품 리스트-->
-                                </ul>
+                                
+
+
+    <!-- 추가 240415 장바구니 페이지 기능 고도화 -->
+    <!--<th:block th:if="${isMember}">-->
+        <li class="cart_calc_wrap sps sps-abv" data-height-observe="010" data-sps-offset="377">
+            <div class="cart_calc_inner">
+                <div class="cart_calculator">
+                    <!-- CASE 1 : 무료 배송금액을 못채웠을 경우 -->
+                    <div class="heading" data-under-free-shipping="" style="display: none;"><em data-kyobo-free-shipping="">-20,640원</em> 더 담으면 <b>무료배송</b>이에요!</div>
+                    <!-- CASE 2 : 무료 배송금액을 채웠을 경우 -->
+                    <div class="heading" data-over-free-shipping="" style="display: block;"><em>5만원</em> 이상 구매 시<b> 추가 적립!</b>
+                        <button type="button" class="btn_info_popup" data-point-guide="">
+                            <span class="ico_question"></span><span class="hidden">팝업 열기</span>
+                        </button>
+                    </div>
+                    <div class="right_area">
+                        <div class="progress">
+                            <div class="bar"><span class="value" style="width: 100%;" data-cart-prd-total-progress-bar="">1%</span></div>
+                            <p class="text">*교보문고 배송 상품 기준 (해외주문도서 제외)</p>
+                        </div>
+                        <button type="button" class="btn_xs btn_line_gray" data-cart-anchor-scroll="#cartRecommend">
+                            <a href="#cartRecommend" data-cart-anchor-scroll="" data-cart-plus-btn="">상품 추가하기</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <div class="sps_observer" style="top:auto;"></div></li>
+    <!--</th:block>-->
+    <!-- //추가 240415 장바구니 페이지 기능 고도화 -->
+<li id="foldCartKyobo" class="tab_content fold_box sps expanded sps-abv" data-height-observe="010" data-sps-offset="252" data-add-offset="192" data-observer="[object MutationObserver]" data-prev-class="tab_content fold_box sps expanded sps-abv">
+    
+    <div class="fold_box_contents">
+        <div class="tbl_prod_wrap">
+        <!-- 여기부터 리스트 넣어볼까? -->
+        <!-- list -->
+  
+     
+            <table class="tbl_prod">
+                
+                <colgroup>
+                    <col style="width: 42px;">
+                    <col>
+                    <col style="width: 140px;">
+                    <col style="width: 222px;">
+                </colgroup>
+                <thead class="hidden">
+                    <tr>
+                        <th scope="col">상품선택</th>
+                        <th scope="col">상품정보</th>
+                        <th scope="col">금액, 수량</th>
+                        <th scope="col">배송정보</th>
+                    </tr>
+                </thead>
+                <tbody data-cart-list-010="">
+
+                                                        <tr data-product-place="">
+                                                            <input type="hidden" value="17820" id="tr1" data-list-prdvalue=""> <!--상품가격-->
+                                                            <input type="hidden" value="990" data-list-prdpoint=""> <!--적립예정포인트-->
+                                                            <input type="hidden" value="S000213800371" data-list-prdcd=""> <!--상품코드-->
+                                                            <input type="hidden" value="당신이 누군가를 죽였다" data-list-cmdtname=""> <!--상품명-->
+                                                            <input type="hidden" value="Y" data-list-pickupyn=""> <!--바로드림여부-->
+                                                            <input type="hidden" value="B24080241888" data-list-spbkid=""> <!--장바구니ID-->
+                                                            <input type="hidden" value="" data-list-ordlmtyn=""> <!--판매제한여부-->
+                                                            <input type="hidden" value="N" data-list-soldoutyn=""> <!--품절여부-->
+                                                            <input type="hidden" value="CM00002132955" data-list-unfycmdtid=""> <!--판매상품ID-->
+                                                            <input type="hidden" value="S000213800371" data-list-salecmdtid=""> <!--판매상품ID-->
+                                                            <input type="hidden" value="2" data-list-requqntt=""> <!--수량-->
+                                                            <input type="hidden" value="KOR" data-list-salecmdtdvsncode=""> <!--판매상품코드-->
+                                                            <input type="hidden" value="001" data-list-salecdtncode=""> <!--판매여부-->
+                                                            <input type="hidden" value="AA15090123" data-list-cmdtclstcode="">
+                                                            <input type="hidden" value="KYOBO" data-list-entsid=""> <!--출판사코드-->
+                                                            <input type="hidden" value="010" data-list-spbkkindcode=""> <!--분류코드-->
+                                                            <input type="hidden" value="19800" data-list-salecmdtprce=""> <!-- 상품원가-->
+                                                            <input type="hidden" value="PB48886" data-list-pbcmcode=""> <!-- 출판사코드-->
+                                                            <input type="hidden" value="010510" data-list-salecmdtclstcode=""> <!-- 판매상품분류코드-->
+                                                            <input type="hidden" value="0" data-list-salelmttage=""> <!--판매연령제한나이-->
+                                                            <input type="hidden" value="Y" data-list-nrmlyn=""> <!--일반구매가능여부-->
+                                                            <!-- 20221104 hansol -->
+                                                            <input type="hidden" value="10" data-list-totaldscnrate=""> <!--예정할인율-->
+                                                            <input type="hidden" value="17820" data-list-totalsalecmdtsapr=""> <!--예정판매가-->
+                                                            <input type="hidden" value="990" data-list-totalpoint=""> <!--예정적립포인트-->
+                                                            <input type="hidden" value="0" data-list-adtnsaleamnt=""> <!--추가판매금액-->
+                                                            <input type="hidden" value="" data-list-goodsenbscmdtdvsncode=""> <!--입점사상품구분코드-->
+                                                            
+                                                            
+                                                             
+                                                            <td class="only_chk">
+                                                                <span class="form_chk no_label">
+                                                                    
+                                                                    <input name="chkList" id="brand0100" type="checkbox" value="CM00002132955" checked="">
+                                                                    
+                                                                    
+                                                                    <label for="brand0100">상품 선택</label>
+                                                                </span>
+                                                            </td>
+                                                            <td class="prod">
+                                                                
+                                                               <c:forEach var="dto" items="${ccdto }">
+                                                                    <div class="prod_area horizontal">
+                                                                    <div class="prod_info_box size_sm">
+                                                                        <a href="#" class="prod_info">
+                                                                            </a>
+                                                                            
+                                                                            <img alt="" src="${bookFilePath }/${dto.coverimage}" width="50" height="50">
+                                                                            <a href="${bookFilePath }/${dto.coverimage}" class="prod_link">
+                                                                                <span class="prod_name">${dto.subject }</span>
+                                                                            </a>
+                                                                        
+                                                                        <!--
+                                                                        
+                                                                        <span class="badge_md badge_line_gray"><span class="text">소득공제</span></span>
+                                                                        
+                                                                        -->
+                                                                        <div class="prod_price">
+                                                                            <span class="percent">10%</span>
+                                                                            <span class="price">
+                                                                                <span class="val target" id="priceValNaN">${Math.round(dto.price * 0.9) }</span>
+                                                                                <span class="unit">${Math.round(dto.price * 0.9) }원</span>
+                                                                            </span>
+                                                                            <span class="price_normal">
+															                    <s class="val">${dto.price }</s>
+														                    </span>
+                                                                            <span class="point" data-cart-list-ratepercent=""></span>
+                                                                       		<input type="hidden" value="${dto.ISBN }" name="ISBN"/>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                  
+                                                                </c:forEach>
+                                                            </td>
+                                                            
+                                                              
+                                                           <%--  <td id="price0100" data-commodity-item-root="">
+                                                                <span class="price">
+                                                                    <span class="val target"></span>
+                                                                    <span class="unit">${Math.round(dto.price * 0.9) }원</span>
+                                                                </span>
+                                                                <div class="form_spinner_box size_sm">
+                                                                    <span class="ui-spinner ui-widget ui-widget-content ui-corner-all ui-spinner-right"><button class="decrease ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget"><span class="offscreen ui-icon ui-icon-triangle-1-s">상품 수량 한 개 줄이기</span></button><input type="number" id="prdNum10" value="2" class="form_spinner ui-spinner-input" title="수량" autocomplete="off"><button class="increase ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget"><span class="offscreen ui-icon ui-icon-triangle-1-n">상품 수량 한 개 늘리기</span></button></span>
+                                                                </div>
+                                                            </td> --%>
+                                                            <td>
+                                                                <div class="delivery_info">
+                                                                     <!-- 2022.11.01 hansol : 바로드림 전용상품 택배배송 미노출 처리 -->
+                                                                    <div class="info_inner" data-all-cart-list="">
+                                                                        
+                                                                        <p class="delivery_desc">
+                                                                            
+                                                                            <button type="button" class="btn_more_view fc_black" id="cartListDeliveryBtn0" data-popup-delivery-point-list-button="popup"><span class="text">배송지 등록 필요</span><span class="ico_arw"></span></button>
+                                                                            
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                    <div class="info_inner" data-list-pickupyndiv="">
+                                                                        <span class="badge_sm badge_pill badge_line_primary"><span class="text">바로드림</span></span>
+                                                                        <p class="delivery_desc">
+                                                                            <span class="fw_bold">1시간 이후 수령가능 , 광화문점</span><br>
+                                                                        </p>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <button type="button" class="btn_delete_ord"><span class="hidden">장바구니 삭제</span></button>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <!--품절상품일때-->
+                                                        
+
+<!---->
+                </tbody>
+            </table>
+            
+            <!-- 리스트 끝!!! -->
+        </div>
+        <!-- pagination -->
+        <div class="btn_wrap auto" id="addCnt010" style="display:none;">
+            <button type="button" class="btn_more_cont" data-list-add-cnt="" value="010">
+            <span class="text">더보기<span class="fw_regular" id="more010" value="1">(1/5개)</span></span><span class="ico_arw_noline"></span></button>
+        </div>
+        <!-- //pagination -->
+
+        <!--<div class="btn_wrap auto" style="display:none;" data-cart-list-data-paging>
+            <button type="button" class="btn_more_cont" data-cart-more-button="">
+                <span class="text" data-list-add-cnt>더보기 <span class="fw_regular">(1/5)</span></span><span class="ico_arw_noline"></span>
+            </button>
+        </div>-->
+        <!-- 추가 240415 장바구니 페이지 기능 고도화 -->
+        <div class="free_deli_banner">
+            <a href="#cartRecommend" data-cart-anchor-scroll="" data-cart-banner-btn="">무료배송 상품 추가하기</a>
+        </div>
+        <!-- //추가 240415 장바구니 페이지 기능 고도화 -->
+
+        <input type="hidden" id="nowPage010" value="1">
+        <input type="hidden" id="groupCnt010">
+        <input type="hidden" id="nowCnt010">
+     
+    </div>
+<div class="sps_observer" style="top:auto;"></div></li>
+<!---->
+</ul>
                             </div>
                             <!-- //fold_box_wrap -->
 
@@ -1814,19 +2062,16 @@
                             <!-- 수정 240415 장바구니 페이지 기능 고도화 -->
 <!-- tab_wrap -->
 
+<!-- //tab_wrap -->
 
 
                             <!-- 함께많이담은상품 -->
                             
+
+
    
-    <!-- prod_swiper_wrap -->
-    <div class="prod_swiper_wrap swiper-container" data-cart-with-prd>
-        <ul class="prod_list swiper-wrapper" data-md-pick-corner-product style="display: none">
-        </ul>
-        <div class="swiper-scrollbar"></div>
-    </div>
-                            <!-- //prod_swiper_wrap -->
-<script type="text/x-template" id="templateMdPickCorner">
+   
+<script type="text/x-template" id="templateMdPickCorner" data-jsv-tmpl="jsvTmpl">
     <li class="prod_item swiper-slide">
         <input type="hidden" value="{{:saleCmdtid}}" data-recent-prdCd>
         <input type="hidden" value="{{:saleCmdtGrpDvsnCode}}" data-recent-saleCmdtGrpDvsnCode>
@@ -1864,7 +2109,7 @@
     </li>
 </script>
 
-<script type="text/x-template" id="templatePbcProduct">
+<script type="text/x-template" id="templatePbcProduct" data-jsv-tmpl="jsvTmpl">
     <li class="prod_item swiper-slide">
         <input type="hidden" value="{{:saleCmdtid}}" data-recent-prdCd>
         <input type="hidden" value="{{:saleCmdtGrpDvsnCode}}" data-recent-saleCmdtGrpDvsnCode>
@@ -1905,10 +2150,10 @@
 
                             <!-- 배너 -->
                                                         <!-- point_banner_wrap -->
-                            <div class="point_banner_wrap">
-                                <div class="swiper-container">
-                                    <ul class="swiper-wrapper" data-cart-payBannerArea>
-                                        <script type="text/x-template" id="cartPayBannerList">
+                            <div class="point_banner_wrap" style="">
+                                <div class="swiper-container swiper-container-horizontal">
+                                    <ul class="swiper-wrapper" data-cart-paybannerarea="">
+                                        <script type="text/x-template" id="cartPayBannerList" data-jsv-tmpl="jsvTmpl">
                                            <li class="swiper-slide">
                                                 <a href="{{:webLinkUrladrs}}" class="point_banner_box" data-event-banner-click-gtm="{{:#index + 1}}">
                                                     <div class="point_banner_text">
@@ -1919,10 +2164,30 @@
                                                 </a>
                                             </li>
                                         </script>
-                                    </ul>
-                                </div>
+                                    
+                                           <li class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 284.667px; margin-right: 18px;">
+                                                <a href="https://event.kyobobook.co.kr/detail/217825" class="point_banner_box" data-event-banner-click-gtm="1">
+                                                    <div class="point_banner_text">
+                                                        <p class="title">특가도서</p>
+                                                        <p data-event-banner-title="">함께 사면 무료배송!</p>
+                                                    </div>
+                                                    <img src="https://contents.kyobobook.co.kr/display/140_84_e022805a8bf3485d8b5e288bbf79ea27.jpg" alt="페이 광고 이미지">
+                                                </a>
+                                            </li>
+                                        
+                                           <li class="swiper-slide swiper-slide-visible swiper-slide-next" style="width: 284.667px; margin-right: 18px;">
+                                                <a href="https://event.kyobobook.co.kr/detail/223872" class="point_banner_box" data-event-banner-click-gtm="2">
+                                                    <div class="point_banner_text">
+                                                        <p class="title">네이버페이</p>
+                                                        <p data-event-banner-title="">4만원이상 3천원적립(추첨)</p>
+                                                    </div>
+                                                    <img src="https://contents.kyobobook.co.kr/display/혜택 배너, 장바구니 배너(배경 회색)_ffb6acbb10fc4358b62ca4e0dc889309.jpg" alt="페이 광고 이미지">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                                 <div class="swiper_control_box">
-                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span></div>
                                 </div>
                             </div>
                             <!-- //point_banner_wrap -->
@@ -1964,7 +2229,7 @@
                         <div class="cart_info_wrap" style="top: 0px;">
 
                             <!-- payments_info_area -->
-                            <div class="payments_info_area">
+                            <%-- <div class="payments_info_area">
                                 <div class="payments_info_box">
                                     <h2 class="hidden">주문 합계</h2><!-- 수정 220415 SEO H태그 적용 -->
                                     <ul class="payments_info_list">
@@ -1972,7 +2237,7 @@
                                             <p class="label">상품 금액</p>
                                             <div class="right_box">
                                             <span class="price">
-                                                <span class="val spot" data-sum-cart-list-val="">0</span>
+                                                <span class="val spot" data-sum-cart-list-val="">39,600</span>
                                                 <span class="unit">원</span>
                                             </span>
                                             </div>
@@ -1985,7 +2250,7 @@
                                             </button>
                                             <div class="right_box">
                                             <span class="price">
-                                                <span class="val" data-sum-cart-list-deliveryfee="">0</span>
+                                                <span class="val" data-sum-cart-list-deliveryfee="">+ 0</span>
                                                 <span class="unit">원</span>
                                             </span>
                                             <input type="hidden" id="deliveryFee">
@@ -1996,7 +2261,7 @@
                                             <p class="label">상품 할인</p>
                                             <div class="right_box">
 											<span class="price">
-												<span class="val sale" data-sum-cart-list-discount-amount="">0</span>
+												<span class="val sale" data-sum-cart-list-discount-amount="">- 3,960</span>
 												<span class="unit">원</span>
 											</span>
                                             </div>
@@ -2010,7 +2275,7 @@
                                             <p class="label">결제 예정 금액</p>
                                             <div class="right_box">
                                             <span class="price">
-                                                <span class="val" data-sum-cart-list-totalval="">0</span>
+                                                <span class="val" data-sum-cart-list-totalval="">35,640</span>
                                                 <span class="unit">원</span>
                                             </span>
                                             </div>
@@ -2020,16 +2285,17 @@
                                             <button type="button" class="btn_info_popup" pop-point-guide-button=""><span class="ico_question"></span><span class="hidden">팝업 열기</span></button>
                                             <div class="right_box">
                                             <span class="price">
-                                                <span class="val" data-sum-cart-list-point="">0</span>
+                                                <span class="val" data-sum-cart-list-point="">1,980</span>
                                                 <span class="unit">P</span>
                                             </span>
+                                             <input type="hidden" name="ISBN" value="${dto.ISBN }"/>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- btn_wrap -->
                                 <div class="btn_wrap full">
-                                    <button type="button" class="btn_lg btn_primary" data-page-order="" disabled="disabled"><span class="text">주문하기 (<span data-sum-totalcnt="">0</span>)</span></button>
+                                    <button type="button" class="btn_lg btn_primary" data-page-order="" ><span class="text" onclick="javascript:location.href='<%=cp%>/bkInfo/bkInfo/jumun.com';">주문하기 (<span data-sum-totalcnt="">2</span>)</span></button>
                                     <!-- 수정 229999 바로드림 주문 버튼 영역 위치 조정 : .payments_info_area -> .cart_info_wrap -->
                                 </div>
                                 <!--//btn_wrap-->
@@ -2047,16 +2313,16 @@
 
                             <!-- 추가 229999 '바로드림 주문' 버튼 영역 추가 -->
                             <div class="btn_wrap full">
-                                <button type="button" class="btn_md btn_line_primary" data-page-barodream="" style="display: none;"><span class="text">바로드림 주문 (<span data-barodream-count="">0</span>)</span></button><!-- 수정 229999 바로드림 주문 버튼 class 수정 : [btn_sm] -> [btn_md] -->
+                                <button type="button" class="btn_md btn_line_primary" data-page-barodream=""><span class="text">바로드림 주문 (<span data-barodream-count="">2</span>)</span></button><!-- 수정 229999 바로드림 주문 버튼 class 수정 : [btn_sm] -> [btn_md] -->
                             </div>
                             <!-- //추가 229999 '바로드림 주문' 버튼 영역 추가 -->
                             <!-- 추가 229999 '선물하기', '여러곳 배송' 버튼 영역 추가 -->
                             <!-- btn_wrap -->
 
                             <div class="btn_wrap justify">
-                              <button type="button" class="btn_sm btn_line_gray" data-page-gift="" disabled="disabled"><span class="ico_present"></span><span class="text">선물하기</span></button>
+                              <button type="button" class="btn_sm btn_line_gray" data-page-gift=""><span class="ico_present"></span><span class="text">선물하기</span></button>
                               <button type="button" class="btn_sm btn_line_gray" data-page-multi=""><span class="ico_delivery_multiple"></span><span class="text">여러곳 배송</span></button>
-                            </div>
+                            </div> --%>
                             <!--//btn_wrap-->
                             <!-- //추가 229999 '선물하기', '여러곳 배송' 버튼 영역 추가 -->
 
@@ -2070,6 +2336,7 @@
 
                         </div>
                     </div>
+                    
                 </div>
             </section>
         <input type='hidden' id='groupCnt'/>
@@ -2082,7 +2349,7 @@
 
         <!-- 교보문고 -->
         <!-- 교보문고 -->
-<script type="text/x-template" id="templateCart010">
+<script type="text/x-template" id="templateCart010" data-jsv-tmpl="jsvTmpl">
 {{if #getIndex() == 0}}
 
     <!-- 추가 240415 장바구니 페이지 기능 고도화 -->
@@ -2322,7 +2589,6 @@
 </li>
 <!--{{/if}}-->
 </script>
-<!-- //교보문고 -->
 <script type="text/x-template" id="templateCart010Contents">
                                                         <tr data-product-place>
                                                             <input type="hidden" value="{{:saleCmdtSapr}}" id="tr1" data-list-prdValue> <!--상품가격-->
@@ -2476,313 +2742,8 @@
                                                         </tr>
                                                         {{/if}}
 </script>
-
-        <!-- eBook -->
-         <!-- eBook -->
- <script type="text/x-template" id="templateCart020">
- {{if #getIndex() == 0}}
- <li id="foldCartEBook" class="tab_content fold_box sps expanded" data-height-observe="020">
-     <div class="fold_box_header">
-         <span class="form_chk">
-             <input name="chkList" id="brandAllchk02" type="checkbox" data-cart-list-All02/>
-             <label for="brandAllchk02">eBook</label>
-         </span>
-         <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-     </div>
-     <div class="fold_box_contents">
-         <div class="tbl_prod_wrap">
-             <table class="tbl_prod">
-                 <caption>eBook 상품</caption>
-                 <colgroup>
-                     <col style="width: 42px;">
-                     <col>
-                     <col style="width: 140px;">
-                     <col style="width: 222px;">
-                 </colgroup>
-                 <thead class="hidden">
-                     <tr>
-                         <th scope="col">상품선택</th>
-                         <th scope="col">상품정보</th>
-                         <th scope="col">금액, 수량</th>
-                         <th scope="col">배송정보</th>
-                     </tr>
-                 </thead>
-                 <tbody data-cart-list-020>
-{{/if}}
-
-                                        <tr data-product-place>
-                                            <input type="hidden" value="{{:saleCmdtSapr}}" data-list-prdValue> <!--상품가격-->
-                                            <input type="hidden" value="{{:upntAcmlAmnt}}" data-list-prdPoint> <!--적립예정포인트-->
-                                            <input type="hidden" value="{{:saleCmdtid}}" data-list-prdCd> <!--상품코드-->
-                                            <input type="hidden" value="{{:cmdtName}}" data-list-cmdtName> <!--상품명-->
-                                            <input type="hidden" value="{{:pickupYn}}" data-list-pickupYn> <!--바로드림여부-->
-                                            <input type="hidden" value="{{:spbkId}}" data-list-spbkId> <!--장바구니ID-->
-                                            <input type="hidden" value="{{:ordLmtYn}}" data-list-ordLmtYn> <!--판매제한여부-->
-                                            <input type="hidden" value="{{:soldOutYn}}" data-list-soldOutYn> <!--품절여부-->
-                                            <input type="hidden" value="{{:unfyCmdtid}}" data-list-unfyCmdtId> <!--판매상품ID-->
-                                            <input type="hidden" value="{{:saleCmdtid}}" data-list-saleCmdtid> <!--판매상품ID-->
-                                            <input type="hidden" value="{{:requQntt}}" data-list-requQntt> <!--수량-->
-                                            <input type="hidden" value="{{:saleCmdtDvsnCode}}" data-list-saleCmdtDvsnCode> <!--판매상품코드-->
-                                            <input type="hidden" value="{{:saleCdtnCode}}" data-list-saleCdtnCode> <!--판매여부-->
-                                            <input type="hidden" value="{{:cmdtClstCode}}" data-list-cmdtClstCode>
-                                            <input type="hidden" value="{{:entsId}}" data-list-entsId> <!--출판사코드-->
-                                            <input type="hidden" value="{{:spbkKindCode}}" data-list-spbkKindCode> <!--분류코드-->
-                                            <input type="hidden" value="{{:saleCmdtPrce}}" data-list-saleCmdtPrce> <!-- 상품원가-->
-                                            <input type="hidden" value="{{:pbcmCode}}" data-list-pbcmCode> <!-- 출판사코드-->
-                                            <input type="hidden" value="{{:saleCmdtClstCode}}" data-list-saleCmdtClstCode> <!-- 판매상품분류코드-->
-                                            <input type="hidden" value="{{:saleLmttAge}}" data-list-saleLmttAge> <!--판매연령제한나이-->
-                                            <!-- 20221104 hansol -->
-                                            <input type="hidden" value="{{:totalDscnRate}}" data-list-totalDscnRate> <!--예정할인율-->
-                                            <input type="hidden" value="{{:totalSaleCmdtSapr}}" data-list-totalSaleCmdtSapr> <!--예정판매가-->
-                                            <input type="hidden" value="{{:totalPoint}}" data-list-totalPoint> <!--예정적립포인트-->
-                                            <input type="hidden" value="{{:adtnSaleAmnt}}" data-list-adtnSaleAmnt> <!--추가판매금액-->
-                                            <!-- GA360 -->
-                                            <input type="hidden" value="{{:titleCmdtName}}" data-list-titleCmdtName> <!--상품이름-->
-                                            {{if soldOutYn == "N"}}
-                                            <td class="only_chk">
-                                                <span class="form_chk no_label">
-                                                    {{if chekYsno == "Y"}}
-                                                    <input name='chkList' id="brand020{{:itemNum}}" type="checkbox" value="{{:unfyCmdtid}}" checked/>
-                                                    {{/if}}
-                                                    {{if chekYsno == "N" || chekYsno == null}}
-                                                    <input name='chkList' id="brand020{{:itemNum}}" type="checkbox" value="{{:unfyCmdtid}}"/>
-                                                    {{/if}}
-                                                    <label for="brand020{{:itemNum}}">상품 선택</label>
-                                                </span>
-                                            </td>
-                                            <td class="prod">
-                                                <div class="prod_area horizontal">
-                                                    <div class="prod_thumb_box size_sm {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                        <a href="#" class="prod_link">
-                                                            <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                                <span class="img_box">
-                                                                    <img src="{{:imgUrl}}" alt="{{:titleCmdtName}}" />
-                                                                </span>
-                                                            </a>
-                                                        </a>
-                                                    </div>
-                                                    <div class="prod_info_box size_sm">
-                                                        <a href="#" class="prod_info">
-                                                            <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                                <span class="prod_name">{{:titleCmdtName}}</span>
-                                                            </a>
-                                                        </a>
-                                                        <div class="prod_price">
-                                                            <span class="percent">{{:~numberFloor(totalDscnRate)}}%</span>
-                                                            <span class="price">
-                                                                <span class="val">{{comma:(totalSaleCmdtSapr)}}</span>
-                                                                <span class="unit">원</span>
-                                                            </span>
-                                                            <span class="price_normal">
-                                                                <s class="val">{{comma:(saleCmdtPrce)}}원</s>
-                                                            </span>
-                                                            <span class="point" data-cart-list-ratePercent>({{comma:(totalPoint)}}P)</span>
-                                                        </div>
-
-                                                        {{if cpnYsno == "Y"}}
-                                                        <div class="prod_btn_box" data-cart-list-coupon-button>
-                                                            <button type="button" class="btn_xs btn_line_gray" data-coupon-btn><span class="text">할인쿠폰</span><span class="ico_download"></span></button>
-                                                        </div>
-                                                        {{/if}}
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td id="price020{{:itemNum}}" data-commodity-item-root>
-                                                <span class="price">
-                                                    <span class="val target">{{comma:(totalSaleCmdtSapr * requQntt)}}</span>
-                                                    <span class="unit">원</span>
-                                                </span>
-                                                <div class="form_spinner_box size_sm">
-                                                    <input type="number" id="prdNum2{{:itemNum}}" value="{{:requQntt}}" class="form_spinner" title="수량 입력" disabled/>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="delivery_info">
-                                                    <span class="badge_sm badge_pill badge_primary_ord"><span class="text">eBook</span></span>
-                                                    <p class="delivery_desc">결제 후 바로 다운로드</p>
-                                                </div>
-                                                <button type="button" class="btn_delete_ord" data-oneDel-button><span class="hidden">장바구니 삭제</span></button>
-                                            </td>
-                                        </tr>
-                                        {{/if}}
-                                        {{if soldOutYn == "Y"}}
-                                            <td class="only_chk">
-                                                <span class="form_chk no_label">
-                                                    <input id="brand021{{:itemNum}}"/>
-                                                    <label for="brand021{{:itemNum}}">상품 선택</label>
-                                                </span>
-                                            </td>
-                                            <td class="prod sold_out">
-                                                <div class="prod_area horizontal sold_out {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                <div class="prod_thumb_box size_sm {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                    <a href="#" class="prod_link">
-                                                        <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                            <span class="img_box">
-                                                                <img src="{{:imgUrl}}" alt="{{:titleCmdtName}}" />
-                                                            </span>
-                                                        </a>
-                                                    </a>
-                                                </div>
-                                                <div class="prod_info_box size_sm">
-                                                    <a href="#" class="prod_info">
-                                                        <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                            <span class="prod_name">{{:titleCmdtName}}</span>
-                                                        </a>
-                                                    </a>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td><button type="button" class="btn_delete_ord" data-oneDel-button><span class="hidden">장바구니 삭제</span></button></td>
-                                        </tr>
-                                        {{/if}}
-
-{{if #getIndex() == ~getSize()}}
-                 </tbody>
-             </table>
-         </div>
-        <!-- pagination -->
-        <div class="btn_wrap auto" id="addCnt020" style="display:none;">
-            <button type="button" class="btn_more_cont" data-list-add-cnt value="020">
-            <span class="text">더보기<span class="fw_regular" id='more020' value='1'>(1/5개)</span></span><span class="ico_arw_noline"></span></button>
-        </div>
-        <!-- //pagination -->
-     </div>
- </li>
-{{/if}}
-</script>
-<!-- //eBook -->
-<script type="text/x-template" id="templateCart020Contents">
-                                        <tr data-product-place>
-                                            <input type="hidden" value="{{:saleCmdtSapr}}" data-list-prdValue> <!--상품가격-->
-                                            <input type="hidden" value="{{:upntAcmlAmnt}}" data-list-prdPoint> <!--적립예정포인트-->
-                                            <input type="hidden" value="{{:saleCmdtid}}" data-list-prdCd> <!--상품코드-->
-                                            <input type="hidden" value="{{:cmdtName}}" data-list-cmdtName> <!--상품명-->
-                                            <input type="hidden" value="{{:pickupYn}}" data-list-pickupYn> <!--바로드림여부-->
-                                            <input type="hidden" value="{{:spbkId}}" data-list-spbkId> <!--장바구니ID-->
-                                            <input type="hidden" value="{{:ordLmtYn}}" data-list-ordLmtYn> <!--판매제한여부-->
-                                            <input type="hidden" value="{{:soldOutYn}}" data-list-soldOutYn> <!--품절여부-->
-                                            <input type="hidden" value="{{:unfyCmdtid}}" data-list-unfyCmdtId> <!--판매상품ID-->
-                                            <input type="hidden" value="{{:saleCmdtid}}" data-list-saleCmdtid> <!--판매상품ID-->
-                                            <input type="hidden" value="{{:requQntt}}" data-list-requQntt> <!--수량-->
-                                            <input type="hidden" value="{{:saleCmdtDvsnCode}}" data-list-saleCmdtDvsnCode> <!--판매상품코드-->
-                                            <input type="hidden" value="{{:saleCdtnCode}}" data-list-saleCdtnCode> <!--판매여부-->
-                                            <input type="hidden" value="{{:cmdtClstCode}}" data-list-cmdtClstCode>
-                                            <input type="hidden" value="{{:entsId}}" data-list-entsId> <!--출판사코드-->
-                                            <input type="hidden" value="{{:spbkKindCode}}" data-list-spbkKindCode> <!--분류코드-->
-                                            <input type="hidden" value="{{:saleCmdtPrce}}" data-list-saleCmdtPrce> <!-- 상품원가-->
-                                            <input type="hidden" value="{{:pbcmCode}}" data-list-pbcmCode> <!-- 출판사코드-->
-                                            <input type="hidden" value="{{:saleCmdtClstCode}}" data-list-saleCmdtClstCode> <!-- 판매상품분류코드-->
-                                            <input type="hidden" value="{{:saleLmttAge}}" data-list-saleLmttAge> <!--판매연령제한나이-->
-                                            <input type="hidden" value="{{:totalDscnRate}}" data-list-totalDscnRate> <!--예정할인율-->
-                                            <input type="hidden" value="{{:totalSaleCmdtSapr}}" data-list-totalSaleCmdtSapr> <!--예정판매가-->
-                                            <input type="hidden" value="{{:totalPoint}}" data-list-totalPoint> <!--예정적립포인트-->
-                                            <input type="hidden" value="{{:adtnSaleAmnt}}" data-list-adtnSaleAmnt> <!--추가판매금액-->
-                                            {{if soldOutYn == "N"}}
-                                            <td class="only_chk">
-                                                <span class="form_chk no_label">
-                                                    {{if chekYsno == "Y"}}
-                                                    <input name='chkList' id="brand020{{:itemNum}}" type="checkbox" value="{{:unfyCmdtid}}" checked/>
-                                                    {{/if}}
-                                                    {{if chekYsno == "N" || chekYsno == null}}
-                                                    <input name='chkList' id="brand020{{:itemNum}}" type="checkbox" value="{{:unfyCmdtid}}"/>
-                                                    {{/if}}
-                                                    <label for="brand020{{:itemNum}}">상품 선택</label>
-                                                </span>
-                                            </td>
-                                            <td class="prod">
-                                                <div class="prod_area horizontal">
-                                                    <div class="prod_thumb_box size_sm {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                        <a href="#" class="prod_link">
-                                                            <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                                <span class="img_box">
-                                                                    <img src="{{:imgUrl}}" alt="{{:titleCmdtName}}" />
-                                                                </span>
-                                                            </a>
-                                                        </a>
-                                                    </div>
-                                                    <div class="prod_info_box size_sm">
-                                                        <a href="#" class="prod_info">
-                                                            <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                                <span class="prod_name">{{:titleCmdtName}}</span>
-                                                            </a>
-                                                        </a>
-                                                        <div class="prod_price">
-                                                            <span class="percent">{{:~numberFloor(saleCmdtPrceDscnRate)}}%</span>
-                                                            <span class="price">
-                                                                <span class="val">{{comma:(saleCmdtSapr)}}</span>
-                                                                <span class="unit">원</span>
-                                                            </span>
-                                                            <span class="price_normal">
-                                                                <s class="val">{{comma:(saleCmdtPrce)}}원</s>
-                                                            </span>
-                                                            <span class="point" data-cart-list-ratePercent>({{comma:(upntAcmlAmnt)}}P)</span>
-                                                        </div>
-
-                                                        {{if cpnYsno == "Y"}}
-                                                        <div class="prod_btn_box" data-cart-list-coupon-button>
-                                                            <button type="button" class="btn_xs btn_line_gray" data-coupon-btn><span class="text">할인쿠폰</span><span class="ico_download"></span></button>
-                                                        </div>
-                                                        {{/if}}
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td id="price020{{:itemNum}}" data-commodity-item-root>
-                                                <span class="price">
-                                                    <span class="val target">{{comma:(saleCmdtSapr * requQntt)}}</span>
-                                                    <span class="unit">원</span>
-                                                </span>
-                                                <div class="form_spinner_box size_sm">
-                                                    <input type="number" id="prdNum2{{:itemNum}}" value="{{:requQntt}}" class="form_spinner" title="수량 입력" disabled/>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="delivery_info">
-                                                    <span class="badge_sm badge_pill badge_primary_ord"><span class="text">eBook</span></span>
-                                                    <p class="delivery_desc">결제 후 바로 다운로드</p>
-                                                </div>
-                                                <button type="button" class="btn_delete_ord" data-oneDel-button><span class="hidden">장바구니 삭제</span></button>
-                                            </td>
-                                        </tr>
-                                        {{/if}}
-                                        {{if soldOutYn == "Y"}}
-                                            <td class="only_chk">
-                                                <span class="form_chk no_label">
-                                                    <input id="brand021{{:itemNum}}"/>
-                                                    <label for="brand021{{:itemNum}}">상품 선택</label>
-                                                </span>
-                                            </td>
-                                            <td class="prod sold_out">
-                                                <div class="prod_area horizontal sold_out {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                <div class="prod_thumb_box size_sm {{:~getImageWrapClassName(saleCmdtDvsnCode)}}">
-                                                    <a href="#" class="prod_link">
-                                                        <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                            <span class="img_box">
-                                                                <img src="{{:imgUrl}}" alt="{{:titleCmdtName}}" />
-                                                            </span>
-                                                        </a>
-                                                    </a>
-                                                </div>
-                                                <div class="prod_info_box size_sm">
-                                                    <a href="#" class="prod_info">
-                                                        <a href="{{:~getProductLink(saleCmdtid, saleCmdtDvsnCode, cmdtcode)}}" class="prod_link">
-                                                            <span class="prod_name">{{:titleCmdtName}}</span>
-                                                        </a>
-                                                    </a>
-                                                    <div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td><button type="button" class="btn_delete_ord" data-oneDel-button><span class="hidden">장바구니 삭제</span></button></td>
-                                        </tr>
-                                        {{/if}}
-
-</script>
-
-        <!-- 핫트랙스 -->
-        <!-- 핫트랙스 -->
+<!-- eBook -->
+<!-- eBook -->
 <script type="text/x-template" id="templateCart030">
 {{if #getIndex() == 0}}
                                     <li id="foldCartHotTracks" class="fold_box sps expanded" data-height-observe="030">
@@ -3007,15 +2968,6 @@
                                     </li>
 <!--{{/if}}-->
 </script>
-<!-- //핫트랙스 -->
-
-
-        <!-- 업체상품 -->
-        <!--<th:block  th:insert="~{view/ink/cart/fragments/cart-list-040}" />-->
-        <!-- 동영상 -->
-        <!--<th:block  th:insert="~{view/ink/cart/fragments/cart-list-050}" />-->
-        <!-- 기프트카드 -->
-        <!-- 기프트카드 -->
 <script type="text/x-template" id="templateCart060">
 {{if #getIndex() == 0}}
                                     <li id="foldCartGiftCard" class="fold_box sps expanded" data-height-observe="060">
@@ -3184,10 +3136,6 @@
                                     </li>
 {{/if}}
 </script>
-<!-- //기프트카드 -->
-
-        <!-- 패키지상품 -->
-        <!-- 패키지상품 -->
 <script type="text/x-template" id="templateCart070">
 {{if #getIndex() == 0}}
                                     <li id="foldCartPackage" class="fold_box sps expanded type_package" data-height-observe="070">
@@ -3499,21 +3447,19 @@
                                     </li>
 {{/if}}
 </script>
-<!-- //패키지상품 -->
-
-
+<footer class="footer_wrapper" data-kbbfn="ui-module" data-kbbfn-name="footer-notice">
     
-
-                
-                
-                
-                    
-<footer class="footer_wrapper"
-        data-kbbfn="ui-module"
-        data-kbbfn-name="footer-notice"
->
+    <div class="footer_header default">
     
-    
+    <div class="footer_inner">
+        <div class="notice_wrap">
+            <span class="notice_text">공지사항</span><a href="https://www.kyobobook.co.kr/cscenter/notice/detail/1004309" class="notice_link">상품권(해피머니, 컬쳐캐쉬) 사용 일시 중지 안내</a>
+        </div>
+        <div class="notice_wrap winner">
+            <span class="notice_text">당첨자발표</span><a href="https://event.kyobobook.co.kr/winner/detail/1004353" class="notice_link">[인문/교양]《거룩한 돌파구》 출간 기념 기대평 이벤트 당첨자 발표</a>
+        </div>
+    </div>
+</div>
     
     <div class="footer_body">
     <div class="footer_inner">
@@ -3522,8 +3468,7 @@
         
     <!-- <th:block th:insert="common/fragments/onk/logo :: main(logoPosition='footer')" /> -->
     <div class="logo_box">
-    <a href="https://www.kyobobook.co.kr/" class="logo_link book"
-    >
+    <a href="https://www.kyobobook.co.kr/" class="logo_link book">
     
     
     
@@ -3531,8 +3476,7 @@
         <img alt="KYOBO 교보문고" srcset="
             https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer.png 1x,
             https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@1.5x.png 1.5x,
-            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@2x.png 2x"
-        />
+            https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer@2x.png 2x">
     
 </a>
 
@@ -3603,17 +3547,11 @@
             
 <div class="sns_share_box">
     
-        <a class="btn_sns_share youtube" target="_blank"
-           href="https://www.youtube.com/c/kbooknews"
-        ><span class="hidden">youtube 공유</span></a>
+        <a class="btn_sns_share youtube" target="_blank" href="https://www.youtube.com/c/kbooknews"><span class="hidden">youtube 공유</span></a>
     
-        <a class="btn_sns_share fb" target="_blank"
-           href="https://www.facebook.com/kyobobookonline?orderClick=rwk"
-        ><span class="hidden">facebook 공유</span></a>
+        <a class="btn_sns_share fb" target="_blank" href="https://www.facebook.com/kyobobookonline?orderClick=rwk"><span class="hidden">facebook 공유</span></a>
     
-        <a class="btn_sns_share insta" target="_blank"
-           href="https://www.instagram.com/kyobobook_online/"
-        ><span class="hidden">instagram 공유</span></a>
+        <a class="btn_sns_share insta" target="_blank" href="https://www.instagram.com/kyobobook_online/"><span class="hidden">instagram 공유</span></a>
     
 </div>
 
@@ -3627,77 +3565,50 @@
     <ul class="footer_menu_list">
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   target="_blank"
-                   href="https://company.kyobobook.co.kr/ims/user/Intro/r/go?param=intro"
-                >회사소개</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://company.kyobobook.co.kr/ims/user/Intro/r/go?param=intro">회사소개</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   href="https://www.kyobobook.co.kr/contents/provision"
-                >이용약관</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/provision">이용약관</a>
             </li>
 
         
             
-            <li class="footer_menu_item privacy"
-            >
-                <a class="footer_menu_link"
-                   href="https://www.kyobobook.co.kr/contents/privacy-policy"
-                >개인정보처리방침</a>
+            <li class="footer_menu_item privacy">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/privacy-policy">개인정보처리방침</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   href="https://www.kyobobook.co.kr/contents/youth-policy"
-                >청소년보호정책</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/contents/youth-policy">청소년보호정책</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   href="https://big.kyobobook.co.kr"
-                >대량주문안내</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://big.kyobobook.co.kr">대량주문안내</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   href="https://www.kyobobook.co.kr/partners/chargeperson"
-                >협력사여러분</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" href="https://www.kyobobook.co.kr/partners/chargeperson">협력사여러분</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   target="_blank"
-                   href="https://ehr.kyobobook.co.kr/recr/recruit_system_1.jsp"
-                >채용정보</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://ehr.kyobobook.co.kr/recr/recruit_system_1.jsp">채용정보</a>
             </li>
 
         
             
-            <li class="footer_menu_item"
-            >
-                <a class="footer_menu_link"
-                   target="_blank"
-                   href="https://ad.kyobobook.co.kr"
-                >광고소개</a>
+            <li class="footer_menu_item">
+                <a class="footer_menu_link" target="_blank" href="https://ad.kyobobook.co.kr">광고소개</a>
             </li>
 
         
@@ -3713,7 +3624,7 @@
     <span class="info_text">서울특별시 종로구 종로 1</span>
     <span class="gap">|</span>
     
-    <span class="info_text">사업자등록번호 : 102-81-11670</span> <br />
+    <span class="info_text">사업자등록번호 : 102-81-11670</span> <br>
     <span class="info_text call">대표전화 : 1544-1900(발신자 부담전화)</span>
     
     <span class="gap">|</span>
@@ -3737,18 +3648,18 @@
                 <span class="service_text">토스페이먼츠 구매안전서비스 </span>
                 <a href="https://pgweb.uplus.co.kr/ms/escrow/s_escrowYn.do?mertid=ink0911" class="btn_footer_link" target="_blank">서비스 가입 확인</a>
                 <p class="service_desc">
-                    고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서 가입한 <br />
+                    고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서 가입한 <br>
                     토스페이먼츠의 구매안전서비스를 이용하실 수 있습니다.
                 </p>
             </div>
             <div class="footer_mark_isms">
     <a target="_blank" href="https://www.kyobobook.co.kr/pop_isms" class="mark_link">
-        정보보호관리체계<br />
+        정보보호관리체계<br>
         ISMS 인증획득
     </a>
     
     <p class="mark_desc">
-        [인증범위] 인터넷 교보문고 및 브랜드 서비스 운영<br />
+        [인증범위] 인터넷 교보문고 및 브랜드 서비스 운영<br>
         [유효기간] 2023.11.15 ~ 2026.11.14
     </p>
 </div>
@@ -3759,1605 +3670,9 @@
 </div>
 </footer>
 
-                
-            </div>
-        
-    
 
-    
-    
-    
-    
-    
-    <!-- 기준배송지 변경 팝업 -->
-        <!-- LayerPopup area -->
-    <!-- 기준배송지 변경 팝업 -->
-    <div class="dialog_wrap has_btn" id="popDeliveryRegist" data-class="dialog_sm" data-popup-delivery-regist-wrapper='wrapper'>
-        <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-        <!-- dialog_header -->
-        <div class="dialog_header">
-            <div class="dialog_title">기준배송지</div>
-        </div>
-        <!-- //dialog_header -->
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <div class="address_wrap">
-                    <!--기준배송지 start-->
-                    <div data-base-delivery>
-                        <div class="title_wrap title_size_sm has_btn">
-                            <p class="title_heading">택배 기준배송지</p>
-                            <div class="right_area">
-                                <button type="button" class="btn_xs btn_line_gray" data-popup-delivery-point-list-button="popup"><span class="text">변경</span></button>
-                            </div>
-                        </div>
-                        <!--배송지없는경우-->
-                        <div class="address_item" data-no-default-delivery style="display:none;">
-                            <div class="address_info_box">
-                                <div class="address_name">
-                                    <span class="name" data-delivery-point-name='name'>교보문고 광화문점</span>
-                                </div>
-                                <div class="address" data-delivery-point-address='address'>[03154] 서울특별시 종로구 종로 1, 교보생명빌딩 지하 1층 교보문고 광화문점</div>
-                            </div>
-                        </div>
-                        <!--배송지없는경우-->
-                        <!--배송지있는경우-->
-                        <div class="address_item" data-default-delivery style="display:none;">
-                            <div class="address_info_box">
-                                <div class="address_name">
-                                    <!-- 수정 220222 뱃지 구조 위치, 클래스 수정 / badge_md > badge_sm, badge_pill 클래스 추가 -->
-                                    <span class="name" data-delivery-point-name='name'></span>
-                                    <span class="badge_sm badge_payment_line_purple" data-delivery-point-label="default"><span class="text">기본배송지</span></span>
-                                    <span class="badge_sm badge_payment_line_black hidden" data-delivery-point-label="foreign"><span class="text">해외배송</span></span>
-                                    <span class="badge_sm badge_payment_line_blue hidden" data-delivery-point-label="convenience-store"><span class="text">편의점배송</span></span>
-                                    <!-- //수정 220222 뱃지 구조 위치, 클래스 수정 / badge_md > badge_sm, badge_pill 클래스 추가 -->
-                                </div>
-                                <div class="address" data-delivery-point-address='address'></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--배송지있는경우-->
-                    <!--기준배송지 end-->
 
-                    <!--바로드림 start-->
-                    <div class="title_wrap title_size_sm has_btn" style="margin-top: 20px;">
-                        <p class="title_heading">바로드림 기준매장</p>
-                        <div class="right_area">
-                            <button type="button" class="btn_xs btn_line_gray" data-brdr-popOpen><span class="text">변경</span></button>
-                        </div>
-                    </div>
-                    <!--바로드림기준매장있는경우-->
-                    <div class="address_item" data-default-barodream>
-                        <div class="address_info_box" data-cart-bsc-adrs-baro>
-                            <div class="address_name">
-                                <span class="ico_locate_black"></span><span class="name" id="baroBaseStore" data-barodrim-point>교보문고 광화문점</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--바로드림기준매장있는경우-->
-                    <!--바로드림 end-->
-                </div>
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_primary" data-popup-delivery-confirm><span class="text">확인</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //기준배송지 변경 팝업 -->
-    <!-- // LayerPopup area -->
 
-    <!-- 바로드림 기준매장 변경 팝업 -->
-    <!-- 팝업 - 바로드림 기준매장 설정 -->
-<div id="popDeliveryLocation" class="dialog_wrap has_btn type_col_btn" data-class="dialog_address_set dialog_interest_store_set" data-pop-delivery-barodream-regist-wrap>
-    <button type="button" class="btn_dialog_close" data-pop-delivery-barodream-regist-close-button><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <!-- dialog_header -->
-    <div class="dialog_header">
-        <h1 class="dialog_title">바로드림 매장 설정</h1><!-- 수정 220415 SEO H태그 적용 -->
-    </div>
-    <!-- //dialog_header -->
-    <!-- dialog_contents -->
-    <div class="dialog_contents">
-        <!---->
-        <div class="tab_list_wrap" style="display: none">
-            <ul class="tabs">
-                <!-- DESC : 탭 비활성화 시, .tab_link 영역 tab_disabled class 추가 -->
-                <li class="tab_item" data-pop-delivery-barodream-regist-tab="my"><a href="#tabSetDefaultStore1-2" class="tab_link"><span class="tab_text">지역별</span></a></li>
-                <li class="tab_item ui-state-active" data-pop-delivery-barodream-regist-tab="area"><a href="#tabSetDefaultStore1-1" class="tab_link"><span class="tab_text">My 매장</span></a></li>
-            </ul>
-        </div>
-        <!---->
-        <div class="custom_scroll_wrap">
-                                <div class="address_wrap">
-                                    <!--비회원 단골매장 숨김처리 시작-->
-                                    <div class="title_wrap title_size_sm">
-                                        <p class="title_heading">단골매장</p><!-- 수정 220325 타이틀(p.title_heading) 텍스트 변경 : My 기본 매장 -> 단골매장 -->
-                                    </div>
 
-                                    <!-- My 기본매장 -->
-                                    <!-- DESC : My 기본매장일 경우 my_store 클래스 추가 -->
-                                    <div class="address_item my_store" style="display: none;" data-pop-delivery-barodream-regist-my-store-area>
-                                    </div>
-
-                                    <div class="address_item my_store" data-pop-delivery-barodream-regist-my-store-no-data>
-                                        <p class="info_text fw_medium">자주 가는 매장을 단골매장으로 설정해 보세요.</p>
-                                    </div>
-                                    <!-- //My 기본매장 -->
-                                    <!--비회원 단골매장 숨김처리 끝-->
-
-                                    <div class="title_wrap title_size_sm">
-                                        <p class="title_heading">매장선택</p>
-                                    </div>
-                                    <!-- tab_wrap -->
-                                    <div class="tab_wrap type_tag type_black ui-tabs ui-corner-all ui-widget ui-widget-content">
-                                        <!-- tab_list_wrap -->
-                                        <div class="tab_list_wrap">
-                                            <ul class="tabs ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" role="tablist">
-                                                <!-- DESC : 탭 비활성화 시, .tab_link 영역 tab_disabled class 추가 -->
-                                                <li class="tab_item" data-pop-delivery-barodream-regist-area-tab="001"><a href="#tabStoreArea01" class="tab_link"><span class="tab_text">서울</span></a></li>
-                                                <li class="tab_item" data-pop-delivery-barodream-regist-area-tab="002"><a href="#tabStoreArea02" class="tab_link"><span class="tab_text">경기/인천</span></a></li>
-                                                <li class="tab_item" data-pop-delivery-barodream-regist-area-tab="003"><a href="#tabStoreArea03" class="tab_link"><span class="tab_text">수도권 외</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- //tab_list_wrap -->
-                                        <!-- tab_content -->
-                                        <div id="tabStoreArea01" class="tab_content ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true">
-                                            <ul class="address_list" data-pop-delivery-barodream-regist-area-store-list="001">
-                                            </ul>
-                                        </div>
-                                        <!-- //tab_content -->
-                                        <!-- tab_content -->
-                                        <div id="tabStoreArea02" class="tab_content ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
-                                            <ul class="address_list" data-pop-delivery-barodream-regist-area-store-list="002">
-                                            </ul>
-                                        </div>
-                                        <!-- //tab_content -->
-                                        <!-- tab_content -->
-                                        <div id="tabStoreArea03" class="tab_content ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true">
-                                            <ul class="address_list" data-pop-delivery-barodream-regist-area-store-list="003">
-                                            </ul>
-                                        </div>
-                                        <!-- //tab_content -->
-                                    </div>
-                                </div>
-        </div>
-    </div>
-    <!-- //tab_content -->
-    <!-- dialog_footer -->
-    <div class="dialog_footer address_footer">
-        <div class="def_check_wrap">
-            <!-- form_chk -->
-            <span class="form_chk">
-                    <input id="rdoStoreMySelect01" type="checkbox" data-pop-delivery-barodream-regist-my-store-check>
-                    <label for="rdoStoreMySelect01">단골매장으로 등록</label>
-                </span>
-            <!-- //form_chk -->
-        </div>
-        <div class="btn_wrap auto">
-            <button type="button" class="btn_md btn_primary" data-pop-delivery-barodream-regist-store-select-button><span class="text">매장 설정하기</span></button>
-        </div>
-    </div>
-    <!-- //dialog_footer -->
-        </div>
-
-        <!-- //tab_wrap -->
-
-   <!-- </div>
-
-
-
-</div>-->
-<!-- //팝업 - 바로드림 기준매장 설정 -->
-
-<!-- MY매장 tab - 단골매장 template -->
-<script type="text/x-template" data-pop-delivery-barodream-regist-my-store-template>
-    <div class="address_chk_box" data-pop-delivery-barodream-regist-store-information='{{:~jsonStringify(#data)}}'>
-        <!-- form_rdo -->
-        <span class="form_rdo no_label">
-            <input id="rdoMyStore01-{{:tIndex}}" type="radio" name="rdoMyStore" value="{{:brdrStrRdpCode}}"/>
-            <label for="rdoMyStore01-{{:tIndex}}">배송지 선택</label>
-        </span>
-        <!-- //form_rdo -->
-    </div>
-    <div class="address_info_box">
-        <div class="address_name">
-            <span class="name">{{:strName}}</span>
-            <span class="badge_sm badge_pill badge_line_green"><span class="text">단골매장</span></span><!-- 추가 220325 단골매장명(span.name) 옆에 단골매장 뱃지 추가 -->
-        </div>
-        <div class="address">{{:strAdrs}}</iv>
-        {{if bussTmeGdncCntt.length < 14}}
-        <div class="business_hour">영업시간 : 매일 {{:bussTmeGdncCntt}}</div>
-        {{else}}
-        <div class="business_hour">영업시간 : {{:bussTmeGdncCntt}}</div>
-        {{/if}}
-    </div>
-</script>
-
-<!-- MY매장 tab - 관심매장 내역 template -->
-<script type="text/x-template" data-pop-delivery-barodream-regist-my-store-list-template>
-    <li class="address_item" data-pop-delivery-barodream-regist-store-information='{{:~jsonStringify(#data)}}'>
-        <div class="address_chk_box">
-            <!-- form_rdo -->
-            <span class="form_rdo no_label">
-                <input id="rdoStoreMy{{:#getIndex()}}-1" type="radio" name="rdoMyStore" value="{{:brdrStrRdpCode}}" />
-                <label for="rdoStoreMy{{:#getIndex()}}-1">배송지 선택</label>
-            </span>
-            <!-- //form_rdo -->
-        </div>
-        <div class="address_info_box">
-            <div class="address_name">
-                <span class="name">{{:strName}}</span>
-            </div>
-            <div class="address">{{:strAdrs}}</div>
-            {{if bussTmeGdncCntt.length < 14}}
-            <div class="business_hour">영업시간 : 매일 {{:bussTmeGdncCntt}}</div>
-            {{else}}
-            <div class="business_hour">영업시간 : {{:bussTmeGdncCntt}}</div>
-            {{/if}}
-        </div>
-        <!--<div class="btn_wrap" th:if="${isMember}">
-            <button type="button" class="btn_favorite active" data-pop-delivery-barodream-regist-book-mark value="{{:brdrStrRdpCode}}"><span class="hidden">즐겨찾기 해제</span></button>
-        </div>-->
-    </li>
-</script>
-
-<!-- 지역별 tab - 매장 내역 template -->
-<script type="text/x-template" data-pop-delivery-barodream-regist-area-store-list-template>
-    <li class="address_item" data-pop-delivery-barodream-regist-store-information='{{:~jsonStringify(#data)}}'>
-        <div class="address_chk_box">
-            <!-- form_rdo -->
-            <span class="form_rdo no_label">
-                <input id="rdoStoreArea{{:strAreaGrpCode}}-{{:#getIndex()}}" type="radio" name="rdoMyStore" value="{{:brdrStrRdpCode}}" />
-                <label for="rdoStoreArea{{:strAreaGrpCode}}-{{:#getIndex()}}">배송지 선택</label>
-            </span>
-            <!-- //form_rdo -->
-        </div>
-        <div class="address_info_box">
-            <div class="address_name">
-                <span class="name">{{:strName}}</span>
-            </div>
-            <div class="address">{{:strAdrs}}</div>
-            {{if bussTmeGdncCntt.length < 14}}
-            <div class="business_hour">영업시간 : 매일 {{:bussTmeGdncCntt}}</div>
-            {{else}}
-            <div class="business_hour">영업시간 : {{:bussTmeGdncCntt}}</div>
-            {{/if}}
-        </div>
-        <!--<div class="btn_wrap" th:if="${isMember}">
-            {{if attentionYn != 'N'}}
-            <button type="button" class="btn_favorite active" data-pop-delivery-barodream-regist-book-mark value="{{:brdrStrRdpCode}}"><span class="hidden">즐겨찾기 해제</span></button>
-            {{else}}
-            <button type="button" class="btn_favorite" data-pop-delivery-barodream-regist-book-mark value="{{:brdrStrRdpCode}}"><span class="hidden">즐겨찾기 추가</span></button>
-            {{/if}}
-        </div>-->
-    </li>
-</script>
-
-    <!-- 배송지 표준 -->
-    
-    
-    
-    
-<div id="popAddressOrder" class="dialog_wrap dialog_address">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title">주소 찾기</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="address_contents_inner">
-                <div class="form_search_box">
-                    <div class="form_ip_search">
-                        <input type="search" id="popAddressOrder_input" class="form_ip" placeholder="예) 종로 1, 세종로 119" title="도로명 또는 지번 입력" />
-                        <button type="button" class="btn_ip_clear"><span class="hidden">초기화</span></button>
-                    </div>
-                    <button type="button" class="btn_ip_search" id="popAddressOrder_search"><span class="hidden">검색</span></button>
-                </div>
-
-                <div class="address_tip" id="popAddressOrder_tip">
-                    <p class="info_text fc_black fw_medium">도로명, 건물명, 또는 지번 중 편한 방법으로 검색하세요.</p>
-                    <ul class="address_tip_list">
-                        <li class="address_tip_item">도로명 + 건물번호(예: 세종로 119)</li>
-                        <li class="address_tip_item">지역명(동/리) + 번지(예: 종로1)</li>
-                        <li class="address_tip_item">지역명(동/리) + 건물명(아파트명(예: 교보생명빌딩)</li>
-                    </ul>
-                </div>
-
-                <div class="address_search_result_box" id="popAddressOrder_none">
-                    <div class="search_fail">
-                        <p class="text_search_fail"><span class="fail_search_value">‘조ㅇㅗㄹ 1’</span>에 대한 검색 결과가 없습니다.</p>
-                        <p>검색어에 잘못된 철자가 없는지, 정확한 주소인지 다시 한번 확인해 주세요.</p>
-                    </div>
-                </div>
-
-                <div class="address_search_result_box" id="popAddressOrder_list">
-                    <div class="address_search_total">
-                        <p class="address_search_total_text">검색결과 <span class="fc_green">1,234</span>건</p>
-                    </div>
-
-                    <div class="address_success_result">
-                        <div class="address_success_wrap">
-                            <ul class="address_success_list" id="popAddressOrder_list_item">
-                                
-                            </ul>
-                            <script type="text/template" id="popAddressOrder_list_item_tmpl">
-                                <li class="address_success_item">
-                                    <div class="success_item_chk">
-                                    <span class="form_rdo no_label">
-                                        <input id="rdoAddress01-{{:DQ_ID}}" type="radio" name="popAddressRdoBtn"
-                                               data-dq-id="{{:DQ_ID}}"
-                                               data-address3-bdng-name="{{:ADDRESS3_BDNG_NAME}}"
-                                               data-address4-dong-name="{{:ADDRESS4_DONG_NAME}}"
-                                               data-service-gb="{{:SERVICE_GB}}"
-                                               data-view-land-bsc-adrs="{{:VIEW_LAND_BSC_ADRS}}"
-                                               data-view-rmrk="{{:VIEW_RMRK}}"
-                                               data-view-road-bsc-adrs="{{:VIEW_ROAD_BSC_ADRS}}"
-                                               data-zip-code="{{:ZIP_CODE}}"
-                                               data-zip-code5="{{:ZIP_CODE5}}"
-                                        />
-                                        <label for="rdoAddress01-{{:DQ_ID}}">선택</label>
-                                    </span>
-                                    </div>
-                                    <div class="success_item_text">
-                                        <div class="road_name_wrap">
-                                            <span class="badge_md badge_line_primary"><span class="text">도로명</span></span>
-                                            <span class="text">{{:VIEW_ROAD_BSC_ADRS}} {{:VIEW_RMRK}}</span>
-                                        </div>
-                                        <div class="land_number_wrap">
-                                            <span class="badge_md badge_line_gray"><span class="text">지번</span></span>
-                                            <span class="text">{{:VIEW_LAND_BSC_ADRS}} {{:ADDRESS3_BDNG_NAME}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="success_item_post">
-                                        <span>{{:ZIP_CODE5}}</span>
-                                    </div>
-                                </li>
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="pagination" id="popAddressOrder_list_page">
-            <div class="page_num">
-                <div id="pagi"></div>
-            </div>
-        </div>
-        
-    </div>
-
-    <div class="dialog_footer no_line" id="popAddressOrder_list_selbox">
-        <div class="btn_wrap">
-            <button type="button" class="btn_md btn_primary" id="popAddressOrder_list_selbtn"><span class="text">선택</span></button>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    <script type="text/javascript" src="/assets/js/common/pop-address-search.js?t=202407251135"></script>
-    
-
-
-
-
-
-    
-        
-<div id="popDeliveryList" class="dialog_wrap no_title_line has_btn type_col_btn" data-class="dialog_address_change">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title" data-pop-delivery-list="title">배송지 변경</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="address_wrap">
-                <div class="btn_wrap full">
-                    <button type="button" class="btn_ip btn_line_primary" data-pop-delivery-list="pop-register">
-                        <span class="ico_add"></span><span class="text">배송지 추가</span>
-                    </button>
-                </div>
-
-                
-                <ul class="address_list" style="display: none;" data-pop-delivery-list="list">
-                </ul>
-
-                
-                <div class="no_data" data-pop-delivery-list="no-data">
-                    <div class="no_data_desc">등록된 배송지가 없습니다.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="dialog_footer address_footer" data-pop-delivery-list="data-footer">
-        <div class="def_check_wrap" data-pop-delivery-list="default-checkbox-area">
-            <span class="form_chk">
-                <input id="popDeliveryListSetDefault" type="checkbox" data-pop-delivery-list="default-checkbox">
-                <label for="popDeliveryListSetDefault">기본 배송지로 설정</label>
-            </span>
-        </div>
-        <div class="btn_wrap auto">
-            <button type="button" class="btn_md btn_primary" data-pop-delivery-list="item-select">
-                <span class="text">선택</span>
-            </button>
-        </div>
-    </div>
-</div>
-
-
-<script id="tmpl_pop_delivery_list_item" type="text/template">
-    <li class="address_item">
-        <div class="address_chk_box">
-            <span class="form_rdo no_label">
-                <input id="chkAddressList01-{{:dlpnSrmb}}" type="radio" name="pop_delivery_list_item"
-                       data-pop-delivery-list-item="check"
-                       data-key="{{:dlpnSrmb}}">
-                <label for="chkAddressList01-{{:dlpnSrmb}}">배송지 선택</label>
-            </span>
-        </div>
-        <div class="address_info_box">
-            <div class="address_name">
-                <span class="name fc_spot">{{:dlpnName}}</span>
-                {{if bscDlpnYsno == "Y"}}
-                <span class="badge_sm badge_pill badge_line_primary"><span class="text">기본배송지</span></span>
-                {{/if}}
-                {{if dlvrAdrsDvsnCode == "200"}}
-                <span class="badge_sm badge_pill badge_line_gray"><span class="text">해외배송</span></span>
-                {{/if}}
-                {{if dlvrAdrsDvsnCode == "300"}}
-                <span class="badge_sm badge_pill badge_payment_line_blue"><span class="text">편의점배송</span></span>
-                {{/if}}
-            </div>
-            <div class="address_person">
-                <span class="name">{{:recvName}} /</span>
-                <span class="phone_number">{{:~telNo(dlvrAdrsDvsnCode, cphnTlnm)}}</span>
-            </div>
-            <div class="address">{{:~joinAddress(dlvrAdrsDvsnCode, frngPssrNum, bscAdrs, dtlAdrs, frngAddtAdrs1, frngAddtAdrs2)}}</div>
-        </div>
-        <div class="btn_wrap">
-            <button type="button" class="btn_xs btn_line_primary"
-                    data-pop-delivery-list-item="modify"
-                    data-key="{{:dlpnSrmb}}"
-                    data-dvsn-code="{{:dlvrAdrsDvsnCode}}"><span class="text">수정</span></button>
-            {{if bscDlpnYsno != "Y"}}
-            <button type="button" class="btn_xs btn_light_gray"
-                    data-pop-delivery-list-item="delete"
-                    data-key="{{:dlpnSrmb}}"><span class="text">삭제</span></button>
-            {{/if}}
-        </div>
-    </li>
-</script>
-
-        
-<div id="popDeliveryAddressDetail" class="dialog_wrap has_btn">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title" data-pop-delivery-detail="title">배송지 추가</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="form_wrap type_lg">
-                <div class="form_box" data-pop-delivery-detail="address-name-area">
-                    <div class="form_title">
-                        <label for="shippingAdd01-1" class="form_label">배송지명</label>
-                    </div>
-                    <div class="form_cont">
-                        <input type="text" id="shippingAdd01-1" class="form_ip" placeholder="최대 7글자까지 자유롭게 수정가능" data-pop-delivery-detail="address-name" />
-                    </div>
-                </div>
-                <div class="form_box">
-                    <div class="form_title has_btn">
-                        <label for="shippingAdd02-1" class="form_label">받는 분</label>
-                        <div class="right_area">
-                            <button type="button" class="btn_xs btn_light_gray" data-pop-delivery-detail="btn-overseas"><span class="ico_change_white"></span><span class="text">해외로</span></button>
-                        </div>
-                    </div>
-                    <div class="form_cont">
-                        <div class="form_col_group">
-                            <div class="col_box">
-                                <input type="text" id="shippingAdd02-1" class="form_ip" placeholder="이름을 입력해 주세요." data-pop-delivery-detail="recipient-name" />
-                            </div>
-                            <div class="col_box">
-                                <input type="tel" class="form_ip" placeholder="휴대폰번호를 - 없이 입력해 주세요." title="휴대폰 번호 입력" data-pop-delivery-detail="recipient-phone" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form_box" data-pop-delivery-detail="search-btn-area">
-                    <div class="form_title has_btn">
-                        <span class="form_label">주소</span>
-                    </div>
-                    <div class="form_cont">
-                        <div class="btn_wrap full">
-                            <button type="button" class="btn_ip btn_line_gray" data-pop-delivery-detail="search-popup-call">
-                                <span class="ico_search"></span><span class="text">주소 찾기</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form_box" data-pop-delivery-detail="address-data-area">
-                    <div class="form_title has_btn">
-                        <span class="form_label">주소</span>
-                        <div class="right_area">
-                            <button type="button" class="btn_xs btn_line_gray" data-pop-delivery-detail="search-popup-call">
-                                <span class="ico_search"></span><span class="text">주소 변경</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="form_cont">
-                        <div class="form_col_group">
-                            <div class="col_box" data-pop-delivery-detail="search-popup-call">
-                                <input type="text" class="form_ip" title="기본 주소" data-pop-delivery-detail="basic-address" readonly />
-                            </div>
-                            <div class="col_box">
-                                <input type="text" class="form_ip mark" title="상세 주소" placeholder="상세 주소를 입력해 주세요." data-pop-delivery-detail="detail-address" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bottom_chk_box" data-pop-delivery-detail="address-data-area2">
-                <span class="form_chk">
-                    <input id="deliverySettingChk01-2" type="checkbox" data-pop-delivery-detail="default-delivery">
-                    <label for="deliverySettingChk01-2">기본배송지로 설정</label>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="dialog_footer">
-        <button type="button" class="btn_md btn_primary" data-pop-delivery-detail="save"><span class="text">저장</span></button>
-    </div>
-</div>
-
-        
-<div id="popOverseasDeliveryDetail" class="dialog_wrap has_btn">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title" data-pop-overseas-detail="title">해외배송지 입력</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="form_wrap type_lg" >
-                <div class="form_box" data-pop-overseas-detail="address-name-area">
-                    <div class="form_title">
-                        <label for="DeliveryAdd01" class="form_label">
-                            배송지명
-                        </label>
-                    </div>
-                    <div class="form_cont">
-                        <input type="text" id="DeliveryAdd01" class="form_ip" placeholder="Enter a Address Name" data-pop-overseas-detail="address-name" />
-                    </div>
-                </div>
-                <div class="form_box">
-                    <div class="form_title has_btn">
-                        <span class="form_label">배송국가 선택</span>
-                        <div class="right_area">
-                            <button type="button" class="btn_xs btn_light_gray" data-pop-overseas-detail="btn-internal"><span class="ico_change_white"></span><span class="text">국내로</span></button>
-                        </div>
-                    </div>
-                    <div class="form_cont">
-                        <div class="btn_wrap full">
-                            <button type="button" class="btn_form_sel" data-pop-overseas-detail="btn-popup-country">
-                                <span class="text" data-pop-overseas-detail="country-name">Select a Shipping Country</span>
-                            </button>
-                        </div>
-                        <span class="form_desc align_right">
-                            <span class="fc_spot">FedEx 예상배송비</span>
-                            <span class="delivery_fee" data-pop-overseas-detail="delivery-fee">0<span class="unit">원</span></span>
-                            <button type="button" class="btn_info_popup" data-pop-overseas-detail="btn-popup-delivery-fee"><span class="ico_question"></span><span class="hidden">팝업 열기</span></button>
-                        </span>
-                    </div>
-                </div>
-                <div class="form_box">
-                    <div class="form_title">
-                        <span class="form_label">받는 분</span>
-                    </div>
-                    <div class="form_cont">
-                        <div class="floating_input_group">
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo01-1" class="floating_label">Full Name</label>
-                                <input type="text" id="ipPersonEngInfo01-1" class="form_ip" placeholder="Full Name (First and Last Name)" data-pop-overseas-detail="recipient-name" />
-                                <span class="floating_guide">영어만 입력가능</span>
-                            </div>
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo01-2" class="floating_label">Mobile Number</label>
-                                
-                                <input type="tel" id="ipPersonEngInfo01-2" class="form_ip" placeholder="Mobile Number" data-pop-overseas-detail="recipient-phone" />
-                                
-                                <span class="floating_guide">숫자만 입력가능</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form_box">
-                    <div class="form_title">
-                        <span class="form_label">주소</span>
-                        <div class="right_area">
-                            <p class="bul_item_asterisk">PO BOX 배송불가</p>
-                        </div>
-                    </div>
-                    <div class="form_cont">
-                        <div class="floating_input_group">
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo02-1" class="floating_label">Address</label>
-                                <input type="text" id="ipPersonEngInfo02-1" class="form_ip" placeholder="Address" data-pop-overseas-detail="address" />
-                                <span class="floating_guide">영어 또는 숫자만 입력가능</span>
-                            </div>
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo02-2" class="floating_label">City</label>
-                                <input type="text" id="ipPersonEngInfo02-2" class="form_ip" placeholder="City" data-pop-overseas-detail="city" />
-                                <span class="floating_guide">영어 또는 숫자만 입력가능</span>
-                            </div>
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo02-3" class="floating_label">State/Province</label>
-                                <input type="text" id="ipPersonEngInfo02-3" class="form_ip" placeholder="State/Province" data-pop-overseas-detail="state" />
-                                <span class="floating_guide">영어 또는 숫자만 입력가능</span>
-                            </div>
-                            <div class="floating_input_item">
-                                <label for="ipPersonEngInfo02-4" class="floating_label">Zip Code</label>
-                                <input type="text" id="ipPersonEngInfo02-4" class="form_ip" placeholder="Zip Code"  data-pop-overseas-detail="zip" />
-                                <span class="floating_guide">영어 또는 숫자만 입력가능</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom_chk_box">
-                <div class="input_btn_box">
-                    <span class="form_chk" data-pop-overseas-detail="default-delivery-box">
-                        <input id="popDeliveryOverSeasSetDefault" type="checkbox" data-pop-overseas-detail="default-delivery">
-                        <label for="popDeliveryOverSeasSetDefault" >기본배송지로 설정</label>
-                    </span>
-                    <div class="right_area">
-                        <button type="button" class="btn_xs btn_pill btn_line_gray" data-pop-overseas-detail="btn-overseas-info"><span class="text">해외배송안내</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="dialog_footer">
-        <button type="button" class="btn_md btn_primary" data-pop-overseas-detail="save"><span class="text">저장</span></button>
-    </div>
-</div>
-
-
-<div id="popSelDeliveryCountry" class="dialog_wrap" data-class="dialog_sm">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title">배송국가 선택</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap" id="popSelDeliveryCountry_list">
-        </div>
-    </div>
-</div>
-
-
-<script id="pop_delivery_country_quick" type="text/template">
-</script>
-
-
-<script id="pop_delivery_country_item" type="text/template">
-    {{for list}}
-    <div class="title_wrap title_size_sm">
-        <p class="title_heading">{{:title}}</p>
-    </div>
-    <ul class="country_select_list">
-        {{for countries}}
-        <li class="country_item">
-            <button type="button" class="btn_text_link fc_black"
-                    data-pop-delivery-country="country"
-                    data-pop-delivery-national-code="{{:frngDlvrNtnClstCode}}"
-                    data-pop-delivery-zone-code="{{:frngDlvrZoneCode}}"
-                    data-pop-delivery-country-code="{{:frngDlvrNtnCode}}"
-                    data-pop-delivery-country-name="{{:ntnName}}"
-                    data-pop-delivery-delivery-code="{{:frngDscmCode}}"
-            ><span class="text">{{:ntnName}}</span></button>
-        </li>
-        {{/for}}
-    </ul>
-    {{/for}}
-</script>
-
-
-<div id="popDeliveryFedExInfo" class="dialog_wrap dialog_fedex">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title">FedEx 배송비 안내</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <p class="info_text fc_black">
-                <span class="fw_bold">발송도서 한 권의 무게가 2kg 초과할 시,</span>
-                <br />초과 매 2kg 마다 권 수를 한 권씩 추가한 해당 요율을 적용합니다.
-            </p>
-            <p class="info_text fc_black">
-                배송예정 기일은 FedEx 픽업 후 2~6일이나 국가, 지역에 따라 일부 차이가 발생할 수 있습니다.
-                <br /><span class="fw_bold">해외 배송료는 예상금액으로 주문완료 후 무게에 따라 추가 부과</span> 될 수 있습니다.<br />
-                추가 부과 시 별도 연락 드립니다.
-            </p>
-            <div class="tbl_row_wrap">
-                <table class="tbl_row">
-                    <caption>FedEx 배송비 안내</caption>
-                    <colgroup>
-                        <col style="width: 135px;" />
-                        <col style="width: auto;" />
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                        <th scope="row" class="has_ip">
-                            <label for="FedExInfo01">수량/No.</label>
-                        </th>
-                        <td>
-                            <div class="form_sel">
-                                <select id="FedExInfo01" data-pop-delivery-fedex-info="amount">
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="has_ip">
-                            <label for="FedExInfo02">국가/Country</label>
-                        </th>
-                        <td>
-                            <div class="form_sel">
-                                <select id="FedExInfo02" data-pop-delivery-fedex-info="region">
-                                    <option value="">지역을 선택해 주세요.</option>
-                                    <!--
-                                    <option value="US">미국</option>
-                                    <option value="">유럽</option>
-                                    <option value="">북유럽</option>
-                                    <option value="">남미</option>
-                                    <option value="">아프리카</option>
-                                    <option value="">인도</option>
-                                    <option value="">호주</option>
-                                    <option value="">일본</option>
-                                    <option value="">아시아1</option>
-                                    <option value="">아시아2</option>
-                                    <option value="">마카오</option>
-                                    <option value="">캄보디아</option>
-                                    -->
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="has_ip">
-                            <label for="inputPrice01">금액/Charge</label>
-                        </th>
-                        <td>
-                            <div class="input_price_box type_eng">
-                                <input type="text" id="inputPrice01" class="form_ip fc_spot" value="0" data-pop-delivery-fedex-info-fee="fee" readonly />
-                                <span class="unit">원(won)</span>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <ul class="bul_list">
-                <li class="bul_item_dot">아시아1: 베트남,중국,말레이시아,태국,필리핀,인도네시아</li>
-                <li class="bul_item_dot">아시아2: 싱가폴,대만,홍콩</li>
-                <li class="bul_item_dot">kg 당 요율, Rate Per kg (Multiply by total shipment weight)</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div id="popOverseasDeliveryInfo" class="dialog_wrap has_btn" data-class="dialog_overseas_delivery">
-    <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <div class="dialog_header">
-        <h1 class="dialog_title">해외배송 안내</h1>
-    </div>
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="fold_box_wrap">
-                <ul class="fold_box_list">
-                    <li class="fold_box expanded">
-                        <div class="fold_box_header">
-                            <h2>배송료/추가금액</h2>
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">
-                                    해외배송일 경우 무료배송 적용이 되지 않습니다.
-                                    <br />해외배송료는 주문 수량에 따라 책정됩니다.
-                                </p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">세트도서, 시리즈도서, 별도 포장된 외국어, 컴퓨터,학습용 CD/Tape 및 부록 등에는 각 권당 별도의 배송료가 부가됩니다.</li>
-                                <li class="bul_item_dot"><span class="fw_bold">해외 배송료는 예상금액으로</span> 주문완료 후 <span class="fw_bold">무게에 따라 추가 부과</span>될 수 있습니다. 추가 부과 시 별도 연락 드립니다.</li>
-                                <li class="bul_item_dot"><span class="fw_bold">해외배송 시 정확한 zip코드를 입력 하셔야 합니다.</span></li>
-                            </ul>
-
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">통관시 추가 금액</p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">주문과정에서 해외배송료를 지불하셨더라도 도착지 통관과정에서 관/부가세 및 기타 수수료(창고료, 통관 요금 등)가 추가 징수될 수도 있습니다. 이러한 경우, 수령인께서 추가 부담을 하셔야 합니다.</li>
-                                <li class="bul_item_dot">포장형태에 따라 관세가 추가 될 수 있으며 고객님께서 부담하셔야 합니다.</li>
-                            </ul>
-
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">반송금액</p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">통관과정에서 수령인의 서류미비 혹은 통관 수수료등의 추가 금액 미지불 시, 배송이 되지 않을 수 있습니다. 이 경우에는 물품이 폐기되거나 반송될 수 있습니다. 이때 발생하는 반송비용은 고객님께 부담 됩니다.</li>
-                                <li class="bul_item_dot">고객사정으로 인한 반송시 발생되는 운송료는 고객님이 부담하셔야 합니다. 자세한 내용은 고객센터 PC-WEB의 FAQ를 확인해주시기 바랍니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>배송</h2>
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">배송하지 않는 상품</p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">잡지 부록, 복합상품, 정기간행물, 도서/음반/DVD 무료 제공 사은품 등은 발송하지 않습니다.</li>
-                                <li class="bul_item_dot">1+1 행사 도서인 경우 본 도서 1권만 배송됩니다.</li>
-                            </ul>
-
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">포장</p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">주문하신 상품에 따라 박스형 또는 비닐 봉투형으로 포장되어 배송 됩니다. (도서 파손 우려 또는 도서가 많을 경우에는 박스형으로 배송됩니다.)</li>
-                                <li class="bul_item_dot">포장형태에 따라 관세가 추가 될 수 있으며, 고객님께서 부담하셔야 합니다. 자세한 내용은 고객센터 PC-WEB의 FAQ를 확인해주시기 바랍니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>교환/반품</h2>
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <div class="title_wrap title_size_xs">
-                                <p class="title_heading fw_medium">교환/반품은 불가합니다.</p>
-                            </div>
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">해외로 배송된 상품의 경우, 파손(파본)사유 외에는교환/반품이 불가합니다.</li>
-                                <li class="bul_item_dot">
-                                    발송전에는 주문취소가 가능하오니 유념하시기 바랍니다.
-                                    <br />자세한 내용은 고객센터 PC-WEB의 FAQ를 확인해주시기 바랍니다.
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="dialog_footer">
-        <button type="button" class="btn_md btn_primary" data-dialog-close><span class="text">확인</span></button>
-    </div>
-</div>
-
-
-    
-    
-
-    
-    
-    <script type="text/javascript" src="/assets/js/common/pop-delivery.js?t=202407251135"></script>
-    
-
-
-
-
-    <!-- 편의점/해외 배송 -->
-    <!--<th:block  th:insert="~{view/ink/order/fragments/pop-delivery-other}" />-->
-    <!-- 바로드림 e쿠폰 다운로드 팝업 -->
-        <!-- LayerPopup area -->
-    <!-- 바로드림 e쿠폰 다운로드 팝업 -->
-    <div class="dialog_wrap has_btn" data-class="dialog_sm" data-popup-marketing-banner-wrapper="wrapper">
-        <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-        <!-- dialog_header -->
-        <div class="dialog_header">
-            <div class="dialog_title">e교환권 발급</div>
-        </div>
-        <!-- //dialog_header -->
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <div class="coupon_wrap">
-                    <div class="coupon_list_title">고객님께만 드리는 깜짝 선물!</div>
-
-                    <!-- coupon_item -->
-                    <div class="coupon_item">
-                        <div class="coupon_inner">
-                            <div class="coupon_front_area">
-                                <span class="left_box">
-                                    <span class="coupon_logo">
-                                        <img src="https://pub-onk.ndev.kyobobook.co.kr/assets/common/images/img_coupon_logo_kyobo@2x.png" alt="KYOBO 교보문고" />
-                                        <!--<img src="https://pub-onk.dev3.kyobobook.co.kr/assets/common/images/img_coupon_logo_kyobo@2x.png" alt="KYOBO 교보문고" />-->
-                                    </span>
-                                        <span class="badge_area">
-                                        <span class="badge_coupon"><span class="text">e교환권</span></span>
-                                    </span>
-                                    <span class="coupon_val">1,000<span class="unit">원</span></span>
-                                </span>
-                                <span class="right_box"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- //coupon_item -->
-                    <div class="info_text_box">
-                        <ul class="bul_list">
-                            <li class="bul_item_dot font_size_xxs">본인인증 회원일 경우만 다운받기 가능합니다.</li>
-                            <li class="bul_item_dot font_size_xxs">e교환권 사용 유효기간은 다운받으신 날로부터 1일입니다.</li>
-                            <li class="bul_item_dot font_size_xxs">e교환권은 종이책 10,000원 이상 구매시 사용 가능합니다.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_primary" data-dialog-close data-popup-marketing-banner-button="button"><span class="text">다운로드</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //바로드림 e쿠폰 다운로드 팝업 -->
-
-    <!-- 팝업 - 쿠폰을 다운로드 완료 -->
-    <div class="dialog_wrap" data-class="dialog_alert" data-popup-coupon-alert>
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <p class="alert_text">쿠폰을 다운로드하였습니다.</p>
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_primary" data-dialog-close><span class="text">확인</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //팝업 - 쿠폰을 다운로드 완료 -->
-
-    <!-- // LayerPopup area -->
-    <!-- 이미 구매한 상품 팝업 -->
-        <!-- 팝업 - 이미 구매한 상품 확인 -->
-    <div class="dialog_wrap has_btn" data-class="dialog_lg dialog_purchased" data-popup-purchased>
-        <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-        <!-- dialog_header -->
-        <div class="dialog_header">
-            <div class="dialog_title">이미 구매한 상품 확인</div>
-        </div>
-        <!-- //dialog_header -->
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <div class="cont_summary_box">
-                    <div class="info_text font_size_sm">삭제할 상품을 선택해주세요.</div>
-                    <p class="bul_item_asterisk font_size_xxs">최근 12개월 동안의 상품만 조회됩니다.</p>
-                </div>
-
-                <div class="list_result_wrap">
-                    <!-- form_chk -->
-                    <span class="form_chk">
-                        <input id="chkAllProd" type="checkbox" data-purchased-checkAll>
-                        <label for="chkAllProd">전체선택</label>
-                    </span>
-                    <!-- //form_chk -->
-                </div>
-                <div class="tbl_col_wrap">
-                    <table class="tbl_col_line">
-                        <caption>이미 구매한 상품 목록</caption> <!-- 수정 220121 caption 수정 -->
-                        <colgroup>
-                            <col style="width: 7%;">
-                            <col style="width: 12%;">
-                            <col style="width: auto;">
-                            <col style="width: 12%;">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope="col">선택</th>
-                                <th scope="col">주문일자</th>
-                                <th scope="col">상품명</th>
-                                <th scope="col">수량</th>
-                            </tr>
-                        </thead>
-                        <tbody data-cart-purchased-list>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- pagination -->
-                <div class="pagination" style="display:none;" data-purchased-list-data-paging>
-                </div>
-                <!-- //pagination -->
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_primary" data-popup-purchased-del-confirm><span class="text">장바구니에서 삭제</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //팝업 - 이미 구매한 상품 확인 -->
-    
-<script type="text/x-template" id="popPurchasedList">
-    <tr data-commodity-item-purchased>
-        <input type="hidden" value="{{:saleCmdtid}}'" pop-data-list-prdCd>
-        <input type="hidden" value="{{:spbkId}}" pop-data-list-spbkId>
-        <td>
-            <span class="form_chk no_label">
-                <input name='popChkList' id="chkPurchased0{{:#getIndex()}}" type="checkbox">
-                <label for="chkPurchased0{{:#getIndex()}}">선택</label>
-            </span>
-        </td>
-        <td class="fw_medium fc_spot">{{:~dateFormat(ordrDate)}}</td>
-        <td class="align_left">
-            <div class="subject row_2_ellipsis">{{:cmdtName}}</div>
-            {{if ~isEmpty(autrName)!=''}}
-            <span class="desc row_2_ellipsis">{{:autrName}} | {{:pbcmName}}</span>
-            {{/if}}
-        </td>
-        <td>{{:requQntt}}개</td>
-    </tr>
-</script>
-    <!-- 옵션변경 팝업 -->
-        <!-- 옵션 변경 -->
-    <div id="popChangeOptions" class="dialog_wrap has_btn" data-class="dialog_sm" data-popup-option='wrapper'>
-        <button type="button" class="btn_dialog_close" data-option-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-        <!-- dialog_header -->
-        <div class="dialog_header">
-            <div class="dialog_title">옵션변경</div>
-        </div>
-        <!-- //dialog_header -->
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <!-- 수정 229999 옵션 변경 DOM 구조 수정 (라디오(chk_col_list) -> form_wrap(셀렉박스, 문구 입력 텍스트 박스) 구조로 변경) -->
-                <!-- form_wrap -->
-                <div class="form_wrap type_lg" data-option-list>
-                </div>
-                <!-- //form_wrap -->
-                <!-- //수정 229999 옵션 변경 DOM 구조 수정 (라디오(chk_col_list) -> form_wrap(셀렉박스, 문구 입력 텍스트 박스) 구조로 변경) -->
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_primary" data-popup-option='button'><span class="text">변경</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //옵션 변경 -->
-    
-<script type="text/x-jsrender" id="templateOptionPC">
-    <!-- form_box 셀렉트박스 -->
-    <div class="form_box">
-        <div class="form_title">
-            <label for="option{{:#getIndex()}}" class="form_label">한글폰트 선택</label>
-        </div>
-        <div class="form_cont">
-            <div class="form_sel">
-                    <select id="option{{:#getIndex()}}" data-popup-option='select{{:#getIndex()}}'>
-                        <option>{{옵션}}</option>
-                        <option>{{옵션2}}</option>
-                        <option>{{옵션3}}</option>
-                        <option>{{옵션4}}</option>
-                    </select>
-            </div>
-        </div>
-    </div>
-    <!-- //form_box -->
-    <!-- form_box 텍스트 박스-->
-    <div class="form_box" data-pop-option-text>
-        <div class="form_title">
-            <label for="option3" class="form_label">문구입력</label>
-        </div>
-        <div class="form_cont">
-            <textarea class="form_textarea" id="option{{:#getIndex()}}" placeholder="" style="height: 110px;" data-popup-option='text' maxlength="100"></textarea>
-        </div>
-    </div>
-    <!-- //form_box -->
-</script>
-    <!-- 안내 팝업 -->
-    <!-- 배송비 안내 팝업 -->
-<div id="popShippingCostInfo" class="dialog_wrap has_btn no_title_line" data-class="dialog_delivery_info" data-popup-delivery-guide-wrapper>
-    <button type="button" class="btn_dialog_close" data-dialog-close data-dialog-close-delivery><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <!-- dialog_header -->
-    <div class="dialog_header">
-        <div class="dialog_title">배송비 안내</div>
-    </div>
-    <!-- dialog_contents -->
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="fold_box_wrap">
-                <ul class="fold_box_list">
-                    <li class="fold_box expanded" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>국내도서/외국도서(교보배송)</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">도서 1만5천원 이상 구매시 무료배송</li>
-                                <li class="bul_item_dot">교보굿즈 2만원 이상 구매시 무료배송</li>
-                                <li class="bul_item_dot">
-                                    <span>도서 </span>
-                                    
-                                    <span>+ 교보굿즈를 함께 1만5천원 이상 구매시 무료배송</span>
-                                </li>
-                                <li class="bul_item_dot">도서 1만5천원 미만 구매시 배송비 2,500원 부과</li>
-                                <li class="bul_item_dot">도서 1만5천원 미만 구매시 '선물포장/책 그리고 꽃’ 을 요청하더라도 배송비 2,500원 부과</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fold_box" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>교보굿즈(교보배송)</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <!-- 수정 220422 디자인 변경 마크업 수정 -->
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">각각 구매하거나 함께 2만원 이상 구매시 무료배송</li>
-                                <li class="bul_item_dot">2만원 미만 구매 시 2,500원 배송비 부과</li>
-                            </ul>
-                            <!-- //수정 220422 디자인 변경 마크업 수정 -->
-                        </div>
-                    </li>
-                    <li class="fold_box" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>해외주문서양도서/해외주문일본도서 (교보배송)</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <!-- 수정 220422 디자인 변경 마크업 수정 -->
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">각각 구매하거나 함께 1만5천원 이상 구매시 무료배송</li>
-                                <li class="bul_item_dot">1만5천원 미만 구매 시 2,500원 배송비 부과</li>
-                            </ul>
-                            <!-- //수정 220422 디자인 변경 마크업 수정 -->
-                        </div>
-                    </li>
-                    <li class="fold_box" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>음반.DVD.기프트(핫트랙스배송)</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <!-- 수정 220422 디자인 변경 마크업 수정 -->
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">각각 구매하거나 함께 2만원 이상 구매시 무료배송</li>
-                                <li class="bul_item_dot">2만원 미만 구매 시 2,500원 배송비 부과</li>
-                            </ul>
-                            <!-- //수정 220422 디자인 변경 마크업 수정 -->
-                        </div>
-                    </li>
-                    <!-- 수정 220422 디자인 변경 및 내용 수정으로 마크업 수정 추가 -->
-                    <li class="fold_box" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>업체배송 상품(전집,일서정기구독잡지,기프트)</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <p class="bul_item_dot">
-                                해당 상품 상세페이지 “배송비” 참고 (업체별/판매자별 무료배송 기준 다름)
-                            </p>
-                        </div>
-                    </li>
-                    <li class="fold_box" style="width: 480px;">
-                        <div class="fold_box_header">
-                            <h2>그외 무료배송 기준</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">바로드림, eBook 상품을 주문한 경우</li>
-                                <li class="bul_item_dot">실버/골드/플래티넘회원 무료배송쿠폰 이용하여 주문한 경우</li>
-                                <li class="bul_item_dot">무료배송 등록 상품을 주문한 경우</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- //수정 220422 디자인 변경 및 내용 수정으로 마크업 수정 추가 -->
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- //dialog_contents -->
-    <!-- dialog_footer -->
-    <div class="dialog_footer">
-        <button type="button" class="btn_md btn_primary" data-dialog-close data-dialog-close-delivery><span class="text">확인</span></button>
-    </div>
-    <!-- //dialog_footer -->
-</div>
-<!-- //배송비 안내 팝업 -->
-
-<!-- 적립예정포인트 안내 팝업 -->
-<div id="popPointsAccumulated" class="dialog_wrap has_btn no_title_line" data-class="dialog_delivery_info" data-popup-point-guide-wrapper>
-    <button type="button" class="btn_dialog_close" data-dialog-close data-dialog-close-point><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-    <!-- dialog_header -->
-    <div class="dialog_header">
-        <div class="dialog_title">적립 예정 포인트 안내</div>
-    </div>
-    <!-- //dialog_header -->
-    <!-- dialog_contents -->
-    <div class="dialog_contents">
-        <div class="custom_scroll_wrap">
-            <div class="fold_box_wrap">
-                <ul class="fold_box_list">
-                    <!-- 추가 220415 통합포인트 안내 문구 영역 폴딩으로 수정되어 영역 추가 -->
-                    <li id="pointGuide" class="fold_box expanded">
-                        <div class="fold_box_header">
-                            <h2>통합포인트 안내</h2>
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">통합포인트는 교보문고(인터넷, 매장), 핫트랙스(인터넷, 매장), 모바일 교보문고 등 다양한 곳에서 사용하실 수 있습니다.</li>
-                                <li class="bul_item_dot">상품 주문 시, 해당 상품의 적립률에 따라 적립 예정 포인트가 자동 합산되고 주문하신 상품이 발송완료 된 후에 자동으로 적립됩니다.</li>
-                                <!-- 수정 220415 블릿 리스트 분기, e교환권 단어 수정 -->
-                                <li class="bul_item_dot">단, 쿠폰 및 마일리지, 통합포인트, e교환권 사용 시 적립 예정 통합포인트가 변동될 수 있으며 주문취소나 반품시에는 적립된 통합포인트가 다시 차감됩니다.</li>
-                                <!-- // 수정 220415 블릿 리스트 분기, e교환권 단어 수정 -->
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- // 추가 220415 통합포인트 안내 문구 영역 폴딩으로 수정되어 영역 추가 -->
-                    <li class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>통합포인트 적립 안내</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">통합포인트는 도서정가제 범위 내에서 적용됩니다.</li>
-                                <li class="bul_item_dot">추가적립 및 회원 혜택은 도서정가제 대상상품(국내도서, eBook등)으로만 주문시는 해당되지 않습니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>기본적립) 상품별 적립금액</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">온라인교보문고에서 상품 구매시 상품의 적립률에 따라 적립됩니다.</li>
-                                <li class="bul_item_dot">단 도서정가제 적용 대상인 국내도서,eBook은 15%내에서 할인율을 제외한 금액내로 적립됩니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li id="pointPlusGuide" class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>추가적립) 5만원 이상 구매시 통합포인트 2천원 추가적립</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">5만원 이상 구매시 통합포인트 2천원 적립됩니다.</li>
-                                <li class="bul_item_dot">도서정가제 예외상품(외서,음반,DVD,잡지(일부),기프트) 2천원 이상 포함시 적립 가능합니다.</li>
-                                <li class="bul_item_dot">주문하신 상품이 전체 품절인 경우 적립되지 않습니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fold_box">
-                        <div class="fold_box_header">
-                            <h2>회원혜택) 3만원이상 구매시 회원등급별 2~4% 추가적립</h2><!-- 수정 220415 SEO H태그 적용 -->
-                            <button type="button" class="btn_fold"><span class="hidden">컨텐츠 열기</span></button>
-                        </div>
-                        <div class="fold_box_contents">
-                            <ul class="bul_list">
-                                <li class="bul_item_dot">회원등급이 플래티넘, 골드, 실버 등급의 경우 추가적립 됩니다.</li>
-                                <li class="bul_item_dot">추가적립은 실결제액 기준(쿠폰 및 마일리지, 통합포인트, e교환권 사용액 제외) 3만원 이상일 경우 적립됩니다.</li><!-- 수정 220415 e교환권 단어 수정 -->
-                                <li class="bul_item_dot">주문 후 취소,반품분의 통합포인트는 단품별로 회수되며, 반품으로 인해 결제잔액이 3만원 미만으로 변경될 경우 추가 통합포인트는 전액 회수될 수 있습니다.</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- //dialog_contents -->
-    <!-- dialog_footer -->
-    <div class="dialog_footer">
-        <button type="button" class="btn_md btn_primary" data-dialog-close data-dialog-close-point><span class="text">확인</span></button>
-    </div>
-    <!-- //dialog_footer -->
-</div>
-<!-- //적립예정포인트 안내 팝업 -->
-
-
-    
-    
-
-
-    
-    
-    
-
-    
-    
-        
-        
-            
-
-
-
-<!-- NetFUNNEL 스크립트 -->
-
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/netfunnel/custom-netfunnel.js" data-name="netfunnel"></script>
-
-
-
-
-
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/css-element-queries/ResizeSensor.js" data-name="ResizeSensor"></script>
-
-
-
-
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/awesomplete/awesomplete.min.js" data-name="awesomplete"></script>
-
-
-
-
-
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/star-rating/krajee-gly-ko-bundle.min.js"></script>
-
-
-
-
-
-
-<!--     
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/scrollpos-styler/scrollPosStyler.min.js" data-name="scrollPosStyler"></script> -->
-
-
-
-
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/blurify-master/blurify.min.js" data-name="blurify"></script>
-
-
-
-
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/masonry/masonry.pkgd.min.js" data-name="masonry"></script>
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/swiper/v4/swiper.min.js" data-name="swiper"></script>
-
-
-    
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/svgxuse/svgxuse.js" data-name="svgxuse"></script>
-
-
-    
-    
-    
-    
-    <script src="https://contents.kyobobook.co.kr/resources/vendors/simplebar/5.3.3/simplebar.min.js" data-name="simplebar"></script>
-
-
-
-
-        
-        
-        
-            
-            
-    
-    <script type="text/javascript" src="https://contents.kyobobook.co.kr/resources/fo/js/ui_ink.js?t=202407251135" data-name="kbb-cm-script"></script>
-    
-
-
-        
-        
-        
-    
-    
-    
-    
-    
-    <script type="text/javascript" src="/assets/js/common/startup-main.js?t=202407251135"></script>
-    
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            OrderApp({
-                pdtImgUri: "https:\/\/contents.kyobobook.co.kr\/pdt",
-                pdtResizeImgUri: "https:\/\/contents.kyobobook.co.kr\/sih\/pdt\/fit-in",
-            });
-        });
-    </script>
-
-    
-    <!-- Facebook Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-// stats.js 공통 스크립트에서 처리되고 있어 주문에서는 제외함.
-//    fbq('init', '247842611347428');
-//    fbq('track', 'PageView');
-</script>
-<noscript>
-    <!-- Facebook KYOBO, HOTTRACKS -->
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=247842611347428&ev=PageView&noscript=1"/>
-    <!--<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2595348470556537&ev=PageView&noscript=1"/>-->
-</noscript>
-<!-- End Facebook Pixel Code -->
-
-<!-- 네이버 검색 광고 공통 적용 스크립트 -->
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script>
-<script type="text/javascript">
-    if (!wcs_add) var wcs_add={};
-    wcs_add["wa"] = "s_453f4415ebcb";
-    if (!_nasa) var _nasa={};
-    wcs.inflow("kyobobook.co.kr");
-    wcs_do(_nasa);
-</script>
-
-<!-- 뷰저블 서비스 공통적용 스크립트 -->
-<script type=""text/javascript"">
-(function(w, d, a){
-w.__beusablerumclient__ = {
-load : function(src){
-var b = d.createElement("script");
-b.src = src; b.async=true; b.type = "text/javascript";
-d.getElementsByTagName("head")[0].appendChild(b);
-}
-};w.__beusablerumclient__.load(a);
-})(window, document, '//rum.beusable.net/script/b190418e233458u50/935b3ef9ea');
-</script>
-<!-- Kakao Pixel Code -->
-<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
-<script type="text/javascript">
-    kakaoPixel('1830363100807970928').pageView();
-    //kakaoPixel('3956769510541341836').pageView();
-</script>
-<!-- End Kakao Pixel Code -->
-
-
-    
-    
-    
-    <script type="text/javascript" src="/assets/js/cart/cart.js?t=202407251135"></script>
-    
-
-
-    
-    
-    <script type="text/javascript" src="/assets/js/cart/cart-gtm.js?t=202407251135"></script>
-    
-
-
-    
-    
-    <script type="text/javascript" src="/assets/js/cart/pop-cart-layer.js?t=202407251135"></script>
-    
-
-
-    
-    
-    <script type="text/javascript" src="/assets/js/cart/store-regist.js?t=202407251135"></script>
-    
-
-
-    
-    
-    <script type="text/javascript" src="/assets/js/cart/pop-cart-option.js?t=202407251135"></script>
-    
-
-
-    
-    
-    <script type="text/javascript" src="/assets/js/common/pop-delivery.js?t=202407251135"></script>
-    
-
-
-    <script>
-            kakaoPixel('1830363100807970928').viewCart();
-            //kakaoPixel('3956769510541341836').addToCart();
-            //kakaoPixel('1830363100807970928').addToCart({id: 'S123456789'});
-    </script>
-
-    <!-- [핫트랙스] 네이버 전환페이지 설정 -->
-    <script type="text/javascript">
-    var _nasa={};
-    if (window.wcs) _nasa["cnv"] = wcs.cnv("3","0");
-    </script>
-
-
-    <!-- 추가 240415 장바구니 페이지 기능 고도화 -->
-    <!-- 무료 배송금액 주문 확인 알림 -->
-    <div id="popOrderConfirm4" class="dialog_wrap no_title_line">
-        <button type="button" class="btn_dialog_close" data-dialog-close><span class="ico_dialog_close"></span><span class="hidden">닫기</span></button>
-        <!-- dialog_header -->
-        <div class="dialog_header">
-            <div class="dialog_title">교보문고 배송 상품</div>
-        </div>
-        <!-- //dialog_header -->
-        <!-- dialog_contents -->
-        <div class="dialog_contents">
-            <div class="custom_scroll_wrap">
-                <div class="title_wrap title_size_sm align_center">
-                    <div class="title_heading"><span data-kyobo-chkCnt>1</span> 개의 상품을 주문하시겠어요?</div>
-                </div>
-                <div class="round_gray_box type_md">
-                    <div class="cart_calculator align_center">
-                        <div class="heading" data-under-free-shipping><em data-kyobo-free-shipping="pop">2,000원</em> 더 담으면 <b>무료배송</b>이에요!</div>
-                        <div class="progress">
-                            <div class="bar"><span class="value" style="width:1%;" data-cart-prd-total-progress-bar="pop">1%</span></div>
-                            <p class="text">*교보문고 배송 상품 기준 (해외주문도서 제외)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- //dialog_contents -->
-        <!-- dialog_footer -->
-        <div class="dialog_footer">
-            <button type="button" class="btn_md btn_light_gray" data-page-order><span class="text" data-kyobo-shipping-order>이대로 주문하기</span></button>
-            <button type="button" class="btn_md btn_primary" data-cart-shipping-event><span class="text">특가 상품 보러가기</span></button>
-        </div>
-        <!-- //dialog_footer -->
-    </div>
-    <!-- //무료 배송금액 주문 확인 알림 -->
-    <!-- 추가 240415 장바구니 페이지 기능 고도화 -->
-
-    <!-- 20231215 KbbJS.ui.loaded 값이 제대로 설정되지 않아 로딩바가 노출되지 않는 문제 임시 수정 -->
-    <script>
-        KbbJS.ui.loaded = true
-    </script>
-
-    
-    
-    
 </body>
 </html>

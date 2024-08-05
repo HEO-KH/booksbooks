@@ -53,7 +53,7 @@
         
     <link rel="canonical" href="https://www.kyobobook.co.kr">
     
-    
+    <link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">
 
 
 
@@ -111,7 +111,31 @@
     }
 </script>
 
+</script>
 
+	<!-- 김지영 추가-->  
+ 	
+      <link rel="stylesheet" type="text/css" href="webcontent/create/logo.css">
+ 
+ 	 <script>
+        // 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', function() {
+            const logo = document.getElementById('logo');
+            const scrollTop = window.scrollY;
+
+            // 스크롤 위치에 따라 이미지 크기 조절
+            const scrollSpeed = 10; // 크기 조정 속도를 조절할 변수
+            const newWidth = Math.max(140, 180 - scrollTop / 10); // 최소 너비를 100px로 설정
+            const newHeight = Math.max(40, 66 - scrollTop / 10);  // 최소 높이를 40px로 설정
+            
+            
+
+            // 이미지 스타일 업데이트
+            logo.style.width = newWidth + 'px';
+            logo.style.height = newHeight + 'px';
+        });
+    </script>
+    	<!-- 김지영 --> 
         
         
     
@@ -690,9 +714,15 @@
     </script>
 <div class="header_inner"> 
  <div class="gnb_search_wrap"> 
-  <div class="logo_box"><a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link book">
-   <span class="hidden">BukkeuBooks</span> </a> 
-  </div>
+ 
+  <!-- 김지영 수정 -->
+<div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
+<!-- 김지영 수정 끝--> 
   <form name="myForm" method="post">
   <div class="gnb_search_box"> 
    <div class="form_sel" data-class="type_gnb"> <select title="검색유형선택" id="gbCode" name="searchKey"> 

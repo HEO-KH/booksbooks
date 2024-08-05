@@ -124,11 +124,12 @@
               <header class="header_wrapper">
            <div class="header_inner">
         
-          <div class="logo_box">
-            <a href="<%=cp %>/bukkeubooks/bukkeubooks.com" class="logo_link">
-              <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_member@2x.png" alt="KYOBO 교보문고"/>
-            </a>
-        </div>
+         <div class="logo_box">
+    <a href="<%=cp %>/bukkeubooks/bukkeubooks.com">
+        <img id="logo" src="../images/common/ink/united/Bukkeu_logo.svg" alt="BukkeuBooks" width="180" height="66" />
+        <span class="hidden">BukkeuBooks</span>
+    </a>
+</div>
        
     </div>
 </header>
@@ -194,9 +195,7 @@
             </form>
             <!-- // 아이디 저장 -->
 
-            <div>
-		<font color="red"><b>${Message }</b></font>
-	</div>
+      
 	
                 <!-- sns 로그인 -->
                 <br/>
